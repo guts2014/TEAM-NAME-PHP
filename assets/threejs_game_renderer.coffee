@@ -32,8 +32,6 @@ class ThreejsGameRenderer
     d = 150
 
     @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 0.1, 1000)
-
-
     @camera.position.set(d, d, d)
     @camera.rotation.order = 'YXZ'
     @camera.rotation.y = - Math.PI / 4
@@ -50,8 +48,6 @@ class ThreejsGameRenderer
     @threeRenderer.setClearColor(0xffffff, 1)
     @threeRenderer.setSize(dw, dh)
     document.body.appendChild(@threeRenderer.domElement)
-
-    domEvents	= new THREEx.DomEvents(@camera, @threeRenderer.domElement)
 
 
     # Controls
@@ -80,16 +76,10 @@ class ThreejsGameRenderer
     @scene.add @room
 
 
-
-
-
-
     # Add the floor
     geometry = new THREE.BoxGeometry(state.level.width*10, 10, state.level.height*10)
     material = new THREE.MeshPhongMaterial({color: 0x00ff00})
     @floor   = new THREE.Mesh(geometry, material)
-
-
     @floor.position.x = state.level.width * 5
     @floor.position.y = -5
     @floor.position.z = state.level.height * 5
@@ -111,6 +101,39 @@ class ThreejsGameRenderer
     window.addEventListener 'resize', $.proxy(onWindowResize, this)
 
 
+    onDocumentMouseDown = (event) ->
+      event.preventDefault()
+      if event.button is 0
+        projector = new THREE.Projector()
+        vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5)
+
+        raycaster = projector.pickingRay(vector, @camera)
+
+        getO3D = (ob) ->
+          console.log('g ', ob)
+          if !(ob instanceof THREE.Mesh)
+            return ob
+          else
+            return getO3D(ob.parent)
+
+
+        # DESKS
+        objects = []
+        lut = {}
+        for desk in state.level.desks
+          objects.push desk.threeobject
+          lut[desk.threeobject.uuid] = desk
+        intersectsObj = raycaster.intersectObjects(objects, true)
+        if intersectsObj.length > 0
+          data = intersectsObj[0]
+          desk = lut[getO3D(data.object).uuid]
+          desk.onClick()
+
+        # AGENTS
+
+
+      event = null
+    document.addEventListener 'mousedown', $.proxy(onDocumentMouseDown, this)
 
 
   update: (state) ->
