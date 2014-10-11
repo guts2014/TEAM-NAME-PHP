@@ -16,7 +16,6 @@ class Game
 
     @renderer.update(@state)
 
-
   toggleSimulating: ->
     if @simulating
       clearInterval @interval
@@ -26,8 +25,12 @@ class Game
     $("#playText").text(if @simulating then "Pause" else "Unpause")
 
   run: ->
-    @state.level.desks.push(new Desk(3,2))
-    @state.level.people.push(new Person(2,1))
+    for x in [2, 4, 6, 8]
+      for y in [3, 6, 9, 12]
+        @state.level.desks.push(new Desk(y,x))
+
+
+    @state.level.people.push(new Person(1,2))
 
     @state.tickables.push(new CustomerSpawner)
     @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "webchat": new RequestQueue('Chat Queue')})
