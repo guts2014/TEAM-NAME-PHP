@@ -6,47 +6,57 @@
 	},
 	"geometries": [
 		{
-			"uuid": "0959E7A3-B792-434F-BA24-80A966593831",
+			"uuid": "F058CD2F-D1D1-4A12-84B3-3AF1BBF3C2E5",
+			"type": "CylinderGeometry",
+			"radiusTop": 2.25,
+			"radiusBottom": 1.3,
+			"height": 15,
+			"radialSegments": 16,
+			"heightSegments": 1,
+			"openEnded": false
+		},
+		{
+			"uuid": "9C177283-E758-4968-B5EF-D907AA55A5BE",
 			"type": "SphereGeometry",
 			"radius": 75,
 			"widthSegments": 32,
 			"heightSegments": 16
 		},
 		{
-			"uuid": "02311B73-5A2A-4EA2-BC3F-98B223A3A1FC",
+			"uuid": "1ED69650-B381-488E-B7B0-1147FF2C90F5",
 			"type": "CylinderGeometry",
-			"radiusTop": 2,
+			"radiusTop": 0.6,
+			"radiusBottom": 0.6,
+			"height": 9,
+			"radialSegments": 16,
+			"heightSegments": 1,
+			"openEnded": false
+		},
+		{
+			"uuid": "0B1C7CDF-4647-4ED4-AA76-462ECE781AEA",
+			"type": "CylinderGeometry",
+			"radiusTop": 1,
 			"radiusBottom": 1,
-			"height": 15,
+			"height": 5,
 			"radialSegments": 8,
 			"heightSegments": 1,
 			"openEnded": false
 		},
 		{
-			"uuid": "122D7014-1454-4A30-A34C-FBFBEC060EBB",
+			"uuid": "C46F3C62-0897-40BF-BF35-F02D17913F71",
 			"type": "CylinderGeometry",
-			"radiusTop": 0.5,
-			"radiusBottom": 0.5,
-			"height": 10,
-			"radialSegments": 8,
-			"heightSegments": 1,
-			"openEnded": false
-		},
-		{
-			"uuid": "419A2E0D-0404-4414-9219-F132E8259BAD",
-			"type": "CylinderGeometry",
-			"radiusTop": 0.5,
-			"radiusBottom": 0.5,
-			"height": 0.5,
+			"radiusTop": 0.1,
+			"radiusBottom": 0.1,
+			"height": 2.6,
 			"radialSegments": 8,
 			"heightSegments": 1,
 			"openEnded": false
 		}],
 	"materials": [
 		{
-			"uuid": "656C949B-F480-40F8-A151-EABCF1E96F7C",
+			"uuid": "BB363CD6-3E8F-4B13-8624-A96102B7A056",
 			"type": "MeshPhongMaterial",
-			"color": 16777215,
+			"color": 10599423,
 			"ambient": 16777215,
 			"emissive": 0,
 			"specular": 1118481,
@@ -56,86 +66,94 @@
 			"wireframe": false
 		},
 		{
-			"uuid": "0D0BBD53-DFC2-4BBF-AFC0-96D88AD620FB",
+			"uuid": "51F92580-ED8A-4E87-A5A9-DCD398586838",
 			"type": "MeshPhongMaterial",
-			"color": 16777215,
+			"color": 8649943,
 			"ambient": 16777215,
 			"emissive": 0,
 			"specular": 1118481,
-			"shininess": 30,
+			"shininess": 0,
 			"opacity": 1,
 			"transparent": false,
 			"wireframe": false
 		},
 		{
-			"uuid": "4172F65E-3DE0-4438-BFB4-2EE60191E811",
+			"uuid": "71F82B58-6094-4C46-AF38-FC88E88845ED",
 			"type": "MeshPhongMaterial",
-			"color": 16777215,
+			"color": 10599423,
 			"ambient": 16777215,
 			"emissive": 0,
 			"specular": 1118481,
-			"shininess": 30,
+			"shininess": 0,
 			"opacity": 1,
 			"transparent": false,
 			"wireframe": false
 		},
 		{
-			"uuid": "78A7EFF0-8516-4799-8DE3-2A17A778135B",
-			"type": "MeshPhongMaterial",
-			"color": 16777215,
+			"uuid": "64491EF8-5071-45D3-8718-BC6C9F3FF961",
+			"type": "MeshLambertMaterial",
+			"color": 0,
 			"ambient": 16777215,
 			"emissive": 0,
-			"specular": 1118481,
-			"shininess": 30,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
+		},
+		{
+			"uuid": "0CF85971-9B88-4BDC-8648-2B6D8118465A",
+			"type": "MeshLambertMaterial",
+			"color": 0,
+			"ambient": 16777215,
+			"emissive": 0,
 			"opacity": 1,
 			"transparent": false,
 			"wireframe": false
 		}],
 	"object": {
-		"uuid": "98359513-039F-4476-B326-814778D3A8C4",
+		"uuid": "C7D54F88-BEC7-46CD-A6C6-91E4B4D28725",
 		"name": "Person",
 		"type": "Object3D",
 		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
 		"children": [
 			{
-				"uuid": "AA005793-0907-41B5-8EC8-5D11178B0127",
-				"name": "Sphere 6",
+				"uuid": "E50DD8E4-3C5D-4856-BAD2-4A94D5CCEF30",
+				"name": "Body",
 				"type": "Mesh",
-				"geometry": "0959E7A3-B792-434F-BA24-80A966593831",
-				"material": "656C949B-F480-40F8-A151-EABCF1E96F7C",
-				"matrix": [0.029999999329447746,0,0,0,0,0.029999999329447746,0,0,0,0,0.029999999329447746,0,13.550000190734863,17.239999771118164,4.71999979019165,1]
+				"geometry": "F058CD2F-D1D1-4A12-84B3-3AF1BBF3C2E5",
+				"material": "BB363CD6-3E8F-4B13-8624-A96102B7A056",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,5,7.5,13,1]
 			},
 			{
-				"uuid": "1084039D-7570-4BD5-9B69-1E0788EED2EB",
-				"name": "Cylinder 2",
+				"uuid": "E2A06DDC-1B9B-43D8-8AC2-CAF969D0260E",
+				"name": "Head",
 				"type": "Mesh",
-				"geometry": "02311B73-5A2A-4EA2-BC3F-98B223A3A1FC",
-				"material": "0D0BBD53-DFC2-4BBF-AFC0-96D88AD620FB",
-				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,13.520000457763672,7.489999771118164,4.75,1]
+				"geometry": "9C177283-E758-4968-B5EF-D907AA55A5BE",
+				"material": "51F92580-ED8A-4E87-A5A9-DCD398586838",
+				"matrix": [0.029999999329447746,0,0,0,0,0.029999999329447746,0,0,0,0,0.029999999329447746,0,5,17,13,1]
 			},
 			{
-				"uuid": "78996AAF-30A8-427F-9EE7-E946EF4C0186",
-				"name": "Cylinder 7",
+				"uuid": "E7191B92-EECB-42A0-B9CA-CD507B19769A",
+				"name": "Arms",
 				"type": "Mesh",
-				"geometry": "122D7014-1454-4A30-A34C-FBFBEC060EBB",
-				"material": "4172F65E-3DE0-4438-BFB4-2EE60191E811",
-				"matrix": [1,0,0,0,0,0.09067162126302719,0.9958808422088623,0,0,-0.9958808422088623,0.09067162126302719,0,13.8100004196167,11.279999732971191,4.650669574737549,1]
+				"geometry": "1ED69650-B381-488E-B7B0-1147FF2C90F5",
+				"material": "71F82B58-6094-4C46-AF38-FC88E88845ED",
+				"matrix": [0.020794827491044998,0.9997837543487549,0,0,-0.9997837543487549,0.020794827491044998,0,0,0,0,1,0,5,12,13,1]
 			},
 			{
-				"uuid": "54D90070-0361-47C3-B0D2-B6DCED938418",
-				"name": "Headphone right",
+				"uuid": "8EF39F83-6B3F-4EF4-B71E-D8E2596278C0",
+				"name": "Earphones",
 				"type": "Mesh",
-				"geometry": "419A2E0D-0404-4414-9219-F132E8259BAD",
-				"material": "78A7EFF0-8516-4799-8DE3-2A17A778135B",
-				"matrix": [1,0,0,0,0,0.06075888127088547,0.998152494430542,0,0,-0.998152494430542,0.06075888127088547,0,13.70215892791748,17.177608489990234,7.105798244476318,1]
+				"geometry": "0B1C7CDF-4647-4ED4-AA76-462ECE781AEA",
+				"material": "64491EF8-5071-45D3-8718-BC6C9F3FF961",
+				"matrix": [0.020794827491044998,0.9997837543487549,0,0,-0.9997837543487549,0.020794827491044998,0,0,0,0,1,0,5,17,13,1]
 			},
 			{
-				"uuid": "F9B08398-3D2A-4735-9C78-FD617F477DC7",
-				"name": "Headphone left",
+				"uuid": "26B0D274-07AB-4A5B-A994-62486F6A8C17",
+				"name": "Microphone",
 				"type": "Mesh",
-				"geometry": "419A2E0D-0404-4414-9219-F132E8259BAD",
-				"material": "78A7EFF0-8516-4799-8DE3-2A17A778135B",
-				"matrix": [1,0,0,0,0,0.06075888127088547,0.998152494430542,0,0,-0.998152494430542,0.06075888127088547,0,13.699999809265137,17.18000030517578,2.240000009536743,1]
+				"geometry": "C46F3C62-0897-40BF-BF35-F02D17913F71",
+				"material": "0CF85971-9B88-4BDC-8648-2B6D8118465A",
+				"matrix": [0.8261187076568604,0.5542141795158386,-0.1018550768494606,0,-0.3689219355583191,0.6685832738876343,0.6456725001335144,0,0.4259394705295563,-0.49582555890083313,0.7567909955978394,0,2.8780059814453125,16.329999923706055,11.976815223693848,1]
 			}]
 	}
 }

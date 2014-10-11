@@ -24,6 +24,16 @@
 			"widthSegments": 1,
 			"heightSegments": 1,
 			"depthSegments": 1
+		},
+		{
+			"uuid": "29BA05E2-FE11-45EC-9A5F-8698F688F0F3",
+			"type": "BoxGeometry",
+			"width": 5,
+			"height": 5,
+			"depth": 5,
+			"widthSegments": 1,
+			"heightSegments": 1,
+			"depthSegments": 1
 		}],
 	"materials": [
 		{
@@ -49,6 +59,18 @@
 			"opacity": 1,
 			"transparent": false,
 			"wireframe": false
+		},
+		{
+			"uuid": "C1AB58FD-111E-486D-8B0D-B2C4A0F9CF43",
+			"type": "MeshPhongMaterial",
+			"color": 16749418,
+			"ambient": 16777215,
+			"emissive": 5861659,
+			"specular": 1118481,
+			"shininess": 30,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
 		}],
 	"object": {
 		"uuid": "EA512EBB-7A00-46E0-BD3A-EFBCB42DB016",
@@ -57,7 +79,7 @@
 		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
 		"children": [
 			{
-				"uuid": "FCF80359-94D4-4F8B-A77A-13D7F8A7F083",
+				"uuid": "E7DC70A9-9EB5-474C-9BB7-C617E6B61525",
 				"name": "Tabletop",
 				"type": "Mesh",
 				"geometry": "838ECB5E-EA42-486A-9C59-2496D505E37B",
@@ -69,7 +91,7 @@
 				"name": "Leg1",
 				"type": "Mesh",
 				"geometry": "B0C926F6-062E-437E-9181-9C360922F42F",
-				"material": "B87A7D2A-8363-4912-90C3-4A502F11FCF9",
+				"material": "7FBBF323-54BD-47CA-8DF4-880696CA4AED",
 				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.5,5,0.5,1]
 			},
 			{
@@ -95,6 +117,14 @@
 				"geometry": "B0C926F6-062E-437E-9181-9C360922F42F",
 				"material": "B87A7D2A-8363-4912-90C3-4A502F11FCF9",
 				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.5,5,9.5,1]
+			},
+			{
+				"uuid": "D7B5AF22-0482-4E8E-8646-A788771FAF2A",
+				"name": "Box 4",
+				"type": "Mesh",
+				"geometry": "29BA05E2-FE11-45EC-9A5F-8698F688F0F3",
+				"material": "C1AB58FD-111E-486D-8B0D-B2C4A0F9CF43",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,5,12.5,3,1]
 			}]
 	}
 }
