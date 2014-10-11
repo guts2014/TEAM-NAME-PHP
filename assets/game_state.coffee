@@ -2,7 +2,7 @@ class GameState
   customers: []
   agents: []
 
-  request_queues: {}
+  requestQueues: {}
 
   tickables: []
   tick: 0
