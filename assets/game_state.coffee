@@ -39,5 +39,5 @@ class GameState
 
   toString: ->
     "Customers: " + @customers.length +
-    "\nRequests: " + @numberOfRequests() +
+    "\nRequest queue: " + @numberOfRequests() +
     "\nReputation: " + (@reputation * 100) + "%"
