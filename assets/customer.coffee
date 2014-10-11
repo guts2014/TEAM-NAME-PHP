@@ -15,10 +15,12 @@ class Customer
 
   reduceMood: (multiplier = 1) ->
     @mood -= (0.05 * multiplier * @volatility)
+    if @mood < 0
+      @mood = 0 # TODO - remove customer?
 
   increaseMood: (multiplier = 1) ->
     if(@mood < 1)
-      @mood += (0.05 * multiplier)
+      @mood += (0.05 * multiplier * @volatility)
       if(@mood > 1)
         @mood = 1
 
