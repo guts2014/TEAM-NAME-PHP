@@ -29,7 +29,7 @@ class ThreejsGameRenderer
     dw = window.innerWidth
     dh = window.innerHeight
     aspect = dw / dh
-    d = 100
+    d = 150
 
     @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 0.1, 1000)
     @camera.position.set(d, d, d)

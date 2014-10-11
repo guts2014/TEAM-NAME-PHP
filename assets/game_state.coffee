@@ -1,7 +1,7 @@
 class GameState
   customers: []
   agents: []
-
+  custNo: 0
   requestQueues: {}
   chanceOfRequest: 0.005
 
@@ -25,6 +25,7 @@ class GameState
     @customers.filter((item) ->
       item != customer
     )
+    game.removeCust(customer.id)
 
   calculateReputation: ->
     totalWorth = 0

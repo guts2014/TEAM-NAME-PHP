@@ -12,7 +12,8 @@ class Game
     $('#gamestate').html(@state.toString().replace(/\n/g, "<br />"))
     $('#customer_list').html("")
     for customer in @state.customers
-      $('#customer_list').append("<li class='cust'>" + customer.name + "</li>")
+      id = customer.id
+      $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood) + "</li>")
 
     for tickable in @state.tickables
       tickable.tick(@state)
@@ -20,6 +21,8 @@ class Game
 
     @renderer.update(@state)
 
+  removeCust: (id) ->
+    $('#cust' + id).remove()
   toggleSimulating: ->
     if @simulating
       clearInterval @interval

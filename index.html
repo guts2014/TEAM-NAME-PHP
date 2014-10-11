@@ -19,10 +19,12 @@
         return game.run();
       });
       var diff = 300
+
       $(document).ready(function () {
         $('.right').click(function () {
+          alert("yo")
             var position = $('.cust_wrap').position();
-            var r=position.left - diff
+            var r=position.left-$(window).width()
             $('.cust_wrap').animate({
                 'left': ''+r+'px'
             });
@@ -30,8 +32,7 @@
 
         $('.left').click(function () {
             var position = $('.cust_wrap').position();
-            var l=position.left + diff
-
+            var l=position.left+$(window).width()
             if(l<=0)
             {
             $('.cust_wrap').animate({
@@ -40,6 +41,7 @@
             }
         });
     });
+
     </script>
   </head>
   <body>
@@ -51,15 +53,22 @@
       <p id="gamestate"></p>
 
       <p class="date-display"></p>
-
-
     </div>
-    <div class="cust_menu">
+
+    <div class="right_menu">
+      <div class="left"><</div> - <div class="right">></div>
+        <div class='queue_wrap'>
+            <ui id="queue_list">
+            </ul>
+        </div>
+    </div>
+
+    <div class="bottom_menu">
       <div class="left"><</div> - <div class="right">></div>
         <div class='cust_wrap'>
-            <ui id="customer_list">
+            <ul id="customer_list">
             </ul>
-          </div>
         </div>
+    </div>
   </body>
 </html>

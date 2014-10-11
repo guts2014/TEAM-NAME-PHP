@@ -17,7 +17,9 @@ class CustomerSpawner
     reputation = state.reputation
     if @potential_customers.length > 0 and Math.random() < reputation and this.calculateMaximumCustomers(reputation) > state.customers.length
       customer = @potential_customers.pop()
+      customer.id = state.custNo
       state.customers.push(customer)
       state.tickables.push(customer)
+      state.custNo++
       if @potential_customers.length == 0
         this.constructor()

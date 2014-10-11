@@ -20,23 +20,35 @@ body {
   padding: 10px;
 }
 
-.cust_wrap {
-    position: relative;
-    width: 800px;
+.bottom_menu {
+    position: absolute;
+    width: 100%;
+    background: black;
     height: 100px;
-    top: 0;
-    left: 0;
-    overflow: hidden;
+    bottom: 0;
+    overflow: scroll;
+    padding: 0;
+    color: white;
 }
+
+.right_menu {
+    position: absolute;
+    background: black;
+    width: 100px;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    padding: 0;
+
+}
+
+
+
 #customer_list {
     position: absolute;
     height: 100px;
     padding: 0;
-}
-
-.cust_menu {
-    bottom: 0;
-
 }
 
 .cust {
@@ -44,20 +56,19 @@ body {
     height: 100px;
     display: inline-block;
     color: white;
-    background: black;
     list-style: none;
 }
 
 
 .left {
-  display: inline;
+    display: inline;
     padding: 0;
     margin: 0;
     cursor: pointer;
 }
-.right {
-  display: inline;
 
+.right {
+    display: inline;
     cursor: pointer;
     padding: 0;
     margin: 0;
