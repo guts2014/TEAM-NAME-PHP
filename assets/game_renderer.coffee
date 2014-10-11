@@ -9,7 +9,7 @@ class GameRenderer
         cell = document.createElement 'td'
         row.appendChild cell
       table.appendChild row
-    document.querySelector('body').appendChild table
+    document.body.appendChild table
 
 
   update: (state) ->

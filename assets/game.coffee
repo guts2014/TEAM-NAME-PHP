@@ -8,6 +8,7 @@ class Game
 
   doTick: ->
     @state.tick += 1
+    $('.tick-count').text(@state.tick)
 
     for tickable in @state.tickables
       tickable.tick(@state)
@@ -15,6 +16,9 @@ class Game
     @renderer.update(@state)
 
   run: ->
+    @state.tickables.push(new RequestSpawner)
+
+
     @renderer.getCell(3, 2).style.background = "green"
 
 
