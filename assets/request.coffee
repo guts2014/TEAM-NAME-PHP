@@ -6,13 +6,10 @@ class Request
   text: null
   elapsed: null
 
-<<<<<<< HEAD
-  constructor: () ->
-=======
   constructor: (state, @type, @customer) ->
     @time_created = state.tick
 
->>>>>>> FETCH_HEAD
+
 
   resolved: ->
     @customer.increaseMood(5)
