@@ -3,9 +3,10 @@ class Customer
   worth: 100
   volatility: 50
   mood: 1
+  request: null
 
   tick: (state) ->
-    if Math.random() < 0.02 # Per customer, 2% chance of spawning a support request per tick
+    if not @request and Math.random() < 0.02 # Per customer, 2% chance of spawning a support request per tick
       this.createRequest(state)
 
   reduceMood: ->
@@ -26,7 +27,7 @@ class Customer
       when 1
         requestType = "phone"
     requestQueue = state.requestQueues[requestType]
-    requestQueue.push(new Request(requestType))
+    requestQueue.push(@request = new Request(requestType))
 
   fromKanaCustomer: (kana) ->
     @name = kana['firstName'] + " " + kana['surname']
