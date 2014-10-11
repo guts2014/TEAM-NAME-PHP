@@ -1,11 +1,5 @@
 class Agent
-  name= null
-
-  skills =
-  email: null
-  phone: null
-  webchat: null
-
+  name: null
   queue: null             # the queue object the agent is assigned to
   salary: 0               # the salary of the agent
   request: null
@@ -13,9 +7,23 @@ class Agent
   training: 0
   training_elapsed: 0
 
+  constructor: ->
+    @skills = {
+      email: null,
+      phone: null,
+      webchat: null,
+    }
+
+
+  fromAgentData: (agent_data) ->
+    @name = agent_data['name']
+    @salary = agent_data['salary']
+    @skills['email'] = agent_data['email']
+    @skills['phone'] = agent_data['phone']
+    @skills['webchat'] = agent_data['webchat']
+
   tick: (state) ->
     if @working > 0
-      @request.tick(state)
       @working = @working - 1
       if @working == 0
         @request.resolved()
@@ -33,10 +41,3 @@ class Agent
 
   train: (skill)->
     @skills[skill] = 1
-
-  fromAgentData: (agent_data) ->
-    @name = agent_data['name']
-    @salary = agent_data['salary']
-    @skills.email = agent_data['email']
-    @skills.phone = agent_data['phone']
-    @skills.webchat = agent_data['webchat']
