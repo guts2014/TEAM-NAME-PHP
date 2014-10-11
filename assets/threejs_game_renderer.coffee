@@ -36,6 +36,7 @@ class ThreejsGameRenderer
     else
       @threeRenderer = new THREE.CanvasRenderer()
 
+    @threeRenderer.setClearColorHex(0xffffff, 1)
     @threeRenderer.setSize(dw, dh)
     document.body.appendChild(@threeRenderer.domElement)
 
@@ -52,8 +53,6 @@ class ThreejsGameRenderer
     # Create scene
     @scene = new THREE.Scene()
 
-
-
     # Lighting
     #@scene.add new THREE.AmbientLight(0x444444)
     light = new THREE.PointLight(0xffffff, 0.8)
@@ -61,15 +60,21 @@ class ThreejsGameRenderer
     @scene.add light
 
 
+    # Create a room object and add it to the scene
+    @room = new THREE.Object3D()
+    @room.position.x = -state.level.width*5
+    @room.position.z = -state.level.height*5
+    @scene.add @room
+
 
     # Add the floor
     geometry = new THREE.BoxGeometry(state.level.width*10, 10, state.level.height*10)
-    material = new THREE.MeshNormalMaterial()
+    material = new THREE.MeshPhongMaterial({color: 0x00ff00})
     @floor   = new THREE.Mesh(geometry, material)
     @floor.position.x = state.level.width * 5
     @floor.position.y = -5
     @floor.position.z = state.level.height * 5
-    @scene.add @floor
+    @room.add @floor
 
     # Add/update all the movable stuff
     this.update(state)
@@ -85,7 +90,7 @@ class ThreejsGameRenderer
 
   update: (state) ->
     for desk in state.level.desks
-      desk.update @scene, state
+      desk.update @room, state
 
 
 
