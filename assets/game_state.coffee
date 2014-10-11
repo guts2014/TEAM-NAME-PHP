@@ -9,7 +9,7 @@ class GameState
 
   money: 1000000
   reputation: 0.5
-  agentSpawner: AgentSpawner()
+  agentSpawner: new AgentSpawner()
 
   addAgent: (agent) ->
     @agents.push(agent)
