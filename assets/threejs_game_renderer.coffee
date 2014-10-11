@@ -107,19 +107,30 @@ class ThreejsGameRenderer
         projector = new THREE.Projector()
         vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5)
 
-        # use picking ray since it's an orthographic camera
         raycaster = projector.pickingRay(vector, @camera)
 
+        getO3D = (ob) ->
+          console.log('g ', ob)
+          if !(ob instanceof THREE.Mesh)
+            return ob
+          else
+            return getO3D(ob.parent)
+
+
+        # DESKS
         objects = []
+        lut = {}
         for desk in state.level.desks
           objects.push desk.threeobject
-
-        # determine whether any of the supplied objects are hit by this ray
+          lut[desk.threeobject.uuid] = desk
         intersectsObj = raycaster.intersectObjects(objects, true)
-
         if intersectsObj.length > 0
-          pickedObject = intersectsObj[0]
-          console.log(pickedObject)
+          data = intersectsObj[0]
+          desk = lut[getO3D(data.object).uuid]
+          desk.onClick()
+
+        # AGENTS
+
 
       event = null
     document.addEventListener 'mousedown', $.proxy(onDocumentMouseDown, this)
