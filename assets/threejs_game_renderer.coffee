@@ -7,29 +7,29 @@ class ThreejsGameRenderer
     aspect = dw / dh
     d = 180
 
-    @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 1, 4000);
-    @camera.position.set(d, d, d);
-    @camera.rotation.order = 'YXZ';
-    @camera.rotation.y = - Math.PI / 4;
-    @camera.rotation.x =   Math.atan(-1 / Math.sqrt(2));
+    @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 1, 4000)
+    @camera.position.set(d, d, d)
+    @camera.rotation.order = 'YXZ'
+    @camera.rotation.y = - Math.PI / 4
+    @camera.rotation.x =   Math.atan(-1 / Math.sqrt(2))
 
     if (window.WebGLRenderingContext)
       try
-        @threeRenderer = new THREE.WebGLRenderer();
+        @threeRenderer = new THREE.WebGLRenderer()
       catch error
-        @threeRenderer = new THREE.CanvasRenderer();
+        @threeRenderer = new THREE.CanvasRenderer()
     else
-      @threeRenderer = new THREE.CanvasRenderer();
+      @threeRenderer = new THREE.CanvasRenderer()
 
-    @threeRenderer.setSize(dw, dh);
-    document.body.appendChild(@threeRenderer.domElement);
+    @threeRenderer.setSize(dw, dh)
+    document.body.appendChild(@threeRenderer.domElement)
 
     controls = new THREE.OrbitControls(@camera, @threeRenderer.domElement)
     controls.noZoom = true
     controls.noPan  = false
     controls.noRotate = true
-    controls.maxPolarAngle = Math.PI / 2;
-    #controls.zoomSpeed = 0.1;
+    controls.maxPolarAngle = Math.PI / 2
+    #controls.zoomSpeed = 0.1
 
     this.update(state)
 
@@ -71,7 +71,7 @@ class ThreejsGameRenderer
     # Lighting
     @scene.add new THREE.AmbientLight(0x444444)
     light = new THREE.PointLight(0xffffff, 0.8)
-    light.position.set(0, 50, 50);
+    light.position.set(0, 50, 50)
     @scene.add light
 
     # Axis marker
@@ -100,4 +100,4 @@ class ThreejsGameRenderer
     window.requestAnimationFrame($.proxy(this.render, this, state))
 
     this.update(state) # technically, we only need to do this if the scene has changed, not every frame.
-    @threeRenderer.render( @scene, @camera );
+    @threeRenderer.render( @scene, @camera )
