@@ -1,17 +1,17 @@
 {
   "ISP" :
-    {
+    [
       {
         "customerId": 1,
         "firstName": "Cara",
-        "surname": "Stanley",
+        "surname": "Stanley"
       },
       {
         "customerId": 1,
         "firstName": "Cara",
         "surname": "Stanley",
       }
-    },
+    ],
   "999" :
     [
       {

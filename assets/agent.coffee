@@ -24,7 +24,6 @@ class Agent
 
   tick: (state) ->
     if @working > 0
-      @request.tick(state)
       @working = @working - 1
       if @working == 0
         @request.resolved()

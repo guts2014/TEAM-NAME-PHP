@@ -8,13 +8,13 @@ class Desk
   x: 0
   y: 0
 
-  update: (scene, state) ->
+  update: (room, state) ->
     if !@threeobject
       @threeobject = @model.clone()
-      scene.add @threeobject
+      room.add @threeobject
 
     @threeobject.position.x = 10*@x
     @threeobject.position.z = 10*@y
 
-  remove: (scene) ->
-    scene.remove @threeobject
+  remove: (room) ->
+    room.remove @threeobject

@@ -1,16 +1,21 @@
 class Request
   type: null
-  time_handled: null
   time_created: null
   customer: null
   priority: null
   text: null
   elapsed: null
 
+<<<<<<< HEAD
   constructor: () ->
+=======
+  constructor: (state, @type, @customer) ->
+    @time_created = state.tick
+
+>>>>>>> FETCH_HEAD
 
   resolved: ->
-    @customer.increaseMood()
+    @customer.increaseMood(5)
 
   create: (@type, @time_created, @customer, @priority, @complexity, @text) ->
 
@@ -23,6 +28,6 @@ class Request
             request_data['text'])
 
   tick: (state) ->
-    @elasped = state.tick - @time_created
-    if(@elapsed % 15 == 0)
+    elapsed = state.tick - @time_created
+    if(elapsed % 2 == 0)
       @customer.reduceMood()
