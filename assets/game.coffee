@@ -12,7 +12,7 @@ class Game
     $('#gamestate').html(@state.toString().replace(/\n/g, "<br />"))
     $('#customer_list').html("")
     for customer in @state.customers
-      $('#customer_list').append("<li>" + customer.name + "</li>")
+      $('#customer_list').append("<li class='cust'>" + customer.name + "</li>")
 
     for tickable in @state.tickables
       tickable.tick(@state)

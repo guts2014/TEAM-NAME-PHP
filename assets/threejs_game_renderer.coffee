@@ -22,13 +22,14 @@ class ThreejsGameRenderer
     @stats.domElement.style.position = 'absolute'
     @stats.domElement.style.right = '0px'
     @stats.domElement.style.top = '0px'
+
     document.body.appendChild(@stats.domElement)
 
 
     dw = window.innerWidth
     dh = window.innerHeight
     aspect = dw / dh
-    d = 140
+    d = 100
 
     @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 0.1, 1000)
     @camera.position.set(d, d, d)
