@@ -1,32 +1,28 @@
 class ThreejsGameRenderer
-  movableItems: []
-
-  models: {
-    'small_desk': null,
-    'large_desk': null
-  }
-  loadModels: ->
-    console.log('loadModels()')
-    loader = new THREE.ObjectLoader()
-    self = this
-    for name of @models
-      f = ->
-        name_ = name
-        $.ajax('assets/models/'+name_+'.json').done((data)->
-          self.models[name_] = loader.parse(data)
-        )
-      f()
-
+  @models: {}
+  @getModel: (name) ->
+    if @models[name]
+      return @models[name]
+    else
+      loader = new THREE.ObjectLoader()
+      data = {}
+      jQuery.ajax({
+        url:    'assets/models/'+name+'.json',
+        success: (result) ->
+          data = result
+        async:   false
+      });
+      model = loader.parse(data)
+      @models[name] = model
+      return model
 
   setup: (state) ->
-    this.loadModels()
-
     dw = window.innerWidth
     dh = window.innerHeight
     aspect = dw / dh
-    d = 180
+    d = 140
 
-    @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 1, 4000)
+    @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 0.1, 1000)
     @camera.position.set(d, d, d)
     @camera.rotation.order = 'YXZ'
     @camera.rotation.y = - Math.PI / 4
@@ -48,7 +44,7 @@ class ThreejsGameRenderer
     controls = new THREE.OrbitControls(@camera, @threeRenderer.domElement)
     controls.noZoom = true
     controls.noPan  = false
-    controls.noRotate = true
+    controls.noRotate = false
     controls.maxPolarAngle = Math.PI / 2
     #controls.zoomSpeed = 0.1
 
@@ -56,14 +52,15 @@ class ThreejsGameRenderer
     # Create scene
     @scene = new THREE.Scene()
 
+
+
     # Lighting
-    @scene.add new THREE.AmbientLight(0x444444)
+    #@scene.add new THREE.AmbientLight(0x444444)
     light = new THREE.PointLight(0xffffff, 0.8)
-    light.position.set(0, 50, 50)
+    light.position.set(d, d, d)
     @scene.add light
 
-    # Axis marker
-    @scene.add new THREE.AxisHelper(40)
+
 
     # Add the floor
     geometry = new THREE.BoxGeometry(state.level.width*10, 10, state.level.height*10)
@@ -87,8 +84,8 @@ class ThreejsGameRenderer
 
 
   update: (state) ->
-    for movableItem in @movableItems
-      movableItem.update(@scene, state)
+    for desk in state.level.desks
+      desk.update @scene, state
 
 
 

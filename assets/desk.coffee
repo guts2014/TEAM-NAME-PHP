@@ -1,23 +1,20 @@
 class Desk
   @model: null
-  constructor: (@pos_x, @pos_y) ->
+  constructor: (@x, @y) ->
     if !@model
-      @model = window.game.renderer.models['small_desk'] # urgh, fix this mess.
-
-
-
-  pos_x: 0
-  pos_y: 0
+      @model = ThreejsGameRenderer.getModel('small_desk')
 
   threeobject: null
+  x: 0
+  y: 0
 
   update: (scene, state) ->
     if !@threeobject
       @threeobject = @model.clone()
       scene.add @threeobject
 
-    @threeobject.position.x = 10*@pos_x
-    @threeobject.position.z = 10*@pos_y
+    @threeobject.position.x = 10*@x
+    @threeobject.position.z = 10*@y
 
   remove: (scene) ->
     scene.remove @threeobject

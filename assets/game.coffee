@@ -26,6 +26,8 @@ class Game
     $("#playText").text(if @simulating then "Pause" else "Unpause")
 
   run: ->
+    @state.level.desks.push(new Desk(3,2))
+
     @state.tickables.push(new CustomerSpawner)
 
     @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
