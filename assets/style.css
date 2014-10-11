@@ -8,17 +8,11 @@ body {
   font-family: sans-serif;
 }
 
-
-#game td {
-  width:  35px;
-  height: 35px;
-}
-
-table, th, td {
-  border: 1px solid black;
-}
-
-
-td.desk {
-  background-color: blue;
+.guioverlay {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
 }
