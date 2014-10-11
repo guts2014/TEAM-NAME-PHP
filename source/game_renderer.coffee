@@ -111,7 +111,7 @@ class GameRenderer
           entity.onClick()
 
       event = null
-    document.addEventListener 'mousedown', $.proxy(onDocumentMouseDown, this)
+    document.querySelector('canvas').addEventListener 'mousedown', $.proxy(onDocumentMouseDown, this)
 
 
   update: ->
