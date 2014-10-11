@@ -20,16 +20,16 @@ class ThreejsGameRenderer
 
     if (window.WebGLRenderingContext)
       try
-        @threerenderer = new THREE.WebGLRenderer();
+        @threeRenderer = new THREE.WebGLRenderer();
       catch error
-        @threerenderer = new THREE.CanvasRenderer();
+        @threeRenderer = new THREE.CanvasRenderer();
     else
-      @threerenderer = new THREE.CanvasRenderer();
+      @threeRenderer = new THREE.CanvasRenderer();
 
-    @threerenderer.setSize(dw, dh);
-    document.body.appendChild(@threerenderer.domElement);
+    @threeRenderer.setSize(dw, dh);
+    document.body.appendChild(@threeRenderer.domElement);
 
-    controls = new THREE.OrbitControls(@camera, @threerenderer.domElement)
+    controls = new THREE.OrbitControls(@camera, @threeRenderer.domElement)
     controls.noZoom = true;
     controls.noPan  = true;
     controls.maxPolarAngle = Math.PI / 2;
@@ -87,4 +87,4 @@ class ThreejsGameRenderer
     window.requestAnimationFrame($.proxy(this.render, this, state))
 
     this.update(state) # technically, we only need to do this if the scene has changed, not every frame.
-    @threerenderer.render( @scene, @camera );
+    @threeRenderer.render( @scene, @camera );

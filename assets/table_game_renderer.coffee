@@ -25,7 +25,7 @@ class TableGameRenderer
 
     text  = "Agents: " + state.agents.length + "<br />"
     text += "Customers: " + state.customers.length + "<br />"
-    text += "Request queues: " + Object.keys(state.request_queues).length + "<br />"
+    text += "Request queues: " + Object.keys(state.requestQueues).length + "<br />"
     $("#devConsole").html(text)
 
 
