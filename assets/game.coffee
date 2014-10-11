@@ -15,7 +15,7 @@ class Game
 
 
   run: ->
-    @state.tickables.push(new RequestSpawner)
-    @state.request_queues = $.extend(@state.request_queues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
+    #@state.tickables.push(new RequestSpawner)
+    #@state.request_queues = $.extend(@state.request_queues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
 
-    $.proxy(this.doTick, this)
+    $.proxy(this.doTick, this)()
