@@ -10,10 +10,12 @@ class CustomerSpawner
       , this)
     )
 
-  calculateMaximumCustomers: ->
-    10 # TODO actual logic here based on reputation?
+  calculateMaximumCustomers: (reputation) ->
+    200 * Math.pow(reputation, 1.5)
 
   tick: (state) ->
-    if Math.random() < 0.1 and this.calculateMaximumCustomers() > state.customers.length
+    reputation = state.reputation
+    if @potential_customers.length > 0 and Math.random() < reputation and this.calculateMaximumCustomers(reputation) > state.customers.length
       customer = $.extend({}, @potential_customers[Math.floor(Math.random() * @potential_customers.length)])
       state.customers.push(customer)
+      state.tickables.push(customer)

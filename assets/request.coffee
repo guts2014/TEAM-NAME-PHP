@@ -8,6 +8,9 @@ class Request
   resolved: 0
   elapsed: null
 
+  constructor: (@type) ->
+
+
   resolved: ->
     @resolved = 1
     @request = null
@@ -16,8 +19,3 @@ class Request
     @elasped = state.tick - @time_created
     if(@elapsed % 15 == 0)
       @customer.lower_mood()
-
-
-class PhoneRequest extends Request
-
-class EmailRequest extends Request
