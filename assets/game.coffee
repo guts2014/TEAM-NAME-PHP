@@ -6,7 +6,7 @@ class Game
   doTick: ->
     @state.tick += 1
     $('.tick-count').text(@state.tick)
-
+    $('.date-display').text(new GameTime(@state.tick))
     for tickable in @state.tickables
       tickable.tick(@state)
 

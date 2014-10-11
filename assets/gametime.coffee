@@ -1,14 +1,18 @@
 class GameTime
-  days: null
-  hours: null
-  minutes: null
+  days: 0
+  hours: 0
+  minutes: 0
 
   ticksperminute: 1
 
-  tick: (state) ->
+  constructor: (tick) ->
+    this.setTime(tick)
 
-    @remainderD = state.tick % (@ticksperminute * 60 * 24)
-    @days = state.tick / (@ticksperminute * 60 * 24) - @remainder
-    @remainderH = @remainderD % (@ticksperminute * 60)
-    @hours = @remainderD / (@ticksperminute * 60)
-    @minutes = @remainderH / @ticksperminute
+  setTime: (tick) ->
+    @minutes = tick % 60
+    @hours = Math.floor(tick / 60)
+    @days = Math.floor(tick / (60 * 24))
+
+
+  toString: ->
+    return "Days: " + @days + " Hours: " + @hours + " Minutes: " + @minutes
