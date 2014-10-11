@@ -1,4 +1,8 @@
 class GameRenderer
+  setup: (width, height) ->
+    #document.querySelector('body').append
+
+
   getTable: ->
     document.querySelector "#game"
   getCell: (x, y) ->
