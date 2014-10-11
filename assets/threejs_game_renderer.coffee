@@ -18,7 +18,14 @@ class ThreejsGameRenderer
     @camera.rotation.y = - Math.PI / 4;
     @camera.rotation.x = Math.atan( -1 / Math.sqrt(2) );
 
-    @threerenderer = new THREE.WebGLRenderer();
+    if (window.WebGLRenderingContext)
+      try
+        @threerenderer = new THREE.WebGLRenderer();
+      catch error
+        @threerenderer = new THREE.CanvasRenderer();
+    else
+      @threerenderer = new THREE.CanvasRenderer();
+
     @threerenderer.setSize(dw, dh);
     document.body.appendChild(@threerenderer.domElement);
 
