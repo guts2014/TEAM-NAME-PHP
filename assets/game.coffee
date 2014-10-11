@@ -4,6 +4,7 @@ class Game
     @state = new GameState
     @renderer.setup(@state)
 
+
   doTick: ->
     @state.tick += 1
     $('.tick-count').text(@state.tick)
