@@ -17,12 +17,13 @@ class Entity
 
 
   update: (room, state) ->
-    if !@threeObject
-      @threeObject = @model.clone()
-      room.add @threeObject
+    if this.modelName()
+      if !@threeObject
+        @threeObject = @model.clone()
+        room.add @threeObject
 
-    @threeObject.position.x = 10*@x
-    @threeObject.position.z = 10*@y
+      @threeObject.position.x = 10*@x
+      @threeObject.position.z = 10*@y
 
 
   cleanup: ->
@@ -32,3 +33,5 @@ class Entity
       Game.renderer.room.remove @threeObject
     this.cleanup()
     Game.state.entities = Game.state.entities.filter((entity) -> this != entity)
+
+  onClick: ->

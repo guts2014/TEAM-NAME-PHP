@@ -93,7 +93,6 @@ class GameRenderer
         raycaster = projector.pickingRay(vector, @camera)
 
         getO3D = (ob) ->
-          console.log('g ', ob)
           if !(ob instanceof THREE.Mesh)
             return ob
           else

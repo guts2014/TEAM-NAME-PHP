@@ -9,17 +9,20 @@ class Agent extends Entity
   training: 0
   training_elapsed: 0
   completed: 0
-  skills: {
-    email: null,
-    phone: null,
-    webchat: null,
-  }
 
-  constructor: ->
+
+  constructor: (x, y)->
+    super(x, y)
+    @skills = {
+      email: null,
+      phone: null,
+      webchat: null,
+    }
+
     #@name = @randomName() + " " + @randomName()
     @name = "bob."
     salaryFactor = 0
-    for key of agent.skills
+    for key of @skills
       salaryFactor += @skills[key] = Math.floor(Math.random() * 3)
     @salary = (Math.random() * 3 + salaryFactor / 2) * 10
     @description = ""

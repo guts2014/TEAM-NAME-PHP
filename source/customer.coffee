@@ -1,43 +1,37 @@
-class CustomerSpawner
-  potential_customers: [] # Holds all potential customers from customers.json
-
-  constructor: ->
-    $.ajax("assets/data/customers.json").done($.proxy((kana_customers) ->
-        for kana_customer in kana_customers
-          customer = new Customer
-          customer.fromKanaCustomer kana_customer
-          @potential_customers.push(customer)
-      , this)
-    )
-
-  calculateMaximumCustomers: (reputation) ->
-    200 * Math.pow(reputation, 1.5)
-
-  tick: (state) ->
-    reputation = state.reputation
-    if @potential_customers.length > 0 and Math.random() < reputation and this.calculateMaximumCustomers(reputation) > state.customers.length
-      customer = @potential_customers.pop()
-      customer.id = state.custNo
-      state.customers.push(customer)
-      state.tickables.push(customer)
-      state.custNo++
-      if @potential_customers.length == 0
-        this.constructor()
-
-
 class Customer extends Entity
+  @potential_customers: []
+
+  @calculateMaximumCustomers: ->
+    200 * Math.pow(Game.state.reputation, 1.5)
+
+  @spawn: ->
+    if Customer.potential_customers.length == 0
+      $.ajax("assets/data/customers.json").done($.proxy((kana_customers) ->
+          @potential_customers = kana_customers
+        , this)
+      )
+
+    if @potential_customers.length > 0 and Math.random() < Game.state.reputation and Customer.calculateMaximumCustomers() > Game.state.customers.length
+      customer = new Customer
+      customer.fromKanaCustomer(@potential_customers.pop())
+      customer.id = Game.state.custNo
+      Game.state.custNo++
+
   name: ''
   worth: 100
   volatility: 0.25
   mood: 1
   request: null
 
-  constructor: ->
+  fromKanaCustomer: (kana) ->
+    @name = kana['firstName'] + " " + kana['surname']
+    @volatility = +kana['customerVolatilityScore'] / 100
+    @worth = +kana['netPromoterScore']
 
   tick: ->
     if @request
       @request.tick()
-    else if Math.random() < state.chanceOfRequest # Per customer, 2% chance of spawning a support request per tick
+    else if Math.random() < Game.state.chanceOfRequest # Per customer, 2% chance of spawning a support request per tick
       this.createRequest()
 
 
@@ -63,13 +57,8 @@ class Customer extends Entity
         requestType = "phone"
       when 2
         requestType = "webchat"
-    requestQueue = state.requestQueues[requestType]
-    requestQueue.push(@request = new Request(state, requestType, this, 5))
-
-  fromKanaCustomer: (kana) ->
-    @name = kana['firstName'] + " " + kana['surname']
-    @volatility = +kana['customerVolatilityScore'] / 100
-    @worth = +kana['netPromoterScore']
+    requestQueue = Game.state.requestQueues[requestType]
+    requestQueue.push(@request = new Request(requestType, this))
 
   cleanup: ->
     $('#cust' + id).remove()

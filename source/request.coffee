@@ -1,7 +1,3 @@
-class RequestLoader
-  constructor: (state) ->
-    $.ajax("assets/data/requests.json").done(state.requestQueues)
-
 class Request
   type: null
   customer: null
@@ -19,7 +15,7 @@ class Request
 
   create: (@type, @time_created, @customer, @priority, @complexity, @text) ->
 
-  createFromRequestData: (request_data,  tick, customer) ->
+  createFromRequestData: (request_data, tick, customer) ->
     @create(request_data['type'],
             tick,
             customer,

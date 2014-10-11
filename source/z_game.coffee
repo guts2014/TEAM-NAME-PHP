@@ -7,20 +7,14 @@ class Game
     if @simulating
       clearInterval @interval
     else
-      @interval = setInterval $.proxy(this.doTick, this), 1000
+      @interval = setInterval $.proxy(this.doTick, this), 200
     @simulating = !@simulating
     $("#playText").text(if @simulating then "Pause" else "Run")
 
   @doTick: ->
     Game.state.tick += 1
 
-    $('.tick-count').text(Game.state.tick)
-    $('.date-display').text(new GameTime(Game.state.tick))
-    $('#gamestate').html(Game.state.toString().replace(/\n/g, "<br />"))
-    #$('#customer_list').html("")
-    #for customer in @state.customers
-    #  id = customer.id
-    #  $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood) + "</li>")
+    Customer.spawn()
 
     for entity in Game.state.entities
       entity.tick()
@@ -28,9 +22,18 @@ class Game
     Game.state.calculateReputation()
     Game.renderer.update(@state)
 
+    $('.tick-count').text(Game.state.tick)
+    $('.date-display').text(new GameTime(Game.state.tick))
+    $('#gamestate').html(Game.state.toString().replace(/\n/g, "<br />"))
+    $('#customer_list').html("")
+    for customer in Game.state.customers()
+      id = customer.id
+      $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood) + "</li>")
+
+
   @run: ->
-    new Desk(3,2)
-    new Desk(4,2)
+    new SmallDesk(3,2)
+    new LargeDesk(8,5)
 
     Game.renderer.setup()
     Game.doTick()
