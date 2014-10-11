@@ -1,7 +1,7 @@
 class Game
   constructor: (@renderer) ->
     @state = new GameState
-    #@renderer.setup(@state.level.width, @state.level.height)
+    @renderer.setup(@state)
 
   doTick: ->
     @state.tick += 1
