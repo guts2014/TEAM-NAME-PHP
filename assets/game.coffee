@@ -15,6 +15,8 @@ class Game
 
 
   run: ->
+    $.ajax("")
+    kana_customers = JSON.decode()
     @state.tickables.push(new RequestSpawner)
     @state.request_queues = $.extend(@state.request_queues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
 

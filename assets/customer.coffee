@@ -8,3 +8,6 @@ class Customer
   remove: ->
 
   create_request: ->
+
+  from_kana_customer: (kana) ->
+

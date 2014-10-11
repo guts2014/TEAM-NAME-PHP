@@ -8,8 +8,8 @@ class Request
 
 
   resolved: ->
-    @resolved: 1
-    @request
+    @resolved = 1
+    @request = null
 
 
 class PhoneRequest extends Request
