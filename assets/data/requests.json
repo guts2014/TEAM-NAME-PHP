@@ -26,12 +26,152 @@
 				"type":"email"
 				"complexity":0.4,
 				"text":"Flood from runoffon A72 at Lanark"
+			},
+			{
+				"type":"phone"
+				"complexity":0.1,
+				"text":"Train an hour late coming into Paddington Station"
+			},
+			{
+				"type":"phone"
+				"complexity":0.25,
+				"text":"Leaves on the Bridport - Lyme Regis line"
+			},
+			{
+				"type":"phone"
+				"complexity":0.15,
+				"text":"Wet railway tracks between Norwich and Cromer"
+			},
+			{
+				"type":"email"
+				"complexity":0.2,
+				"text":"Given wrong information by ticket desk, missed train",
+			},
+			{
+				"type":"email"
+				"complexity":0.7,
+				"text":"Ticket isn't recognized by conductor"
+			},
+			{
+				"type":"email"
+				"complexity":0.7,
+				"text":"Train cancelled, no replacement bus service"
+			},
+			{
+				"type":"phone"
+				"complexity":0.6,
+				"text":"Plane grounded indefinitely by Icelandic volcano"
+			},
+			{
+				"type":"phone"
+				"complexity":0.25,
+				"text":"Plane needs de-icing, delayed for 3 hours"
+			},
+			{
+				"type":"phone"
+				"complexity":0.15,
+				"text":"Passenger on the place has a suspicious air embolism"
+			},
+			{
+				"type":"email"
+				"complexity":0.9,
+				"text":"Burning car crashes into airport terminal, all planes grounded",
+			},
+			{
+				"type":"email"
+				"complexity":0.7,
+				"text":"Baggage lost between departure and arrival"
+			}
+				{
+				"type":"phone"
+				"complexity":0.6,
+				"text":"Plane grounded indefinitely by Icelandic volcano"
+			},
+			{
+				"type":"phone"
+				"complexity":0.25,
+				"text":"Plane needs de-icing, delayed for 3 hours"
+			},
+			{
+				"type":"phone"
+				"complexity":0.15,
+				"text":"Passenger on the place has a suspicious air embolism"
+			},
+			{
+				"type":"email"
+				"complexity":0.9,
+				"text":"Burning car crashes into airport terminal, all planes grounded",
+			},
+			{
+				"type":"email"
+				"complexity":0.7,
+				"text":"Baggage lost between departure and arrival"
 			}
 		]
 	},
 	{
 	"ISP" :
 		[
+			{
+				"type": "phone",
+				"complexity": 0.2,
+				"text": "Why is my connection so slow"
+			},
+			{
+				"type": "email",
+				"complexity": 0.4,
+				"text": "My bill is 18p too expensive!"
+			},
+			{
+				"type": "social media",
+				"complexity": 0.1,
+				"text": "How do I upgrade my broadband?"
+			},
+			{
+				"type": "phone",
+				"complexity": 0.5,
+				"text": "My internet doesn't work"
+			},
+			{
+				"type": "web chat",
+				"complexity": 0.2,
+				"text": "How do I reset my router password?"
+			},
+			{
+				"type": "email",
+				"complexity": 0.1,
+				"text": "I can't send any emails ;)"
+			},
+			{
+				"type": "social media",
+				"complexity": 0.05,
+				"text": "I'm not receiving an emails, am I just not popular?"
+			},
+			{
+				"type": "phone",
+				"complexity": 0.4,
+				"text": "my internet service is very interrupted"
+			},
+			{
+				"type": "web chat",
+				"complexity": 0.1,
+				"text": "change of address",
+			},
+			{
+				"type": "phone",
+				"complexity": 0.4,
+				"text": "Can I get an upgrade?"
+			},
+			{
+				"type": "email",
+				"complexity": 0.6,
+				"text": "My phone bill is wrong!",
+			},
+			{
+				"type": "social media",
+				"complexity": 0.7,
+				"text": "Wireless router is faulty"
+			},
 			{
 				"type":webchat""
 				"complexity":0.7,
@@ -86,6 +226,56 @@
 				"type":"phone"
 				"complexity":0.6,
 				"text":"Can't get daughter into a particular nursery"
+			},
+			{
+				"type":"phone"
+				"complexity":0.8,
+				"text":"Water charges introduced, sent back contract"
+			},
+			{
+				"type":"phone"
+				"complexity":0.25,
+				"text":"Cigarette butts and banana peels collect on the the ground outside my house"
+			},
+			{
+				"type":"email"
+				"complexity":0.5,
+				"text":"The electric cuts out when I put the kettle on at half time"
+			},
+			{
+				"type":"email"
+				"complexity":0.9,
+				"text":"Teachers at Green Wood Primary obviously couldn't do when they were younger",
+			},
+			{
+				"type":"phone"
+				"complexity":0.6,
+				"text":"Son didn't get into the secondary school we wanted him to; willing to grease the wheels"
+			},
+			{
+				"type":"phone"
+				"complexity":1,
+				"text":"Sinkhole appeared in garden"
+			},
+			{
+				"type":"phone"
+				"complexity":0.3,
+				"text":"Raccoon infestation of garden"
+			},
+			{
+				"type":"email"
+				"complexity":0.5,
+				"text":"Moles eat the vegetables in my vegetable patch"
+			},
+			{
+				"type":"webchat"
+				"complexity":0.50,
+				"text":"Libraries never have the books that I want in stock",
+			},
+			{
+				"type":"phone"
+				"complexity":0.6,
+				"text":"My sewer continuously backflows"
 			}
 		]
 	}
