@@ -10,6 +10,10 @@ class Game
     $('.tick-count').text(@state.tick)
     $('.date-display').text(new GameTime(@state.tick))
     $('#gamestate').html(@state.toString().replace(/\n/g, "<br />"))
+    $('#customer_list').html("")
+    for customer in @state.customers
+      $('#customer_list').append("<li>" + customer.name + "</li>")
+
     for tickable in @state.tickables
       tickable.tick(@state)
     @state.calculateReputation()

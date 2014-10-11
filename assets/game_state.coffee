@@ -22,7 +22,9 @@ class GameState
     )
 
   removeCustomer: (customer) ->
-    customers.pop(customer)
+    @customers.filter((item) ->
+      item != customer
+    )
 
   calculateReputation: ->
     totalWorth = 0
@@ -32,6 +34,14 @@ class GameState
       totalWorth += customer.worth
     if totalWorth != 0
       @reputation = totalRep / totalWorth
+
+  calculateBudgetChange: ->
+    budget = 0
+    for agent in @agents
+      budget -= agent.salary
+    for customer in @customers
+      budget += customer.worth
+    budget
 
   constructor: ->
     @level = new Level
@@ -44,6 +54,7 @@ class GameState
 
   toString: ->
     "Customers: " + @customers.length +
+    "\nMoney: " + @money + " (" + @calculateBudgetChange() + ")" +
     "\nRequest queue: " + @numberOfRequests() +
     "\nReputation: " + (@reputation * 100) + "%" +
     "\nAgents: " + @agents.join(", ")

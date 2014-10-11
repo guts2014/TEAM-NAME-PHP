@@ -16,6 +16,8 @@ class CustomerSpawner
   tick: (state) ->
     reputation = state.reputation
     if @potential_customers.length > 0 and Math.random() < reputation and this.calculateMaximumCustomers(reputation) > state.customers.length
-      customer = $.extend({}, @potential_customers[Math.floor(Math.random() * @potential_customers.length)])
+      customer = @potential_customers.pop()
       state.customers.push(customer)
       state.tickables.push(customer)
+      if @potential_customers.length == 0
+        this.constructor()

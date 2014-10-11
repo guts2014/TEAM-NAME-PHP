@@ -26,18 +26,22 @@ class Agent
   tick: (state) ->
     console.log("Working " + @working + ", request: " + @request)
     if @working > 0
-      @working = @working - 1
+      @working -= 1
       if @working == 0
         @completed++
         @request.resolved()
         @request = null
+    else if @training > 0
+      @training -= 1
+      if @training == 0
+        @skills[@trainingSkill] += 1
+        @trainingSkill = null
     else if @queue and @queue.length()
        @handleRequest(@queue.pop())
 
 
   assign: (queue) ->
     @queue = queue
-
 
   remove: ->
     @queue = null
@@ -48,7 +52,8 @@ class Agent
     @working = Math.floor(request.complexity / @skills[request.type])
 
   train: (skill)->
-    @skills[skill] = 1
+    @trainingSkill = skill
+    @training = 30
 
   toString: ->
-    "Name: " + @name + ", request: " + @request + ", completed: " + @completed
+    "Name: " + @name + ", request: " + @request + ", completed: " + @completed + ", training: " + @trainingSkill
