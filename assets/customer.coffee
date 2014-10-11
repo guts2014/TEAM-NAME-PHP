@@ -21,7 +21,6 @@ class Customer
   create_request: ->
 
   from_kana_customer: (kana) ->
-    console.log(kana)
     @name = kana['firstName'] + " " + kana['surname']
     @volatility = +kana['customerVolatilityScore']
     @worth = +kana['netPromoterScore']
