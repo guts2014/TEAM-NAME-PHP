@@ -64,9 +64,9 @@ class ThreejsGameRenderer
 
     # Lighting
     @scene.add new THREE.AmbientLight(0x222222)
-    light = new THREE.PointLight(0xffffff, 0.8)
-    light.position.set(d, d, d)
-    @scene.add light
+    @light = new THREE.PointLight(0xffffff, 0.8)
+    @light.position.set(d, d, d)
+    @scene.add @light
 
 
     # Create a room object and add it to the scene
@@ -144,6 +144,7 @@ class ThreejsGameRenderer
 
 
   render: (state) ->
+    @light.position.copy(@camera.position)
     window.requestAnimationFrame($.proxy(this.render, this, state))
     @stats.begin()
     @threeRenderer.render( @scene, @camera )
