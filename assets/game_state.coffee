@@ -3,6 +3,7 @@ class GameState
   agents: []
 
   requestQueues: {}
+  chanceOfRequest: 0.02
 
   tickables: []
   tick: 0
@@ -13,6 +14,7 @@ class GameState
 
   addAgent: (agent) ->
     @agents.push(agent)
+    @tickables.push(agent)
 
   fireAgent: (agent) ->
     @agents.filter((item) ->
@@ -39,5 +41,6 @@ class GameState
 
   toString: ->
     "Customers: " + @customers.length +
-    "\nRequests: " + @numberOfRequests() +
-    "\nReputation: " + (@reputation * 100) + "%"
+    "\nRequest queue: " + @numberOfRequests() +
+    "\nReputation: " + (@reputation * 100) + "%" +
+    "\nAgents: " + @agents.join(", ")

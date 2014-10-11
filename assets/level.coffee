@@ -3,3 +3,4 @@ class Level
   height: 10
 
   desks: []
+  people: []

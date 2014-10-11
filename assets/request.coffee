@@ -1,20 +1,16 @@
 class Request
   type: null
-  time_created: null
   customer: null
-  priority: null
   text: null
+  handled: null
   elapsed: null
 
-  constructor: (state, @type, @customer) ->
+  constructor: (state, @type, @customer, @complexity) ->
     @time_created = state.tick
-
-
 
   resolved: ->
     @customer.increaseMood(5)
-
-  create: (@type, @time_created, @customer, @priority, @complexity, @text) ->
+    @customer.request = null
 
   createFromRequestData: (request_data,  tick, customer) ->
     @create(request_data['type'],

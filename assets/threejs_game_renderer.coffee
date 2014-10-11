@@ -103,6 +103,8 @@ class ThreejsGameRenderer
   update: (state) ->
     for desk in state.level.desks
       desk.update @room, state
+    for person in state.level.people
+        person.update @room, state
 
 
   render: (state) ->

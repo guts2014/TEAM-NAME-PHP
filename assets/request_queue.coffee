@@ -5,7 +5,7 @@ class RequestQueue
     @requests.push(request)
 
   pop: ->
-    return @requests[0]
+    @requests.pop()
 
   constructor: (@name) ->
     @requests = []
