@@ -11,6 +11,5 @@ constructor: ->
     , this)
   )
   hireAgent: ()->
-    agent = potential_agents[Math.floor(Math.random() * potential_agents.length())]
-    potential_agents.pop(agent)
+    agent = $.extend({}, @potential_agents[Math.floor(Math.random() * @potential_agents.length())])
     return agent
