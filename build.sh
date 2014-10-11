@@ -1,3 +1,3 @@
 #!/bin/bash
 cd assets
-coffee -bcw *.coffee
+coffee -bcw .
