@@ -30,8 +30,8 @@ class Customer
         requestType = "email"
       when 1
         requestType = "phone"
-    requestQueue = state.requestQueues[requestType]
-    #requestQueue.push(@request = new Request(requestType, customer))
+  #requestQueue = state.requestQueues[requestType]
+  #requestQueue.push(@request = new Request(requestType, customer))
 
 
   fromKanaCustomer: (kana) ->
