@@ -6,6 +6,7 @@
     <title>Simulation Thingy</title>
 
     <link rel="stylesheet" href="assets/style.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/three.min.js"></script>
@@ -46,13 +47,15 @@
     <noscript>For some strange reason you don't have JS turned on. Fix your browser!</noscript>
 
     <div class="guioverlay">
-      <a href="#" id="tickbutton" onclick="Game.doTick();">Perform tick (<span class="tick-count">0</span>)</a>
-      <a href="#" id="playbutton" onclick="Game.toggleSimulation();"><span id="playText">Run</span> simulation</a>
-      <p id="gamestate"></p>
-
-      <p class="date-display"></p>
+      <span id="gamestate"></span>
     </div>
-
+    <div class="topoverlay">
+      <span class="date-display"></span>
+      <i onclick="Game.setSimulationRate(0);" class="fa fa-pause" title="pause"></i>
+      <i onclick="Game.setSimulationRate(1);" class="fa fa-play" title="play (1x)"></i>
+      <i onclick="Game.setSimulationRate(2);" class="fa fa-forward" title="forward (2x)"></i>
+      <i onclick="Game.setSimulationRate(4);" class="fa fa-fast-forward" title="fast forward (4x)"></i>
+    </div>
     <div class="right_menu">
       <div class="left"><</div> - <div class="right">></div>
         <div class='queue_wrap'>

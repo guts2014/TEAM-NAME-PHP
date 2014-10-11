@@ -20,6 +20,19 @@ body {
   padding: 10px;
 }
 
+.topoverlay {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    position: absolute;
+    width: 250px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 10px;
+ }
+
 .bottom_menu {
     position: absolute;
     width: 100%;

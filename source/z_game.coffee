@@ -3,13 +3,11 @@ class Game
   @state:      new GameState()
   @renderer:   new GameRenderer()
 
-  @toggleSimulation: ->
-    if @simulating
-      clearInterval @interval
-    else
-      @interval = setInterval $.proxy(this.doTick, this), 200
-    @simulating = !@simulating
-    $("#playText").text(if @simulating then "Pause" else "Run")
+  @setSimulationRate: (rate) ->
+    if @interval
+      clearInterval(@interval)
+    if rate > 0
+      @interval = setInterval $.proxy(this.doTick, this), (500 / rate)
 
   @doTick: ->
     Game.state.tick += 1
