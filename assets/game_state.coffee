@@ -21,6 +21,9 @@ class GameState
       item != agent
     )
 
+  removeCustomer: (customer) ->
+    customers.pop(customer)
+
   calculateReputation: ->
     totalWorth = 0
     totalRep = 0

@@ -1,7 +1,7 @@
 class Customer
   name: ''
   worth: 100
-  volatility: 1
+  volatility: 0.25
   mood: 1
   request: null
 
@@ -12,6 +12,7 @@ class Customer
       @request.tick(state)
     else if Math.random() < state.chanceOfRequest # Per customer, 2% chance of spawning a support request per tick
       this.createRequest(state)
+
 
   reduceMood: (multiplier = 1) ->
     @mood -= (0.05 * multiplier * @volatility)
@@ -36,8 +37,7 @@ class Customer
     requestQueue = state.requestQueues[requestType]
     requestQueue.push(@request = new Request(state,requestType, this, 5))
 
-
   fromKanaCustomer: (kana) ->
     @name = kana['firstName'] + " " + kana['surname']
-    @volatility = +kana['customerVolatilityScore']
+    @volatility = +kana['customerVolatilityScore'] / 100
     @worth = +kana['netPromoterScore']
