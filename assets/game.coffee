@@ -8,6 +8,7 @@ class Game
     @state.tick += 1
     $('.tick-count').text(@state.tick)
     $('.date-display').text(new GameTime(@state.tick))
+    $('#gamestate').text("Customers: " + @state.customers.length)
     for tickable in @state.tickables
       tickable.tick(@state)
 
@@ -19,12 +20,12 @@ class Game
     else
       @interval = setInterval $.proxy(this.doTick, this), 1000
     @simulating = !@simulating
-    $("#playText").text(@simulating ? "Pause" : "Unpause")
+    $("#playText").text(if @simulating then "Pause" else "Unpause")
 
   run: ->
-    @state.customer_spawner = new CustomerSpawner
-
     @state.tickables.push(new RequestSpawner)
+    @state.tickables.push(new CustomerSpawner)
+
     @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
 
     $.proxy(this.doTick, this)()

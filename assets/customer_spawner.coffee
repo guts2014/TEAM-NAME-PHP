@@ -10,5 +10,10 @@ class CustomerSpawner
       , this)
     )
 
-  tick: (state) ->
+  calculateMaximumCustomers: ->
+    10 # TODO actual logic here based on reputation?
 
+  tick: (state) ->
+    if Math.random() < 0.1 and this.calculateMaximumCustomers() > state.customers.length
+      customer = $.extend({}, @potential_customers[Math.floor(Math.random() * @potential_customers.length)])
+      state.customers.push(customer)
