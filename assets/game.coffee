@@ -10,7 +10,7 @@ class Game
     for tickable in @state.tickables
       tickable.tick(@state)
 
-    @renderer.update(@state)
+    @renderer.render(@state)
 
 
 

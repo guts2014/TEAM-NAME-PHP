@@ -12,7 +12,7 @@ class TableGameRenderer
     document.body.appendChild table
     document.body.appendChild $("<div id='devConsole'></div>")[0]
 
-  update: (state) ->
+  render: (state) ->
     console.log('Update screen now', state)
 
     this.resetTable()
