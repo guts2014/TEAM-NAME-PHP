@@ -10,10 +10,14 @@ class GameRenderer
         row.appendChild cell
       table.appendChild row
     document.body.appendChild table
-
+    document.body.appendChild $("<div id='devConsole'></div>")[0]
 
   update: (state) ->
     console.log('should update the screen now', state)
+    text = "Agents: " + state.agents.length + "<br />"
+    text += "Customers: " + state.customers.length + "<br />"
+    text += "Requests: " + Object.keys(state.request_queues).length + "<br />"
+    $("#devConsole").html(text)
 
   getTable: ->
     document.querySelector "#game"
