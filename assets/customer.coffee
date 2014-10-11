@@ -1,12 +1,12 @@
 class Customer
   name: ''
   worth: 100
-  volatility: 50
+  volatility: 1
   mood: 1
   request: null
 
   constructor: ->
-    
+
   tick: (state) ->
     if @request
       @request.tick(state)
@@ -14,7 +14,7 @@ class Customer
       this.createRequest(state)
 
   reduceMood: (multiplier = 1) ->
-    @mood -= (0.05 * multiplier)
+    @mood -= (0.05 * multiplier * @volatility)
 
   increaseMood: (multiplier = 1) ->
     if(@mood < 1)
@@ -22,7 +22,8 @@ class Customer
       if(@mood > 1)
         @mood = 1
 
-  remove: ->
+  removeRequest: ->
+    @request = null
 
   createRequest: (state) ->
     switch Math.floor(Math.random() * 2)

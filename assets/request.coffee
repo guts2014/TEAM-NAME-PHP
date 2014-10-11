@@ -1,9 +1,9 @@
 class Request
   type: null
-  time_created: null
   customer: null
   priority: null
   text: null
+  handled: null
   elapsed: null
 
   constructor: (state, @type, @customer) ->
@@ -13,6 +13,7 @@ class Request
 
   resolved: ->
     @customer.increaseMood(5)
+    @customer.removeRequest()
 
   create: (@type, @time_created, @customer, @priority, @complexity, @text) ->
 
