@@ -1,4 +1,6 @@
 class ThreejsGameRenderer
+  movableItems: []
+
   models: {
     'small_desk': null,
     'large_desk': null
@@ -41,6 +43,8 @@ class ThreejsGameRenderer
     @threeRenderer.setSize(dw, dh)
     document.body.appendChild(@threeRenderer.domElement)
 
+
+    # Controls
     controls = new THREE.OrbitControls(@camera, @threeRenderer.domElement)
     controls.noZoom = true
     controls.noPan  = false
@@ -48,39 +52,8 @@ class ThreejsGameRenderer
     controls.maxPolarAngle = Math.PI / 2
     #controls.zoomSpeed = 0.1
 
-    this.update(state)
 
-
-
-
-    handleLoadEvent = (event) ->
-      geometry = event.content
-      material = new THREE.MeshPhongMaterial( { ambient: 0xff5533, color: 0xff5533, specular: 0x111111, shininess: 200 } )
-      mesh = new THREE.Mesh( geometry, material )
-
-      mesh.position.set( 0, - 0.25, 0.6 )
-      mesh.rotation.set( 0, - Math.PI / 2, 0 )
-      mesh.scale.set( 0.5, 0.5, 0.5 )
-
-      @scene.add @models['small_desk']
-      console.log(mesh)
-
-
-
-
-    onWindowResize = ->
-      @camera.aspect = window.innerWidth / window.innerHeight
-      @camera.updateProjectionMatrix()
-      @threeRenderer.setSize(window.innerWidth, window.innerHeight)
-    window.addEventListener 'resize', $.proxy(onWindowResize, this)
-
-
-
-
-
-  update: (state) ->
-    level = state.level
-
+    # Create scene
     @scene = new THREE.Scene()
 
     # Lighting
@@ -92,20 +65,30 @@ class ThreejsGameRenderer
     # Axis marker
     @scene.add new THREE.AxisHelper(40)
 
-
-    # Floor
-    geometry = new THREE.BoxGeometry(level.width*10, 10, level.height*10)
+    # Add the floor
+    geometry = new THREE.BoxGeometry(state.level.width*10, 10, state.level.height*10)
     material = new THREE.MeshNormalMaterial()
     @floor   = new THREE.Mesh(geometry, material)
-    @floor.position.x = level.width * 5
+    @floor.position.x = state.level.width * 5
     @floor.position.y = -5
-    @floor.position.z = level.height * 5
+    @floor.position.z = state.level.height * 5
     @scene.add @floor
 
-    # Desk
-    #@scene.add this.makeDesk()
+    # Add/update all the movable stuff
+    this.update(state)
 
 
+    # Correctly handle resizing windows
+    onWindowResize = ->
+      @camera.aspect = window.innerWidth / window.innerHeight
+      @camera.updateProjectionMatrix()
+      @threeRenderer.setSize(window.innerWidth, window.innerHeight)
+    window.addEventListener 'resize', $.proxy(onWindowResize, this)
+
+
+  update: (state) ->
+    for movableItem in @movableItems
+      movableItem.update(@scene, state)
 
 
 
