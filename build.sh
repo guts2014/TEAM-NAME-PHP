@@ -1,3 +1,3 @@
 #!/bin/bash
 cd assets
-coffee -mbco js -w . 
+coffee -bco js -j sim.js -w . 
