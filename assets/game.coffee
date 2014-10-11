@@ -34,7 +34,10 @@ class Game
   run: ->
     for y in [2, 4, 6, 8]
       for x in [2, 4, 6, 8, 10]
-        @state.level.desks.push(new Desk(x,y))
+        desk = new Desk(x,y)
+
+        @state.level.desks.push(desk)
+
         @state.level.people.push(new Person(x,y))
 
 
