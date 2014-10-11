@@ -4,7 +4,16 @@ class Customer
   volatility: 50
   mood: 100
 
-  update: ->
+  tick: (state) ->
+    if Math.random() < 0.02 # Per customer, 2% chance of spawning a support request per tick
+      switch Math.floor(Math.random() * 2)
+        when 0
+          requestType = "email"
+        when 1
+          requestType = "phone"
+      requestQueue = state.requestQueues[requestType]
+      requestQueue.push(new Request(requestType))
+
 
   lower_mood: ->
     @mood -= 5

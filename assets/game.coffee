@@ -8,9 +8,12 @@ class Game
     @state.tick += 1
     $('.tick-count').text(@state.tick)
     $('.date-display').text(new GameTime(@state.tick))
-    $('#gamestate').text("Customers: " + @state.customers.length)
+    $('#gamestate').text("Customers: " + @state.customers.length + "\nRequests: " + @state.numberOfRequests())
     for tickable in @state.tickables
-      tickable.tick(@state)
+      try
+        tickable.tick(@state)
+      catch error
+        console.log("error %o ticking %o", error, tickable)
 
     @renderer.render(@state)
 
@@ -23,7 +26,6 @@ class Game
     $("#playText").text(if @simulating then "Pause" else "Unpause")
 
   run: ->
-    @state.tickables.push(new RequestSpawner)
     @state.tickables.push(new CustomerSpawner)
 
     @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})

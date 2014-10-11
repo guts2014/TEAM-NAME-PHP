@@ -2,7 +2,10 @@ class RequestQueue
   requests: []
   type: ''
 
-  top_of_queue: ->
+  push: (request) ->
+    @requests.push(request)
+
+  pop: ->
     return @requests[0]
 
   constructor: (@name) ->
