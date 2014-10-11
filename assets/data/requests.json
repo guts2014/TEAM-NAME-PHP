@@ -278,5 +278,112 @@
 				"text":"My sewer continuously backflows"
 			}
 		]
+	},
+	{
+	 "999" :
+		[
+			{
+				"emergency_type": "fire"
+                "type": "phone",
+				"text": "My house is on fire, it started in the basement",
+				"complexity": 0.2
+			},
+			{
+				"emergency_type": "ambulance"
+				"type": "phone",
+				"text": "My friend has fainted, she isn't breathing",
+				"complexity": 0.2
+			},
+			{
+				"emergency_type": "police"
+				"type": "phone",
+				"text": "I have lost my phone, I last had it in my pocket 10 minutes ago",
+				"complexity": 0.2
+			},
+			{
+				"emergency_type": "ambulance"
+				"type": "phone",
+				"text": "I've been in a car crash, there is broken glass everywhere and I can hear someone shouting",
+				"complexity": 0.9
+			},
+			{
+				"emergency_type": "police"
+				"type": "phone",
+				"text": "I've been burgled, they smashed the front window",
+				"complexity": 0.5
+			},
+			{
+				"emergency_type": "police"
+				"type": "phone",
+				"text": "I...i am... lost, can...can i get picked up?",
+				"complexity": 0.1
+			},
+			{
+				"emergency_type": "fire"
+				"type": "phone",
+				"text": "My car is on fire in the middle of the motorway, it's very busy and I'm stuck",
+				"complexity": 0.6
+			},
+			{
+				"emergency_type": "fire"
+				"type": "phone",
+				"text": "My cat is stuck up a tree, I love my Garfield!",
+				"complexity": 0.3
+			},
+			{
+				"emergency_type": "ambulance"
+				"type": "phone",
+				"text": "I tripped and twisted my ankle, I need help!",
+				"complexity": 0.2,
+			},
+			{
+				"emergency_type": "ambulance"
+				"type": "phone",
+				"text": "I don't feel well!",
+				"complexity": 0.2,
+			},
+			{
+				"emergency_type": "ambulance"
+				"type": "phone",
+				"text": "My friend is on the floor, I think he has overdosed, he isn't breathing!",
+				"complexity": 0.9,
+			},
+			{
+				"emergency_type": "fire"
+				"type": "phone",
+				"text": "I can see smoke from the forest",
+				"complexity": 0.4,
+			},
+			{
+				"emergency_type": "police"
+				"type": "phone",
+				"text": "There is a car going 32mph on Glasgow Road, arrest him!",
+				"complexity": 0.3,
+			},
+			{
+				"emergency_type": "police"
+				"type": "phone",
+				"text": "Two drug dealers at Eastfield McDonald's, I don't think they have a licence",
+				"complexity": 0.8,
+			},
+			{
+				"emergency_type": "police"
+				"type": "phone",
+				"text": "Why is my internet connection so slow",
+				"complexity": 0.2,
+			},
+			{
+				"emergency_type": "ambulance"
+				"type": "phone",
+				"text": "I feel sick, I think it could have been that curry",
+				"complexity": 0.2,
+			},
+			{
+				"emergency_type": "ambulance"
+				"type": "phone",
+				"text": "I feel drowsy, I think I'm tired, could have been that hackathon",
+				"complexity": 0.2,
+			}
+		]
 	}
 ]
