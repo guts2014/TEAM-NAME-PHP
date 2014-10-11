@@ -1,0 +1,141 @@
+{
+	"metadata": {
+		"version": 4.3,
+		"type": "Object",
+		"generator": "ObjectExporter"
+	},
+	"geometries": [
+		{
+			"uuid": "0959E7A3-B792-434F-BA24-80A966593831",
+			"type": "SphereGeometry",
+			"radius": 75,
+			"widthSegments": 32,
+			"heightSegments": 16
+		},
+		{
+			"uuid": "02311B73-5A2A-4EA2-BC3F-98B223A3A1FC",
+			"type": "CylinderGeometry",
+			"radiusTop": 2,
+			"radiusBottom": 1,
+			"height": 15,
+			"radialSegments": 8,
+			"heightSegments": 1,
+			"openEnded": false
+		},
+		{
+			"uuid": "122D7014-1454-4A30-A34C-FBFBEC060EBB",
+			"type": "CylinderGeometry",
+			"radiusTop": 0.5,
+			"radiusBottom": 0.5,
+			"height": 10,
+			"radialSegments": 8,
+			"heightSegments": 1,
+			"openEnded": false
+		},
+		{
+			"uuid": "419A2E0D-0404-4414-9219-F132E8259BAD",
+			"type": "CylinderGeometry",
+			"radiusTop": 0.5,
+			"radiusBottom": 0.5,
+			"height": 0.5,
+			"radialSegments": 8,
+			"heightSegments": 1,
+			"openEnded": false
+		}],
+	"materials": [
+		{
+			"uuid": "656C949B-F480-40F8-A151-EABCF1E96F7C",
+			"type": "MeshPhongMaterial",
+			"color": 16777215,
+			"ambient": 16777215,
+			"emissive": 0,
+			"specular": 1118481,
+			"shininess": 30,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
+		},
+		{
+			"uuid": "0D0BBD53-DFC2-4BBF-AFC0-96D88AD620FB",
+			"type": "MeshPhongMaterial",
+			"color": 16777215,
+			"ambient": 16777215,
+			"emissive": 0,
+			"specular": 1118481,
+			"shininess": 30,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
+		},
+		{
+			"uuid": "4172F65E-3DE0-4438-BFB4-2EE60191E811",
+			"type": "MeshPhongMaterial",
+			"color": 16777215,
+			"ambient": 16777215,
+			"emissive": 0,
+			"specular": 1118481,
+			"shininess": 30,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
+		},
+		{
+			"uuid": "78A7EFF0-8516-4799-8DE3-2A17A778135B",
+			"type": "MeshPhongMaterial",
+			"color": 16777215,
+			"ambient": 16777215,
+			"emissive": 0,
+			"specular": 1118481,
+			"shininess": 30,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
+		}],
+	"object": {
+		"uuid": "98359513-039F-4476-B326-814778D3A8C4",
+		"name": "Person",
+		"type": "Object3D",
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "AA005793-0907-41B5-8EC8-5D11178B0127",
+				"name": "Sphere 6",
+				"type": "Mesh",
+				"geometry": "0959E7A3-B792-434F-BA24-80A966593831",
+				"material": "656C949B-F480-40F8-A151-EABCF1E96F7C",
+				"matrix": [0.029999999329447746,0,0,0,0,0.029999999329447746,0,0,0,0,0.029999999329447746,0,13.550000190734863,17.239999771118164,4.71999979019165,1]
+			},
+			{
+				"uuid": "1084039D-7570-4BD5-9B69-1E0788EED2EB",
+				"name": "Cylinder 2",
+				"type": "Mesh",
+				"geometry": "02311B73-5A2A-4EA2-BC3F-98B223A3A1FC",
+				"material": "0D0BBD53-DFC2-4BBF-AFC0-96D88AD620FB",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,13.520000457763672,7.489999771118164,4.75,1]
+			},
+			{
+				"uuid": "78996AAF-30A8-427F-9EE7-E946EF4C0186",
+				"name": "Cylinder 7",
+				"type": "Mesh",
+				"geometry": "122D7014-1454-4A30-A34C-FBFBEC060EBB",
+				"material": "4172F65E-3DE0-4438-BFB4-2EE60191E811",
+				"matrix": [1,0,0,0,0,0.09067162126302719,0.9958808422088623,0,0,-0.9958808422088623,0.09067162126302719,0,13.8100004196167,11.279999732971191,4.650669574737549,1]
+			},
+			{
+				"uuid": "54D90070-0361-47C3-B0D2-B6DCED938418",
+				"name": "Headphone right",
+				"type": "Mesh",
+				"geometry": "419A2E0D-0404-4414-9219-F132E8259BAD",
+				"material": "78A7EFF0-8516-4799-8DE3-2A17A778135B",
+				"matrix": [1,0,0,0,0,0.06075888127088547,0.998152494430542,0,0,-0.998152494430542,0.06075888127088547,0,13.70215892791748,17.177608489990234,7.105798244476318,1]
+			},
+			{
+				"uuid": "F9B08398-3D2A-4735-9C78-FD617F477DC7",
+				"name": "Headphone left",
+				"type": "Mesh",
+				"geometry": "419A2E0D-0404-4414-9219-F132E8259BAD",
+				"material": "78A7EFF0-8516-4799-8DE3-2A17A778135B",
+				"matrix": [1,0,0,0,0,0.06075888127088547,0.998152494430542,0,0,-0.998152494430542,0.06075888127088547,0,13.699999809265137,17.18000030517578,2.240000009536743,1]
+			}]
+	}
+}
