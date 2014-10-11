@@ -93,11 +93,6 @@ class ThreejsGameRenderer
       desk.update @room, state
 
 
-
-
-
   render: (state) ->
     window.requestAnimationFrame($.proxy(this.render, this, state))
-
-    this.update(state) # technically, we only need to do this if the scene has changed, not every frame.
     @threeRenderer.render( @scene, @camera )

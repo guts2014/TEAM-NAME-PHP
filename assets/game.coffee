@@ -16,7 +16,8 @@ class Game
         console.log("error %o ticking %o", error, tickable)
     @state.calculateReputation()
 
-    @renderer.render(@state)
+    @renderer.update(@state)
+
 
   toggleSimulating: ->
     if @simulating
@@ -33,3 +34,5 @@ class Game
     @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "webchat": new RequestQueue('Chat Queue')})
 
     $.proxy(this.doTick, this)()
+
+    @renderer.render(@state)
