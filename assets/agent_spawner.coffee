@@ -20,7 +20,11 @@ class AgentSpawner
     for key of agent.skills
       salaryFactor += agent.skills[key] = @randomSkillValue()
     agent.salary = (Math.random() * 3 + salaryFactor / 2) * 10
-    agent.description = @getRandomDescription()
+    agent.description = @randomDescription()
+    agent
+
+  randomDescription: ->
+    ""
 
   randomSkillValue: ->
     Math.floor(Math.random() * 3)
