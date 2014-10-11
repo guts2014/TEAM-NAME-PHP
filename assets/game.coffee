@@ -27,6 +27,7 @@ class Game
 
   run: ->
     @state.level.desks.push(new Desk(3,2))
+    @state.level.people.push(new Person(2,1))
 
     @state.tickables.push(new CustomerSpawner)
     @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "webchat": new RequestQueue('Chat Queue')})
