@@ -14,6 +14,7 @@ class GameState
 
   addAgent: (agent) ->
     @agents.push(agent)
+    @tickables.push(agent)
 
   fireAgent: (agent) ->
     @agents.filter((item) ->
@@ -41,4 +42,5 @@ class GameState
   toString: ->
     "Customers: " + @customers.length +
     "\nRequest queue: " + @numberOfRequests() +
-    "\nReputation: " + (@reputation * 100) + "%"
+    "\nReputation: " + (@reputation * 100) + "%" +
+    "\nAgents: " + @agents.join(", ")

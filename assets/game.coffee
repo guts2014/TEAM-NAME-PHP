@@ -9,7 +9,7 @@ class Game
     @state.tick += 1
     $('.tick-count').text(@state.tick)
     $('.date-display').text(new GameTime(@state.tick))
-    $('#gamestate').text(@state)
+    $('#gamestate').html(@state.toString().replace(/\n/g, "<br />"))
     for tickable in @state.tickables
       tickable.tick(@state)
     @state.calculateReputation()

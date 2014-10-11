@@ -32,7 +32,7 @@ class Customer
       when 1
         requestType = "phone"
     requestQueue = state.requestQueues[requestType]
-    requestQueue.push(@request = new Request(state,requestType, this))
+    requestQueue.push(@request = new Request(state,requestType, this, 5))
 
 
   fromKanaCustomer: (kana) ->
