@@ -2,8 +2,19 @@ class Customer
   name: ''
   worth: 100
   volatility: 50
+  mood: 100
 
   update: ->
+
+  lower_mood: ->
+    @mood -= 5
+
+  increase_mood: ->
+    if(@mood <= 100)
+      @mood += 5
+      if(@mood > 100)
+        mood = 100
+
 
   remove: ->
 
