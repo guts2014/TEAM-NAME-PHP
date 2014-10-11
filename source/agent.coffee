@@ -1,4 +1,6 @@
-class Agent
+class Agent extends Entity
+  modelName: -> 'agent'
+
   name: null
   queue: null             # the queue object the agent is assigned to
   salary: 0               # the salary of the agent
@@ -7,21 +9,28 @@ class Agent
   training: 0
   training_elapsed: 0
   completed: 0
+  skills: {
+    email: null,
+    phone: null,
+    webchat: null,
+  }
 
   constructor: ->
-    @skills = {
-      email: null,
-      phone: null,
-      webchat: null,
-    }
+    #@name = @randomName() + " " + @randomName()
+    @name = "bob."
+    salaryFactor = 0
+    for key of agent.skills
+      salaryFactor += @skills[key] = Math.floor(Math.random() * 3)
+    @salary = (Math.random() * 3 + salaryFactor / 2) * 10
+    @description = ""
 
-
-  fromAgentData: (agent_data) ->
-    @name = agent_data['name']
-    @salary = agent_data['salary']
-    @skills['email'] = agent_data['email']
-    @skills['phone'] = agent_data['phone']
-    @skills['webchat'] = agent_data['webchat']
+  @fromAgentData: (agent_data) ->
+    agent = new Agent
+    agent.name              = agent_data['name']
+    agent.salary            = agent_data['salary']
+    agent.skills['email']   = agent_data['email']
+    agent.skills['phone']   = agent_data['phone']
+    agent.skills['webchat'] = agent_data['webchat']
 
   tick: (state) ->
     console.log("Working " + @working + ", request: " + @request)

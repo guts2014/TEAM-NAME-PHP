@@ -1,28 +1,11 @@
-class ThreejsGameRenderer
-  @models: {}
-  @getModel: (name) ->
-    if @models[name]
-      return @models[name]
-    else
-      loader = new THREE.ObjectLoader()
-      data = {}
-      jQuery.ajax({
-        url:    'assets/models/'+name+'.json',
-        success: (result) ->
-          data = result
-        async:   false
-      });
-      model = loader.parse(data)
-      @models[name] = model
-      return model
+class GameRenderer
+  stats: new Stats()
 
-  setup: (state) ->
-    @stats = new Stats()
+  setup: ->
     @stats.setMode(0)
     @stats.domElement.style.position = 'absolute'
     @stats.domElement.style.right = '0px'
     @stats.domElement.style.top = '0px'
-
     document.body.appendChild(@stats.domElement)
 
 
@@ -37,9 +20,9 @@ class ThreejsGameRenderer
     @camera.rotation.y = - Math.PI / 4
     @camera.rotation.x =   Math.atan(-1 / Math.sqrt(2))
 
-    if (window.WebGLRenderingContext)
+    if window.WebGLRenderingContext
       try
-        @threeRenderer = new THREE.WebGLRenderer({antialias: false})
+        @threeRenderer = new THREE.WebGLRenderer()
       catch error
         @threeRenderer = new THREE.CanvasRenderer()
     else
@@ -71,18 +54,18 @@ class ThreejsGameRenderer
 
     # Create a room object and add it to the scene
     @room = new THREE.Object3D()
-    @room.position.x = -state.level.width*5
-    @room.position.z = -state.level.height*5
+    @room.position.x = -Game.state.levelWidth*5
+    @room.position.z = -Game.state.levelHeight*5
     @scene.add @room
 
 
     # Add the floor
-    geometry = new THREE.BoxGeometry(state.level.width*10, 10, state.level.height*10)
+    geometry = new THREE.BoxGeometry(Game.state.levelWidth*10, 10, Game.state.levelHeight*10)
     material = new THREE.MeshPhongMaterial({color: 0x00ff00})
     @floor   = new THREE.Mesh(geometry, material)
-    @floor.position.x = state.level.width * 5
+    @floor.position.x = Game.state.levelWidth * 5
     @floor.position.y = -5
-    @floor.position.z = state.level.height * 5
+    @floor.position.z = Game.state.levelHeight * 5
     @room.add @floor
 
     @grid = new THREE.GridHelper(1000, 10)
@@ -90,7 +73,7 @@ class ThreejsGameRenderer
     #@room.add @grid
 
     # Add/update all the movable stuff
-    this.update(state)
+    this.update()
 
 
     # Correctly handle resizing windows
@@ -100,7 +83,7 @@ class ThreejsGameRenderer
       @threeRenderer.setSize(window.innerWidth, window.innerHeight)
     window.addEventListener 'resize', $.proxy(onWindowResize, this)
 
-
+    # Entity Click Detection
     onDocumentMouseDown = (event) ->
       event.preventDefault()
       if event.button is 0
@@ -116,36 +99,49 @@ class ThreejsGameRenderer
           else
             return getO3D(ob.parent)
 
-
-        # DESKS
         objects = []
         lut = {}
-        for desk in state.level.desks
-          objects.push desk.threeobject
-          lut[desk.threeobject.uuid] = desk
+        for entity in Game.state.entities
+          if entity.threeObject
+            objects.push entity.threeObject
+            lut[entity.threeObject.uuid] = entity
         intersectsObj = raycaster.intersectObjects(objects, true)
         if intersectsObj.length > 0
           data = intersectsObj[0]
-          desk = lut[getO3D(data.object).uuid]
-          desk.onClick()
-
-        # AGENTS
-
+          entity = lut[getO3D(data.object).uuid]
+          entity.onClick()
 
       event = null
     document.addEventListener 'mousedown', $.proxy(onDocumentMouseDown, this)
 
 
-  update: (state) ->
-    for desk in state.level.desks
-      desk.update @room, state
-    for person in state.level.people
-        person.update @room, state
+  update: ->
+    for entity in Game.state.entities
+      entity.update @room
 
 
-  render: (state) ->
-    @light.position.copy(@camera.position)
-    window.requestAnimationFrame($.proxy(this.render, this, state))
+  render: ->
+    window.requestAnimationFrame($.proxy(this.render, this))
+
     @stats.begin()
+    @light.position.copy(@camera.position)
     @threeRenderer.render( @scene, @camera )
     @stats.end()
+
+
+  @models: {}
+  @getModel: (name) ->
+    if @models[name]
+      return @models[name]
+    else
+      loader = new THREE.ObjectLoader()
+      data = {}
+      jQuery.ajax({
+        url:    'assets/models/'+name+'.json',
+        success: (result) ->
+          data = result
+        async:   false
+      });
+      model = loader.parse(data)
+      @models[name] = model
+      return model

@@ -1,3 +1,7 @@
+class RequestLoader
+  constructor: (state) ->
+    $.ajax("assets/data/requests.json").done(state.requestQueues)
+
 class Request
   type: null
   customer: null
@@ -6,10 +10,8 @@ class Request
   handled: null
   elapsed: null
 
-  constructor: (state, @type, @customer) ->
-    @time_created = state.tick
-
-
+  constructor: (@type, @customer) ->
+    @time_created = Game.state.tick
 
   resolved: ->
     @customer.increaseMood(5)
@@ -25,7 +27,7 @@ class Request
             request_data['complexity'],
             request_data['text'])
 
-  tick: (state) ->
-    elapsed = state.tick - @time_created
+  tick: ->
+    elapsed = Game.state.tick - @time_created
     if(elapsed % 2 == 0)
       @customer.reduceMood()

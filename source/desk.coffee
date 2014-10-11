@@ -1,4 +1,4 @@
-class Desk extends Renderable
+class Desk extends Entity
   modelName: -> 'small_desk'
 
   onClick: () ->
