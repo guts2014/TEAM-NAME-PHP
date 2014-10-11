@@ -1,4 +1,4 @@
-class GameRenderer
+class TableGameRenderer
   setup: (width, height) ->
     table = document.createElement 'table'
     table.id = 'game'
@@ -13,7 +13,7 @@ class GameRenderer
     document.body.appendChild $("<div id='devConsole'></div>")[0]
 
   update: (state) ->
-    console.log('should update the screen now', state)
+    console.log('Update screen now', state)
 
     this.resetTable()
 
@@ -23,7 +23,7 @@ class GameRenderer
 
 
 
-    text = "Agents: " + state.agents.length + "<br />"
+    text  = "Agents: " + state.agents.length + "<br />"
     text += "Customers: " + state.customers.length + "<br />"
     text += "Request queues: " + Object.keys(state.request_queues).length + "<br />"
     $("#devConsole").html(text)
