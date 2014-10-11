@@ -18,4 +18,4 @@ class Request
   tick: (state) ->
     @elasped = state.tick - @time_created
     if(@elapsed % 15 == 0)
-      @customer.lower_mood()
+      @customer.reduceMood()
