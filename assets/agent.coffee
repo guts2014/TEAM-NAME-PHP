@@ -8,20 +8,35 @@ class Agent
 
   queue: null             # the queue object the agent is assigned to
   salary: 0               # the salary of the agent
-  current_request: null
+  request: null
   working: 0
   training: 0
   training_elapsed: 0
 
   tick: (state) ->
+    if @working > 0
+      @request.tick(state)
+      @working = @working - 1
+      if @working == 0
+        @request.resolved()
+    else if @queue and @queue.length()
+      @request = @queue.pop()
+
 
   assign: (queue) ->
     @queue = queue
   remove: ->
     @queue = null
 
-  handle_request: (request)->
-    @current_request = request
+  handleRequest: (request)->
+    @request = request
 
   train: (skill)->
-    @skills.skill += 1
+    @skills[skill] = 1
+
+  fromAgentData: (agent_data) ->
+    @name = agent_data['name']
+    @salary = agent_data['salary']
+    @skills.email = agent_data['email']
+    @skills.phone = agent_data['phone']
+    @skills.webchat = agent_data['webchat']

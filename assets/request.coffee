@@ -5,15 +5,13 @@ class Request
   customer: null
   priority: null
   text: null
-  resolved: 0
   elapsed: null
 
   constructor: (@type) ->
 
 
   resolved: ->
-    @resolved = 1
-    @request = null
+    @customer.increaseMood()
 
   tick: (state) ->
     @elasped = state.tick - @time_created

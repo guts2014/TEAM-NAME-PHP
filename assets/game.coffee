@@ -8,12 +8,13 @@ class Game
     @state.tick += 1
     $('.tick-count').text(@state.tick)
     $('.date-display').text(new GameTime(@state.tick))
-    $('#gamestate').text("Customers: " + @state.customers.length + "\nRequests: " + @state.numberOfRequests())
+    $('#gamestate').text(@state)
     for tickable in @state.tickables
       try
         tickable.tick(@state)
       catch error
         console.log("error %o ticking %o", error, tickable)
+    @state.calculateReputation()
 
     @renderer.render(@state)
 
@@ -29,7 +30,6 @@ class Game
     @state.level.desks.push(new Desk(3,2))
 
     @state.tickables.push(new CustomerSpawner)
-
-    @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
+    @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "webchat": new RequestQueue('Chat Queue')})
 
     $.proxy(this.doTick, this)()
