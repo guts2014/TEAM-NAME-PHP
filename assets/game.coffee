@@ -8,12 +8,13 @@ class Game
     @state.tick += 1
     $('.tick-count').text(@state.tick)
     $('.date-display').text(new GameTime(@state.tick))
-    $('#gamestate').text("Customers: " + @state.customers.length + "\nRequests: " + @state.numberOfRequests())
+    $('#gamestate').text(@state)
     for tickable in @state.tickables
       try
         tickable.tick(@state)
       catch error
         console.log("error %o ticking %o", error, tickable)
+    @state.calculateReputation()
 
     @renderer.render(@state)
 

@@ -1,5 +1,4 @@
 class RequestQueue
-  requests: []
   type: ''
 
   push: (request) ->
@@ -9,6 +8,7 @@ class RequestQueue
     return @requests[0]
 
   constructor: (@name) ->
+    @requests = []
 
   length: ->
     @requests.length
