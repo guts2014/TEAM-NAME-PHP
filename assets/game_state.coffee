@@ -10,6 +10,13 @@ class GameState
   money: 1000000
   reputation: 0.5
 
+  addAgent: (agent) ->
+    @agents.append(agent)
+
+  fireAgent: (agent) ->
+    @agents.pop(agent)
+
+
   constructor: ->
     @level = new Level
 
