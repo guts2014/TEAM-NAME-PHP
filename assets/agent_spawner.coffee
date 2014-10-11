@@ -1,19 +1,36 @@
 class AgentSpawner
-  potential_agents: [] # Holds all potential customers from customers.json
-
   constructor: ->
-    console.log("in AS constructor")
-    $.ajax("/assets/data/agents.json").done($.proxy((data_agents) ->
-        for data_agent in data_agents
-          agent = new Agent
-          agent.fromAgentData(data_agent)
-          @potential_agents.push(agent)
-      , this)
-    ).error((a) ->
-      console.log(a)
+    self = this
+    $.ajax("/assets/data/names.json").done( (data) ->
+      console.log(data)
+      self.names = data
     )
 
-  hireAgent: ()->
-    if @potential_agents.length == 0
-      return undefined
-    $.extend({}, @potential_agents[Math.floor(Math.random() * @potential_agents.length)])
+  potentialAgents: []
+
+  getPotentialAgents: ->
+    while @potentialAgents.length < 10
+      @potentialAgents.push(@generateAgent())
+
+
+  generateAgent: ->
+    agent = new Agent
+    agent.name = @randomFirstName() + " " + @randomLastName()
+    salaryFactor = 0
+    for key of agent.skills
+      salaryFactor += agent.skills[key] = @randomSkillValue()
+    agent.salary = (Math.random() * 3 + salaryFactor / 2) * 10
+    agent.description = @getRandomDescription()
+
+  randomSkillValue: ->
+    Math.floor(Math.random() * 3)
+
+  randomFirstName: ->
+    name = @names[Math.floor(Math.random() * @names.length)]
+    name.substr(0, 1) + name.substr(1).toLowerCase()
+
+  randomLastName: ->
+    @randomFirstName()
+
+
+

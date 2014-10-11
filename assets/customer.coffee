@@ -29,11 +29,13 @@ class Customer
     @request = null
 
   createRequest: (state) ->
-    switch Math.floor(Math.random() * 2)
+    switch Math.floor(Math.random() * 3)
       when 0
         requestType = "email"
       when 1
         requestType = "phone"
+      when 2
+        requestType = "webchat"
     requestQueue = state.requestQueues[requestType]
     requestQueue.push(@request = new Request(state,requestType, this, 5))
 
