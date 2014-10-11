@@ -22,13 +22,7 @@ class Game
     $("#playText").text(@simulating ? "Pause" : "Unpause")
 
   run: ->
-    $.ajax("/assets/data/customers.json").done($.proxy((kana_customers) ->
-        for kana_customer in kana_customers
-          customer = new Customer
-          customer.from_kana_customer kana_customer
-          @state.customers.push(customer)
-      , this)
-    )
+    @state.customer_spawner = new CustomerSpawner
 
     @state.tickables.push(new RequestSpawner)
     @state.request_queues = $.extend(@state.request_queues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
