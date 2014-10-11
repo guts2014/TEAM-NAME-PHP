@@ -11,9 +11,9 @@ class Request
 
 
   resolved: ->
-    @customer.increaseMood()
+    @customer.increaseMood(5)
 
   tick: (state) ->
     elapsed = state.tick - @time_created
-    if(elapsed % 15 == 0)
+    if(elapsed % 2 == 0)
       @customer.reduceMood()
