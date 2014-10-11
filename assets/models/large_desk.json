@@ -1,0 +1,100 @@
+{
+	"metadata": {
+		"version": 4.3,
+		"type": "Object",
+		"generator": "ObjectExporter"
+	},
+	"geometries": [
+		{
+			"uuid": "F7B4F059-69B2-47C1-8ADD-80622D677F6F",
+			"type": "BoxGeometry",
+			"width": 20,
+			"height": 1,
+			"depth": 10,
+			"widthSegments": 1,
+			"heightSegments": 1,
+			"depthSegments": 1
+		},
+		{
+			"uuid": "B0C926F6-062E-437E-9181-9C360922F42F",
+			"type": "BoxGeometry",
+			"width": 1,
+			"height": 10,
+			"depth": 1,
+			"widthSegments": 1,
+			"heightSegments": 1,
+			"depthSegments": 1
+		}],
+	"materials": [
+		{
+			"uuid": "7FBBF323-54BD-47CA-8DF4-880696CA4AED",
+			"type": "MeshPhongMaterial",
+			"color": 16777215,
+			"ambient": 16777215,
+			"emissive": 0,
+			"specular": 1118481,
+			"shininess": 30,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
+		},
+		{
+			"uuid": "B87A7D2A-8363-4912-90C3-4A502F11FCF9",
+			"type": "MeshPhongMaterial",
+			"color": 16777215,
+			"ambient": 16777215,
+			"emissive": 0,
+			"specular": 1118481,
+			"shininess": 30,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
+		}],
+	"object": {
+		"uuid": "4273DE51-4250-4410-820F-F116533720B4",
+		"name": "LargeDesk",
+		"type": "Object3D",
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,20,0,0,1],
+		"children": [
+			{
+				"uuid": "94D0053F-E57E-43B6-81C2-2260C89F294C",
+				"name": "Tabletop",
+				"type": "Mesh",
+				"geometry": "F7B4F059-69B2-47C1-8ADD-80622D677F6F",
+				"material": "7FBBF323-54BD-47CA-8DF4-880696CA4AED",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,10,10,5,1]
+			},
+			{
+				"uuid": "14C502AD-BADF-4470-939E-EA88F1208B9A",
+				"name": "Leg1",
+				"type": "Mesh",
+				"geometry": "B0C926F6-062E-437E-9181-9C360922F42F",
+				"material": "B87A7D2A-8363-4912-90C3-4A502F11FCF9",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.5,5,0.5,1]
+			},
+			{
+				"uuid": "4CC0B8C7-ACBF-4329-9F1B-BE6C7FEB2D77",
+				"name": "Leg2",
+				"type": "Mesh",
+				"geometry": "B0C926F6-062E-437E-9181-9C360922F42F",
+				"material": "B87A7D2A-8363-4912-90C3-4A502F11FCF9",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,19.5,5,0.5,1]
+			},
+			{
+				"uuid": "473C886B-57DD-457A-8867-2ACA098E7626",
+				"name": "Leg3",
+				"type": "Mesh",
+				"geometry": "B0C926F6-062E-437E-9181-9C360922F42F",
+				"material": "B87A7D2A-8363-4912-90C3-4A502F11FCF9",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,19.5,5,9.5,1]
+			},
+			{
+				"uuid": "49218EC0-3330-49BA-80B2-FFF902CC1354",
+				"name": "Leg1",
+				"type": "Mesh",
+				"geometry": "B0C926F6-062E-437E-9181-9C360922F42F",
+				"material": "B87A7D2A-8363-4912-90C3-4A502F11FCF9",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.5,5,9.5,1]
+			}]
+	}
+}

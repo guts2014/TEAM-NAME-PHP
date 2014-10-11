@@ -1,16 +1,11 @@
 class ThreejsGameRenderer
-  tilesize: 20
-
-
-  tile2coord: (x, y) ->
-    new THREE.Vector3(x * @tilesize, 0, y * @tilesize)
-
+  models: {}
 
   setup: (state) ->
     dw = window.innerWidth
     dh = window.innerHeight
     aspect = dw / dh
-    d = 230
+    d = 180
 
     @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 1, 4000);
     @camera.position.set( d, d, d );
@@ -24,11 +19,29 @@ class ThreejsGameRenderer
 
     controls = new THREE.OrbitControls(@camera, @threerenderer.domElement)
     controls.noZoom = true;
-    controls.noPan  = true;
+    controls.noPan  = false;
     controls.maxPolarAngle = Math.PI / 2;
     #controls.zoomSpeed = 0.1;
 
     this.update(state)
+
+    loader = new THREE.STLLoader()
+
+    handleLoadEvent = (event) ->
+      geometry = event.content
+      material = new THREE.MeshPhongMaterial( { ambient: 0xff5533, color: 0xff5533, specular: 0x111111, shininess: 200 } )
+      mesh = new THREE.Mesh( geometry, material )
+
+      mesh.position.set( 0, - 0.25, 0.6 )
+      mesh.rotation.set( 0, - Math.PI / 2, 0 )
+      mesh.scale.set( 0.5, 0.5, 0.5 )
+
+      @scene.add mesh
+      console.log(mesh)
+
+    loader.addEventListener 'load', handleLoadEvent
+    loader.load 'assets/models/small_desk.stl'
+    loader.load 'assets/models/large_desk.stl'
 
 
 
@@ -50,29 +63,20 @@ class ThreejsGameRenderer
 
 
     # Floor
-    #geometry = new THREE.BoxGeometry(level.width * @tilesize, 20, level.height * @tilesize)
-    #material = new THREE.MeshNormalMaterial()
-    #@floor = new THREE.Mesh(geometry, material)
-    #@scene.add @floor
+    geometry = new THREE.BoxGeometry(level.width*10, 10, level.height*10)
+    material = new THREE.MeshNormalMaterial()
+    @floor   = new THREE.Mesh(geometry, material)
+    @floor.position.x = level.width * 5
+    @floor.position.y = -5
+    @floor.position.z = level.height * 5
+    @scene.add @floor
 
     # Desk
-    @scene.add this.makeDesk()
-
-
-  makeDesk: ->
-    desk = new THREE.Object3D()
-
-    material = new THREE.MeshNormalMaterial()
-
-
-    geometry = new THREE.BoxGeometry(0.9*@tilesize, 0.1*@tilesize, 0.9*@tilesize)
-    desktop = new THREE.Mesh(geometry, material)
-    desktop.position.y = @tilesize
-    desk.add desktop
+    #@scene.add this.makeDesk()
 
 
 
-    desk
+
 
 
 

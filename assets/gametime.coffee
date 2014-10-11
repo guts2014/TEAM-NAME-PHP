@@ -2,9 +2,7 @@ class GameTime
   days: 0
   hours: 0
   minutes: 0
-
-  ticksperminute: 1
-
+  
   constructor: (tick) ->
     this.setTime(tick)
 
