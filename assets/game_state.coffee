@@ -9,6 +9,7 @@ class GameState
 
   money: 1000000
   reputation: 0.5
+  agent_spawner = AgentSpawner()
 
   addAgent: (agent) ->
     @agents.append(agent)

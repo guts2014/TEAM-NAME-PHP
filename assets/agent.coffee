@@ -13,6 +13,8 @@ class Agent
   training: 0
   training_elapsed: 0
 
+
+
   tick: (state) ->
 
   assign: (queue) ->
@@ -20,8 +22,15 @@ class Agent
   remove: ->
     @queue = null
 
-  handle_request: (request)->
+  handleRequest: (request)->
     @current_request = request
 
   train: (skill)->
     @skills.skill += 1
+
+  fromAgentData: (agent_data) ->
+    @name = agent_data['name']
+    @salary = agent_data['salary']
+    @skills.email = agent_data['email']
+    @skills.phone = agent_data['phone']
+    @skills.webchat = agent_data['webchat']
