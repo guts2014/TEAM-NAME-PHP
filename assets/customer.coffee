@@ -11,12 +11,12 @@ class Customer
     else if Math.random() < 0.02 # Per customer, 2% chance of spawning a support request per tick
       this.createRequest(state)
 
-  reduceMood: ->
-    @mood -=0.05
+  reduceMood: (multiplier = 1) ->
+    @mood -= (0.05 * multiplier)
 
-  increaseMood: ->
+  increaseMood: (multiplier = 1) ->
     if(@mood < 1)
-      @mood += 0.05
+      @mood += (0.05 * multiplier)
       if(@mood > 1)
         @mood = 1
 
