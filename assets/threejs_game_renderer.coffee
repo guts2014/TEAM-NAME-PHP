@@ -38,7 +38,7 @@ class ThreejsGameRenderer
 
     if (window.WebGLRenderingContext)
       try
-        @threeRenderer = new THREE.WebGLRenderer({antialias: true})
+        @threeRenderer = new THREE.WebGLRenderer({antialias: false})
       catch error
         @threeRenderer = new THREE.CanvasRenderer()
     else
