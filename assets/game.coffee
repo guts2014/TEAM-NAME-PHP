@@ -1,5 +1,6 @@
 class Game
   constructor: (@renderer) ->
+    @simulating = false
     @state = new GameState
     @renderer.setup(@state)
 
@@ -12,7 +13,13 @@ class Game
 
     @renderer.render(@state)
 
-
+  toggleSimulating: ->
+    if @simulating
+      clearInterval @interval
+    else
+      @interval = setInterval $.proxy(this.doTick, this), 1000
+    @simulating = !@simulating
+    $("#playText").text(@simulating ? "Pause" : "Unpause")
 
   run: ->
     $.ajax("/assets/data/customers.json").done($.proxy((kana_customers) ->
