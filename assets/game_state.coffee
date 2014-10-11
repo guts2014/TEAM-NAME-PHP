@@ -3,7 +3,7 @@ class GameState
   agents: []
 
   requestQueues: {}
-  chanceOfRequest: 0.02
+  chanceOfRequest: 0.005
 
   tickables: []
   tick: 0
@@ -20,6 +20,9 @@ class GameState
     @agents.filter((item) ->
       item != agent
     )
+
+  removeCustomer: (customer) ->
+    customers.pop(customer)
 
   calculateReputation: ->
     totalWorth = 0

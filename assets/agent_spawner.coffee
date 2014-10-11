@@ -8,8 +8,6 @@ class AgentSpawner
           agent = new Agent
           agent.fromAgentData(data_agent)
           @potential_agents.push(agent)
-          window.game.state.addAgent(agent)
-          agent.assign(window.game.state.requestQueues.email)
       , this)
     ).error((a) ->
       console.log(a)
