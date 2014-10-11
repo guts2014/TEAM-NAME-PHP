@@ -4,7 +4,7 @@ class Game
 
     for i in [0..@state.width]
       @state.level[i] = new Array(@state.height)
-    @renderer.setup(@state.width, @state.height)
+    @renderer.setup(@state.level.width, @state.level.height)
 
   doTick: ->
     @state.tick += 1
@@ -15,13 +15,10 @@ class Game
 
     @renderer.update(@state)
 
+
+
   run: ->
     @state.tickables.push(new RequestSpawner)
-
-
-    @renderer.getCell(3, 2).style.background = "green"
-
-
     @state.request_queues = $.extend(@state.request_queues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
 
-    setTimeout $.proxy(this.doTick, this), 100
+    $.proxy(this.doTick, this)

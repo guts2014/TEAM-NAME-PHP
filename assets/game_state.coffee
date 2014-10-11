@@ -1,8 +1,4 @@
 class GameState
-  width:  30
-  height: 10
-  level:  []
-
   customers: []
   agents: []
 
@@ -12,3 +8,6 @@ class GameState
   tick: 0
 
   money: 1000000
+
+  constructor: ->
+    @level = new Level

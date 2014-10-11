@@ -3,9 +3,9 @@ class GameRenderer
     table = document.createElement 'table'
     table.id = 'game'
 
-    for x in [1..height]
+    for x in [0..height-1]
       row = document.createElement 'tr'
-      for y in [1..width]
+      for y in [0..width-1]
         cell = document.createElement 'td'
         row.appendChild cell
       table.appendChild row
@@ -14,10 +14,24 @@ class GameRenderer
 
   update: (state) ->
     console.log('should update the screen now', state)
+
+    this.resetTable()
+
+    for desk in state.level.desks
+      cell = this.getCell(desk[0], desk[1])
+      $(cell).addClass('desk');
+
+
+
     text = "Agents: " + state.agents.length + "<br />"
     text += "Customers: " + state.customers.length + "<br />"
     text += "Request queues: " + Object.keys(state.request_queues).length + "<br />"
     $("#devConsole").html(text)
+
+
+  resetTable: ->
+    $('#game td').removeClass('desk')
+
 
   getTable: ->
     document.querySelector "#game"
