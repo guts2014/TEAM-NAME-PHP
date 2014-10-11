@@ -1,6 +1,9 @@
 class RequestQueue
   requests: []
-  name: ''
+  type: ''
+
+  top_of_queue: ->
+    return @requests[0]
 
   constructor: (@name) ->
 
