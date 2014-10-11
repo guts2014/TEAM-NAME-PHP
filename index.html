@@ -11,7 +11,14 @@
     <script src="assets/js/three.min.js"></script>
     <script src="assets/js/OrbitControls.js"></script>
     <script src="assets/js/stats.min.js"></script>
-    <script async src="assets/js/sim.js"></script>
+    <script src="assets/js/sim.js"></script>
+    <script>
+      $(function() {
+        window.renderer = new ThreejsGameRenderer;
+        window.game = new Game(renderer);
+        return game.run();
+      });
+    </script>
   </head>
   <body>
     <noscript>For some strange reason you don't have JS turned on. Fix your browser!</noscript>
