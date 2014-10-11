@@ -38,7 +38,7 @@ class ThreejsGameRenderer
 
     if (window.WebGLRenderingContext)
       try
-        @threeRenderer = new THREE.WebGLRenderer({antialias: false})
+        @threeRenderer = new THREE.WebGLRenderer({antialias: true})
       catch error
         @threeRenderer = new THREE.CanvasRenderer()
     else
@@ -85,7 +85,7 @@ class ThreejsGameRenderer
     @room.add @floor
 
     @grid = new THREE.GridHelper(10000, 10)
-    @grid.position.y += 0.0001
+    @grid.position.y += 0.01
     @room.add @grid
 
     # Add/update all the movable stuff
