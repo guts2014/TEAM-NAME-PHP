@@ -1,7 +1,24 @@
 class ThreejsGameRenderer
-  models: {}
+  models: {
+    'small_desk': null,
+    'large_desk': null
+  }
+  loadModels: ->
+    console.log('loadModels()')
+    loader = new THREE.ObjectLoader()
+    self = this
+    for name of @models
+      f = ->
+        name_ = name
+        $.ajax('assets/models/'+name_+'.json').done((data)->
+          self.models[name_] = loader.parse(data)
+        )
+      f()
+
 
   setup: (state) ->
+    this.loadModels()
+
     dw = window.innerWidth
     dh = window.innerHeight
     aspect = dw / dh
@@ -33,7 +50,8 @@ class ThreejsGameRenderer
 
     this.update(state)
 
-    loader = new THREE.STLLoader()
+
+
 
     handleLoadEvent = (event) ->
       geometry = event.content
@@ -44,12 +62,9 @@ class ThreejsGameRenderer
       mesh.rotation.set( 0, - Math.PI / 2, 0 )
       mesh.scale.set( 0.5, 0.5, 0.5 )
 
-      #@scene.add mesh
+      @scene.add @models['small_desk']
       console.log(mesh)
 
-    loader.addEventListener 'load', handleLoadEvent
-    loader.load 'assets/models/small_desk.stl'
-    loader.load 'assets/models/large_desk.stl'
 
 
 
