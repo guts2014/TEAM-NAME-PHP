@@ -12,10 +12,12 @@ class GameState
   agentSpawner: AgentSpawner()
 
   addAgent: (agent) ->
-    @agents.append(agent)
+    @agents.push(agent)
 
   fireAgent: (agent) ->
-    @agents.pop(agent)
+    @agents.filter((item) ->
+      item != agent
+    )
 
   calculateReputation: ->
     totalWorth = 0
