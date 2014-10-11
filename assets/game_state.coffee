@@ -3,7 +3,10 @@ class GameState
   height: 10
   level:  []
 
-  request_queues: []
+  customers: []
+  agents: []
+
+  request_queues: {}
 
   tickables: []
   tick: 0

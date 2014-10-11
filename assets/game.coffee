@@ -18,7 +18,6 @@ class Game
     @renderer.getCell(3, 2).style.background = "green"
 
 
-    q = new RequestQueue('Test Queue')
-    @state.request_queues.push q
+    @state.request_queues = $.extend(@state.request_queues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "chat": new RequestQueue('Chat Queue')})
 
     setTimeout $.proxy(this.doTick, this), 100
