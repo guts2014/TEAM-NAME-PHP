@@ -1,6 +1,6 @@
 class Game
   width:  10
-  height: 5
+  height: 3
   level:  []
 
   constructor: (@renderer) ->
@@ -8,7 +8,7 @@ class Game
       @level[i] = new Array(@height)
     console.log(@level)
 
-    @renderer.setup(@width)
+    @renderer.setup(@width, @height)
 
 
 

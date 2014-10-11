@@ -1,7 +1,7 @@
 class Agent
   skills: []
-  firstName: getRandomFirstName()
-  lastName: getRandomLastName()
+  firstName: this.getRandomFirstName()
+  lastName: this.getRandomLastName()
   getRandomFirstName: ->
     "banana"
   getRandomLastName: ->
