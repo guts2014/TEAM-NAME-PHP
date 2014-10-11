@@ -16,7 +16,7 @@ class GameRenderer
     console.log('should update the screen now', state)
     text = "Agents: " + state.agents.length + "<br />"
     text += "Customers: " + state.customers.length + "<br />"
-    text += "Requests: " + Object.keys(state.request_queues).length + "<br />"
+    text += "Request queues: " + Object.keys(state.request_queues).length + "<br />"
     $("#devConsole").html(text)
 
   getTable: ->

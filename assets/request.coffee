@@ -1,6 +1,6 @@
 class Request
 
 
-class Call extends Request
+class PhoneRequest extends Request
 
-class WebChat extends Request
+class EmailRequest extends Request
