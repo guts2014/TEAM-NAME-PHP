@@ -4,4 +4,6 @@ class RequestSpawner
       this.spawnRequest(state)
 
   spawnRequest: (state) ->
-    state.request_queues['email'].requests.push(new EmailRequest)
+    request_queues = state.request_queues
+    keys = Object.keys(request_queues)
+    request_queues[keys[ keys.length * Math.random() << 0]].requests.push(new EmailRequest)

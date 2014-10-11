@@ -2,9 +2,9 @@ class Agent
   name= null
 
   skills =
-    email: null
-    phone: null
-    webchat: null
+  email: null
+  phone: null
+  webchat: null
 
   queue: null             # the queue object the agent is assigned to
   salary: 0               # the salary of the agent
@@ -15,13 +15,10 @@ class Agent
 
   tick: (state) ->
 
-
-
   assign: (queue) ->
     @queue = queue
   remove: ->
     @queue = null
-
 
   handle_request: (request)->
     @current_request = request
