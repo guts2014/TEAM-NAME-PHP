@@ -10,8 +10,19 @@ class Request
     @time_created = state.tick
 
 
+
   resolved: ->
     @customer.increaseMood(5)
+
+  create: (@type, @time_created, @customer, @priority, @complexity, @text) ->
+
+  createFromRequestData: (request_data,  tick, customer) ->
+    @create(request_data['type'],
+            tick,
+            customer,
+            request_data['priority'],
+            request_data['complexity'],
+            request_data['text'])
 
   tick: (state) ->
     elapsed = state.tick - @time_created

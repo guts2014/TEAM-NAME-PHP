@@ -5,6 +5,8 @@ class Customer
   mood: 1
   request: null
 
+  constructor: ->
+    
   tick: (state) ->
     if @request
       @request.tick(state)
@@ -29,7 +31,8 @@ class Customer
       when 1
         requestType = "phone"
     requestQueue = state.requestQueues[requestType]
-    requestQueue.push(@request = new Request(state, requestType, this))
+    requestQueue.push(@request = new Request(state,requestType, customer))
+
 
   fromKanaCustomer: (kana) ->
     @name = kana['firstName'] + " " + kana['surname']
