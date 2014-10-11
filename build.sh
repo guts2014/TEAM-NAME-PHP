@@ -1,3 +1,3 @@
 #!/bin/bash
 cd assets
-coffee -bco js -w . 
+coffee -mbco js -w . 

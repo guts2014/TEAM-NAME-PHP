@@ -1,3 +1,5 @@
-renderer = new GameRenderer
-game     = new Game renderer
-game.run()
+$(->
+  renderer = new GameRenderer
+  game     = new Game renderer
+  game.run()
+)

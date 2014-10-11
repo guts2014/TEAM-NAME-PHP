@@ -12,6 +12,9 @@ class GameRenderer
     document.querySelector('body').appendChild table
 
 
+  update: ->
+    console.log('should update the screen now')
+
   getTable: ->
     document.querySelector "#game"
   getCell: (x, y) ->
