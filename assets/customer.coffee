@@ -10,7 +10,7 @@ class Customer
   tick: (state) ->
     if @request
       @request.tick(state)
-    else if Math.random() < 0.02 # Per customer, 2% chance of spawning a support request per tick
+    else if Math.random() < state.chanceOfRequest # Per customer, 2% chance of spawning a support request per tick
       this.createRequest(state)
 
   reduceMood: (multiplier = 1) ->
