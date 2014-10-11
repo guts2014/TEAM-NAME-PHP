@@ -12,8 +12,8 @@ class GameRenderer
     document.querySelector('body').appendChild table
 
 
-  update: ->
-    console.log('should update the screen now')
+  update: (state) ->
+    console.log('should update the screen now', state)
 
   getTable: ->
     document.querySelector "#game"

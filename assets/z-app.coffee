@@ -1,5 +1,5 @@
 $(->
-  renderer = new GameRenderer
-  game     = new Game renderer
+  renderer    = new GameRenderer
+  window.game = new Game renderer
   game.run()
 )
