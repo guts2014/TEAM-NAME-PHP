@@ -38,13 +38,13 @@ class ThreejsGameRenderer
 
     if (window.WebGLRenderingContext)
       try
-        @threeRenderer = new THREE.WebGLRenderer({antialias: true})
+        @threeRenderer = new THREE.WebGLRenderer({antialias: false})
       catch error
         @threeRenderer = new THREE.CanvasRenderer()
     else
       @threeRenderer = new THREE.CanvasRenderer()
 
-    @threeRenderer.setClearColorHex(0xffffff, 1)
+    @threeRenderer.setClearColor(0xffffff, 1)
     @threeRenderer.setSize(dw, dh)
     document.body.appendChild(@threeRenderer.domElement)
 
@@ -62,7 +62,7 @@ class ThreejsGameRenderer
     @scene = new THREE.Scene()
 
     # Lighting
-    #@scene.add new THREE.AmbientLight(0x444444)
+    @scene.add new THREE.AmbientLight(0x222222)
     light = new THREE.PointLight(0xffffff, 0.8)
     light.position.set(d, d, d)
     @scene.add light
@@ -84,9 +84,9 @@ class ThreejsGameRenderer
     @floor.position.z = state.level.height * 5
     @room.add @floor
 
-    @grid = new THREE.GridHelper(10000, 10)
+    @grid = new THREE.GridHelper(1000, 10)
     @grid.position.y += 0.01
-    @room.add @grid
+    #@room.add @grid
 
     # Add/update all the movable stuff
     this.update(state)
@@ -98,6 +98,30 @@ class ThreejsGameRenderer
       @camera.updateProjectionMatrix()
       @threeRenderer.setSize(window.innerWidth, window.innerHeight)
     window.addEventListener 'resize', $.proxy(onWindowResize, this)
+
+
+    onDocumentMouseDown = (event) ->
+      event.preventDefault()
+      if event.button is 0
+        projector = new THREE.Projector()
+        vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5)
+
+        # use picking ray since it's an orthographic camera
+        raycaster = projector.pickingRay(vector, @camera)
+
+        objects = []
+        for desk in state.level.desks
+          objects.push desk.threeobject
+
+        # determine whether any of the supplied objects are hit by this ray
+        intersectsObj = raycaster.intersectObjects(objects, true)
+
+        if intersectsObj.length > 0
+          pickedObject = intersectsObj[0]
+          console.log(pickedObject)
+
+      event = null
+    document.addEventListener 'mousedown', $.proxy(onDocumentMouseDown, this)
 
 
   update: (state) ->

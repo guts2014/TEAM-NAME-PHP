@@ -25,12 +25,12 @@ class Game
     $("#playText").text(if @simulating then "Pause" else "Unpause")
 
   run: ->
-    for x in [2, 4, 6, 8]
-      for y in [3, 6, 9, 12]
-        @state.level.desks.push(new Desk(y,x))
+    for y in [2, 4, 6, 8]
+      for x in [2, 4, 6, 8, 10]
+        @state.level.desks.push(new Desk(x,y))
+        @state.level.people.push(new Person(x,y))
 
 
-    @state.level.people.push(new Person(1,2))
 
     @state.tickables.push(new CustomerSpawner)
     @state.requestQueues = $.extend(@state.requestQueues, {"email": new RequestQueue('Email Queue'), "phone": new RequestQueue('Phone Queue'), "webchat": new RequestQueue('Chat Queue')})
