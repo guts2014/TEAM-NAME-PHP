@@ -8,10 +8,10 @@ class ThreejsGameRenderer
     d = 180
 
     @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 1, 4000);
-    @camera.position.set( d, d, d );
+    @camera.position.set(d, d, d);
     @camera.rotation.order = 'YXZ';
     @camera.rotation.y = - Math.PI / 4;
-    @camera.rotation.x = Math.atan( -1 / Math.sqrt(2) );
+    @camera.rotation.x =   Math.atan(-1 / Math.sqrt(2));
 
     if (window.WebGLRenderingContext)
       try
@@ -25,8 +25,9 @@ class ThreejsGameRenderer
     document.body.appendChild(@threeRenderer.domElement);
 
     controls = new THREE.OrbitControls(@camera, @threeRenderer.domElement)
-    controls.noZoom = true;
-    controls.noPan  = false;
+    controls.noZoom = true
+    controls.noPan  = false
+    controls.noRotate = true
     controls.maxPolarAngle = Math.PI / 2;
     #controls.zoomSpeed = 0.1;
 
@@ -43,12 +44,20 @@ class ThreejsGameRenderer
       mesh.rotation.set( 0, - Math.PI / 2, 0 )
       mesh.scale.set( 0.5, 0.5, 0.5 )
 
-      @scene.add mesh
+      #@scene.add mesh
       console.log(mesh)
 
     loader.addEventListener 'load', handleLoadEvent
     loader.load 'assets/models/small_desk.stl'
     loader.load 'assets/models/large_desk.stl'
+
+
+
+    onWindowResize = ->
+      @camera.aspect = window.innerWidth / window.innerHeight
+      @camera.updateProjectionMatrix()
+      @threeRenderer.setSize(window.innerWidth, window.innerHeight)
+    window.addEventListener 'resize', $.proxy(onWindowResize, this)
 
 
 
