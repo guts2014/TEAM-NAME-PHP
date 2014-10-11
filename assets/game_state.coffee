@@ -3,7 +3,7 @@ class GameState
   agents: []
 
   requestQueues: {}
-  chanceOfRequest: 0.02
+  chanceOfRequest: 0.005
 
   tickables: []
   tick: 0
