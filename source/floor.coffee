@@ -47,4 +47,4 @@ class Floor extends Entity
 
 
   tileClicked: (x, y) ->
-    new Agent(x, y)
+    #new Agent(x, y)
