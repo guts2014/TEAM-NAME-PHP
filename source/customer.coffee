@@ -15,28 +15,23 @@ class Customer extends Entity
       customer.fromKanaCustomer(@potential_customers.pop())
       customer.id = Game.state.custNo
       Game.state.custNo++
-      Game.state.actualCustNo++
 
   name: ''
   worth: 100
   volatility: 0.25
-  mood: 1
+  mood: 0.7
   request: null
-  alive: 0
 
   fromKanaCustomer: (kana) ->
     @name = kana['firstName'] + " " + kana['surname']
     @volatility = +kana['customerVolatilityScore'] / 100
     @worth = +kana['netPromoterScore']
-    @alive = 1
 
   tick: ->
     if @request
       @request.tick()
     else if Math.random() < Game.state.chanceOfRequest # Per customer, 2% chance of spawning a support request per tick
       this.createRequest()
-    if @mood <= 0
-      @remove()
 
 
   reduceMood: (multiplier = 1) ->
@@ -65,4 +60,4 @@ class Customer extends Entity
     requestQueue.push(@request = new Request(requestType, this))
 
   cleanup: ->
-    $('#cust' + @id).remove()
+    $('#cust' + id).remove()

@@ -26,24 +26,20 @@ class Game
     $('.tick-count').text(Game.state.tick)
     $('.date-display').text(new GameTime(Game.state.tick))
     $('#customer_list').html("")
-    $('#request_list')
     for customer in Game.state.customers()
-      if customer.alive
-        id = customer.id
-        $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood * 100) + " Worth: " + Math.floor(customer.worth) + "</li>")
+      id = customer.id
+      $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood) + "</li>")
 
 
   @run: ->
     Game.renderer.setup()
     new Floor()
-    new SmallDesk(2, 4)
-    new SmallDesk(4, 4)
-    new SmallDesk(6, 4)
-    new SmallDesk(8, 4)
-
+    new SmallDesk(1, 1)
+    new SmallDesk(1, 3)
+    new SmallDesk(1, 5)
+    new SmallDesk(1, 7)
     Game.doTick()
     Game.renderer.render(@state)
-    Game.setSimulationRate(1)
 
     $(".topoverlay i").click((evt) ->
       target = evt.target

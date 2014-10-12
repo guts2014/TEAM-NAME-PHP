@@ -1,19 +1,15 @@
 class GameState
   tick: 0
   mode: "transport"
-  levelWidth:  20
-  levelHeight: 20
+  levelWidth:  30
+  levelHeight: 10
   ui: null
-
-
   entities: []
 
   money: 1000000
   reputation: 0.5
 
   custNo: 0
-  actualCustNo: 0
-
   requestQueues: {
     "email":   [],
     "phone":   [],
@@ -39,8 +35,8 @@ class GameState
     for customer in this.customers()
       totalRep += customer.mood * customer.worth
       totalWorth += customer.worth
-    #if totalWorth != 0
-    #@reputation = totalRep / totalWorth
+    if totalWorth != 0
+      @reputation = totalRep / totalWorth
 
   calculateBudgetChange: ->
     budget = 0
