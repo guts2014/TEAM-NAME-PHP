@@ -45,26 +45,50 @@ class SmallDesk extends Entity
     ui.open()
 
   hireAgent: (agentD) ->
-    @agent = new Agent(this.x, this.y, agentD)
+    console.log('agent added')
+    @agent = new Agent(this.x, this.y-1, agentD)
 
   infoScreen: () ->
+    ui = Game.state.ui
+
     if(!@agent)
 
     else
       title = @agent.name
+      content = "Skills: email - " + @agent.skills.email + " | phone - " + @agent.skills.phone
+
 
       ui.changeTitle(title)
       ui.changeContent(content)
       ui.changeButtons("")
       ui.open()
+
+
+  assignScreen: () ->
+    ui = Game.state.ui
+    title = "Assign to Queue"
+    email_queue = Game.state.requestQueues.email
+    phone_queue = Game.state.requestQueues.phone
+
+    buttons = [{text: "Email", click:->
+                                ui.close()
+                                @agent.assign(email_queue)},
+              {text: "Phone", click:->
+                                ui.close()
+                                @agent.assign(phone_queue)}]
+    ui.changeTitle(title)
+    ui.changeContent(content)
+    ui.changeButtons(buttons)
+    ui.open()
   onClick: () ->
     #show mene
     console.log('Somebody clicked me!')
 
     ui = Game.state.ui
-    buttons = ""
+    buttons = []
+    me = this
     if !@agent
-      me = this
+
       title = "Empty Seat"
       content = "Nobody is sitting in this seat, hire a new employee?"
       buttons = [{text: "Hire", click: ->
@@ -75,7 +99,11 @@ class SmallDesk extends Entity
                                   }]
     else
       title = @agent.name
-
+      content = ""
+      buttons = [{text: "Info", click: ->
+                                  ui.close()
+                                  me.infoScreen()
+        }]
 
 
 
