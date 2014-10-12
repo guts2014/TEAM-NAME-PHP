@@ -50,7 +50,7 @@ body {
     position: absolute;
     width: 100%;
     background: black;
-    height: 100px;
+    height: 150px;
     bottom: 0;
     overflow: scroll;
     padding: 0;
@@ -81,7 +81,7 @@ body {
 
 #customer_list {
     position: absolute;
-    height: 100px;
+    height: 150px;
     padding: 0;
 }
 
