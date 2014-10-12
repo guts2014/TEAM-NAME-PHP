@@ -14,7 +14,7 @@ class GameRenderer
     aspect = dw / dh
     d = 150
 
-    @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, 0.1, 1000)
+    @camera = new THREE.OrthographicCamera(-d*aspect, d*aspect, d, -d, -1000, 1000)
     @camera.position.set(d, d, d)
     @camera.rotation.order = 'YXZ'
     @camera.rotation.y = - Math.PI / 4
@@ -46,8 +46,8 @@ class GameRenderer
     @scene = new THREE.Scene()
 
     # Lighting
-    @scene.add new THREE.AmbientLight(0x222222)
-    @light = new THREE.PointLight(0xffffff, 0.8)
+    @scene.add new THREE.AmbientLight(0x111111)
+    @light = new THREE.PointLight(0xffffff, 0.7)
     @light.position.set(d, d, d)
     @scene.add @light
 
@@ -132,6 +132,7 @@ class GameRenderer
 
     @stats.begin()
     @light.position.copy(@camera.position)
+    @light.position.y += 100
     @threeRenderer.render( @scene, @camera )
     @stats.end()
 
