@@ -32,6 +32,8 @@ class Customer extends Entity
       @request.tick()
     else if Math.random() < Game.state.chanceOfRequest # Per customer, 2% chance of spawning a support request per tick
       this.createRequest()
+    if @mood <= 0
+      this.remove()
 
 
   reduceMood: (multiplier = 1) ->
@@ -60,4 +62,4 @@ class Customer extends Entity
     requestQueue.push(@request = new Request(requestType, this))
 
   cleanup: ->
-    $('#cust' + id).remove()
+    $('#cust' + @id).remove()
