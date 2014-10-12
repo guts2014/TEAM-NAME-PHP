@@ -18,7 +18,8 @@ class Request
     reqType = @type
     requests = Request.potential_requests
     randomRequest = Math.floor(Math.random() * requests.length)
-    @createFromRequestData(requests[reqType][randomRequest])
+
+    @createFromRequestData(requests[randomRequest])
 
 
 
