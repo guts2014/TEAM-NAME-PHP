@@ -1,10 +1,8 @@
 class GameState
   tick: 0
   mode: "transport"
-  levelWidth:  20
-  levelHeight: 20
-  ui: null
-
+  levelWidth:  30
+  levelHeight: 10
 
   entities: []
 
@@ -12,8 +10,6 @@ class GameState
   reputation: 0.5
 
   custNo: 0
-  actualCustNo: 0
-
   requestQueues: {
     "email":   [],
     "phone":   [],

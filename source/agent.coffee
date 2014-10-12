@@ -13,6 +13,7 @@ class Agent extends Entity
   completed: 0
 
   $.ajax("/assets/data/names.json").done( (data) ->
+    console.log(data)
     Agent.names = data
   )
 
@@ -57,9 +58,8 @@ class Agent extends Entity
     @randomFirstName()
 
 
-  constructor: (x, y, potentialAgent=Agent.generatePotentialAgent())->
+  constructor: (x, y, potentialAgent={})->
     super(x, y)
-
     $.extend(this, potentialAgent)
 
   @fromAgentData: (agent_data) ->
