@@ -44,7 +44,7 @@ class Agent extends Entity
     salaryFactor = 0
     for key of agent.skills
       salaryFactor += agent.skills[key] = Math.floor(Math.random() * 3)
-    agent.salary = (Math.random() * 3 + salaryFactor / 2) * 10
+    agent.salary = (Math.random() * 3 + salaryFactor / 2) * 20
     agent
 
   @randomDescription: ->
