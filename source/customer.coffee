@@ -65,6 +65,4 @@ class Customer extends Entity
     requestQueue.push(@request = new Request(requestType, this))
 
   cleanup: ->
-    console.log('cleaning up')
-    @alive = 0
     $('#cust' + @id).remove()
