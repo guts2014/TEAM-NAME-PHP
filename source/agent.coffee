@@ -13,7 +13,6 @@ class Agent extends Entity
   completed: 0
 
   $.ajax("/assets/data/names.json").done( (data) ->
-    console.log(data)
     Agent.names = data
   )
 
