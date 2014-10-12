@@ -38,11 +38,9 @@ class Floor extends Entity
     return false
 
   onClick: (data) ->
-    x = Math.floor((data.point.x + Game.state.levelWidth*5)/10)
+    x = Math.floor((data.point.x + Game.state.levelWidth*5 )/10)
     y = Math.floor((data.point.z + Game.state.levelHeight*5)/10)
-
     if x < Game.state.levelWidth and y < Game.state.levelHeight
-
       this.tileClicked(x, y)
 
 
