@@ -1,8 +1,8 @@
 class GameState
   tick: 0
   mode: "transport"
-  levelWidth:  30
-  levelHeight: 10
+  levelWidth:  20
+  levelHeight: 20
   ui: null
 
 
