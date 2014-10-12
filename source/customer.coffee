@@ -48,18 +48,22 @@ class Customer extends Entity
         @mood = 1
 
   removeRequest: ->
+    Game.state.requestQueues[@requestType] = Game.state.requestQueues[@requestType].filter((item) ->
+      item != @request
+    )
     @request = null
 
   createRequest: ->
 
     switch Math.floor(Math.random() * 2)
       when 0
-        requestType = "email"
+        @requestType = "email"
       when 1
-        requestType = "phone"
+        @requestType = "phone"
 
-    requestQueue = Game.state.requestQueues[requestType]
-    requestQueue.push(@request = new Request(requestType, this))
+    requestQueue = Game.state.requestQueues[@requestType]
+    requestQueue.push(@request = new Request(@requestType, this))
 
   cleanup: ->
     $('#cust' + @id).remove()
+    @removeRequest()
