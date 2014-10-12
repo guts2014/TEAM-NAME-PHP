@@ -43,4 +43,4 @@ class Floor extends Entity
 
 
   tileClicked: (x, y) ->
-    new SmallDesk(x, y)
+    #new SmallDesk(x, y)

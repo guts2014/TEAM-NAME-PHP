@@ -34,9 +34,13 @@ class Game
   @run: ->
     Game.renderer.setup()
     new Floor()
+    new SmallDesk(1, 1)
+    new SmallDesk(1, 3)
+    new SmallDesk(1, 5)
+    new SmallDesk(1, 7)
     Game.doTick()
     Game.renderer.render(@state)
-    
+
     $(".topoverlay i").click((evt) ->
       target = evt.target
       $(".topoverlay i").removeClass("selectedSpeed")

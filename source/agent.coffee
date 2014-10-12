@@ -24,6 +24,10 @@ class Agent extends Entity
       @potentialAgents.push(@generatePotentialAgent())
     @potentialAgents
 
+  @freshAgents: ->
+    @potentialAgents= []
+    @getPotentialAgents()
+
 
   @generatePotentialAgent: ->
     agent = {}

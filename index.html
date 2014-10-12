@@ -19,28 +19,8 @@
     <script>
       $(function() {
         Game.run();
+        Game.state.ui.setDialog($("#dialog"));
 
-        /*
-        $('.right').click(function () {
-          alert("yo")
-            var position = $('.cust_wrap').position();
-            var r=position.left-$(window).width()
-            $('.cust_wrap').animate({
-                'left': ''+r+'px'
-            });
-        });
-
-        $('.left').click(function () {
-            var position = $('.cust_wrap').position();
-            var l=position.left+$(window).width()
-            if (l<=0) {
-              $('.cust_wrap').animate({
-                  'left': ''+l+'px'
-              });
-            }
-        });
-
-        */
     });
     $(function() {
       $( "#dialog" ).dialog({autoOpen: false});
