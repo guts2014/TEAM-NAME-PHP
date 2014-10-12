@@ -36,7 +36,8 @@ class Game
     new Floor()
     Game.doTick()
     Game.renderer.render(@state)
-    
+    Game.setSimulationRate(1)
+
     $(".topoverlay i").click((evt) ->
       target = evt.target
       $(".topoverlay i").removeClass("selectedSpeed")

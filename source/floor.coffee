@@ -1,4 +1,5 @@
 class Floor extends Entity
+  collidable: false
   constructor: ->
     if !@model
       floorcontainer = new THREE.Object3D()
@@ -33,6 +34,9 @@ class Floor extends Entity
 
     super(0, 0)
 
+  checkCollides: (other) ->
+    return false
+
   onClick: (data) ->
     x = Math.floor((data.point.x + Game.state.levelWidth*5)/10)
     y = Math.floor((data.point.z + Game.state.levelHeight*5)/10)
@@ -43,4 +47,4 @@ class Floor extends Entity
 
 
   tileClicked: (x, y) ->
-    new SmallDesk(x, y)
+    new Agent(x, y)

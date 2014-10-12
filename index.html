@@ -4,13 +4,13 @@
     <meta charset="utf8" />
 
     <title>Simulation Thingy</title>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 
     <link rel="stylesheet" href="assets/style.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="assets/js/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 
     <script src="assets/js/three.min.js"></script>
     <script src="assets/js/OrbitControls.js"></script>
@@ -42,6 +42,7 @@
 
         */
     });
+
     $(function() {
       $( "#dialog" ).dialog({autoOpen: false});
     });
@@ -52,10 +53,10 @@
 
 
   <body>
+    <noscript>For some strange reason you don't have JS turned on. Fix your browser!</noscript>
     <div id="dialog" title="Basic dialog">
       <p></p>
     </div>
-    <noscript>For some strange reason you don't have JS turned on. Fix your browser!</noscript>
     <div id="deskMenu" title="Basic dialog">
       Info for desk
     </div>
@@ -64,8 +65,8 @@
     </div>
     <div class="topoverlay">
       <span class="date-display"></span><br />
-      <i onclick="Game.setSimulationRate(0);" class="selectedSpeed fa fa-pause" title="pause"></i>
-      <i onclick="Game.setSimulationRate(1);" class="fa fa-play" title="play (1x)"></i>
+      <i onclick="Game.setSimulationRate(0);" class="fa fa-pause" title="pause"></i>
+      <i onclick="Game.setSimulationRate(1);" class="fa fa-play selectedSpeed" title="play (1x)"></i>
       <i onclick="Game.setSimulationRate(2);" class="fa fa-forward" title="forward (2x)"></i>
       <i onclick="Game.setSimulationRate(4);" class="fa fa-fast-forward" title="fast forward (4x)"></i>
     </div>
