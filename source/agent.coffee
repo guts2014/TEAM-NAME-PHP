@@ -105,4 +105,4 @@ class Agent extends Entity
     @training = 30
 
   toString: ->
-    "Name: " + @name + ", request: " + @request + ", completed: " + @completed + ", training: " + @trainingSkill
+    "Name: " + @name + ", request: " + @request + ", completed: " + @completed
