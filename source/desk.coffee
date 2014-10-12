@@ -51,13 +51,9 @@ class SmallDesk extends Entity
 
   infoScreen: () ->
     ui = Game.state.ui
-
-    if(!@agent)
-
-    else
+    if @agent
       title = @agent.name
       content = "Skills: email - " + @agent.skills.email + " | phone - " + @agent.skills.phone
-
 
       ui.changeTitle(title)
       ui.changeContent(content)
@@ -96,7 +92,7 @@ class SmallDesk extends Entity
       me.empty()
       agent.remove()
       ui.close()
-    buttons = [{text: "Yes", click: buttonClick}]
+    buttons = [{text: "Yes", click: $.proxy(buttonClick, this)}]
 
     ui.changeTitle(title)
     ui.changeContent(content)

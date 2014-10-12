@@ -94,9 +94,7 @@ class Agent extends Entity
   assign: (queue) ->
     @queue = queue
 
-  remove: ->
-    @queue = null
-
+  
   handleRequest: (request)->
     @request = request
     # calculate the number of ticks it will take for the agent to handle the request
