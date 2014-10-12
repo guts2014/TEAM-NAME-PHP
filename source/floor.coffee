@@ -47,5 +47,7 @@ class Floor extends Entity
 
 
   tileClicked: (x, y) ->
-    #new SmallDesk(x, y)
-    #new Agent(x, y)
+    if Game.state.money > 500
+      if confirm("Do you want to add a desk for $500?")
+        new SmallDesk(x, y)
+        Game.state.money -= 500

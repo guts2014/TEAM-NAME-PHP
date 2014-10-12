@@ -9,7 +9,7 @@ class SmallDesk extends Entity
 
 
   empty: () ->
-    return agent == null
+    @agent = null
 
   assignDesk: (@agent) ->
 
@@ -32,12 +32,11 @@ class SmallDesk extends Entity
       salary =  agent.salary
       agentTx = agent.name + "\ne: " + email  + "\np: " +  phoneSkill + "\nsalary: " +  salary.toFixed(2)
 
-      button = {text: agentTx, click: ->
-                                  ui.close()
-                                  me.hireAgent(agent)
-                                  }
+      buttonClick = (agent_) ->
+        ui.close()
+        me.hireAgent(agent_)
+      button = {text: agentTx, click: $.proxy(buttonClick, this, agent)}
       hireButtons.push(button)
-
 
     ui.changeTitle(title)
     ui.changeContent(content)
@@ -46,7 +45,7 @@ class SmallDesk extends Entity
 
   hireAgent: (agentD) ->
     @agent = new Agent(this.x, this.y+1, agentD)
-    Agent.potentialAgents.pop(agentD)
+    Agent.potentialAgents.pop()
 
   infoScreen: () ->
     ui = Game.state.ui
@@ -71,17 +70,34 @@ class SmallDesk extends Entity
     email_queue = Game.state.requestQueues.email
     phone_queue = Game.state.requestQueues.phone
     me = this
-    buttons = [{text: "Email", click:->
-                                me.agent.assign(email_queue)
-                                ui.close()
-                                },
-              {text: "Phone", click:->
-                                me.agent.assign(phone_queue)
-                                ui.close()
-                                }]
+    buttonEmailClick = ->
+      me.agent.assign(email_queue)
+      ui.close()
+    buttonPhoneClick = ->
+      me.agent.assign(phone_queue)
+      ui.close()
+    buttons = [{text: "Email", click: buttonEmailClick},
+              {text: "Phone", click: buttonPhoneClick}]
 
     ui.changeTitle(title)
     ui.changeContent("")
+    ui.changeButtons(buttons)
+    ui.open()
+
+  fireScreen: () ->
+    ui = Game.state.ui
+    me = @
+    agent = @agent
+    title = "Fire Agent"
+    content = "Do you really wish to fire " + @agent.name
+    buttonClick = ->
+      me.empty()
+      agent.remove()
+      ui.close()
+    buttons = [{text: "Yes", click: buttonClick}]
+
+    ui.changeTitle(title)
+    ui.changeContent(content)
     ui.changeButtons(buttons)
     ui.open()
 
@@ -96,12 +112,11 @@ class SmallDesk extends Entity
 
       title = "Empty Seat"
       content = "Nobody is sitting in this seat, hire a new employee?"
-      buttons = [{text: "Hire", click: ->
-                                  hire = 1
-
-                                  ui.close()
-                                  me.hireScreen()
-                                  }]
+      buttonClick = ->
+        hire = 1
+        ui.close()
+        me.hireScreen()
+      buttons = [{text: "Hire", click: buttonClick}]
     else
       title = @agent.name
       content = ""
@@ -110,14 +125,21 @@ class SmallDesk extends Entity
           content = "Assigned to email support"
         if @agent.queue == Game.state.requestQueues.phone
           content = "Assigned to phone support"
+        if @agent.request
+          content = content + "\n" + "Working on " + @agent.request.text + " time left : " + @agent.working
 
-      buttons = [{text: "Info", click: ->
-                                  ui.close()
-                                  me.infoScreen()
-                                },
-                  {text: "Assign", click: ->
-                                    ui.close()
-                                    me.assignScreen()}]
+      buttonInfoClick = ->
+        ui.close()
+        me.infoScreen()
+      buttonAssignClick = ->
+        ui.close()
+        me.assignScreen()
+      buttonFireClick = ->
+        ui.close()
+        me.fireScreen()
+      buttons = [{text: "Info", click: buttonInfoClick},
+              {text: "Assign", click: buttonAssignClick},
+              {text: "Fire", click: buttonFireClick}]
 
 
 
