@@ -39,6 +39,11 @@ body {
     padding: 10px;
  }
 
+.selectedSpeed {
+    color: red;
+    font-weight: bold;
+}
+
 .bottom_menu {
     position: absolute;
     width: 100%;

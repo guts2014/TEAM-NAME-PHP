@@ -33,6 +33,12 @@ class Game
     new SmallDesk(3,2)
     new LargeDesk(8,5)
 
+    $(".topoverlay i").click((evt) ->
+      target = evt.target
+      $(".topoverlay i").removeClass("selectedSpeed")
+      $(target).addClass("selectedSpeed")
+    )
+
     Game.renderer.setup()
     Game.doTick()
     Game.renderer.render(@state)
