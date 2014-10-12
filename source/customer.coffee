@@ -1,6 +1,5 @@
 class Customer extends Entity
   @potential_customers: []
-
   @calculateMaximumCustomers: ->
     25 * Math.pow(Game.state.reputation + 1, 1.5)
 
@@ -50,6 +49,7 @@ class Customer extends Entity
     @request = null
 
   createRequest: ->
+    
     switch Math.floor(Math.random() * 3)
       when 0
         requestType = "email"

@@ -1,4 +1,6 @@
 class Request
+  @potential_requests: []
+
   type: null
   customer: null
   priority: null
@@ -6,22 +8,29 @@ class Request
   handled: null
   elapsed: null
 
+  $.ajax("assets/data/requests.json").done($.proxy((data_requests) ->
+    @potential_requests = data_requests[Game.state.mode]
+  , this)
+  )
+
   constructor: (@type, @customer) ->
     @time_created = Game.state.tick
+    reqType = @type
+    requests = Request.potential_requests
+    randomRequest = Math.floor(Math.random() * requests.length)
+    @createFromRequestData(requests[reqType][randomRequest])
+
+
 
   resolved: ->
     @customer.increaseMood(5)
     @customer.removeRequest()
 
-  create: (@type, @time_created, @customer, @priority, @complexity, @text) ->
-
-  createFromRequestData: (request_data, tick, customer) ->
-    @create(request_data['type'],
-            tick,
-            customer,
-            request_data['priority'],
-            request_data['complexity'],
-            request_data['text'])
+  createFromRequestData: (request_data) ->
+    @type       = request_data['type']
+    @priority   = request_data['priority']
+    @complexity = request_data['complexity']
+    @text       = request_data['text']
 
   tick: ->
     elapsed = Game.state.tick - @time_created

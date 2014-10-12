@@ -48,7 +48,7 @@ class Agent extends Entity
       if @training == 0
         @skills[@trainingSkill] += 1
         @trainingSkill = null
-    else if @queue and @queue.length()
+    else if @queue and @queue.length
        @handleRequest(@queue.pop())
 
 

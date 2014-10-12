@@ -1,6 +1,6 @@
 class GameState
   tick: 0
-
+  mode: "transport"
   levelWidth:  30
   levelHeight: 10
 
