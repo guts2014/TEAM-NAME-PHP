@@ -49,18 +49,6 @@ class SmallDesk extends Entity
       agent != agentD
     )
 
-  infoScreen: () ->
-    ui = Game.state.ui
-    if @agent
-      title = @agent.name
-      content = "Skills: email - " + @agent.skills.email + " | phone - " + @agent.skills.phone
-
-      ui.changeTitle(title)
-      ui.changeContent(content)
-      ui.changeButtons("")
-      ui.open()
-
-
   assignScreen: () ->
     console.log("assign this agent to something")
     ui = Game.state.ui
@@ -124,18 +112,17 @@ class SmallDesk extends Entity
         if @agent.queue == Game.state.requestQueues.phone
           content = "Assigned to phone support"
         if @agent.request
-          content = content + "\n" + "Working on " + @agent.request.text + " time left : " + @agent.working
+          content += "<br /><br />Working on " + @agent.request.text + " <br />time left : " + @agent.working
+        if @agent.skills
+          content += "<br /><br />Skills: email - " + @agent.skills.email + " | phone - " + @agent.skills.phone
 
-      buttonInfoClick = ->
-        ui.close()
-        me.infoScreen()
       buttonAssignClick = ->
         ui.close()
         me.assignScreen()
       buttonFireClick = ->
         ui.close()
         me.fireScreen()
-      buttons = [{text: "Info", click: buttonInfoClick},
+      buttons = [
               {text: "Assign", click: buttonAssignClick},
               {text: "Fire", click: buttonFireClick}]
 
