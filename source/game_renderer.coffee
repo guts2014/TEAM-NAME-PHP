@@ -138,6 +138,8 @@ class GameRenderer
 
 
   update: ->
+    $('#gamestate').html(Game.state.toString().replace(/\n/g, "<br />"))
+
     for entity in Game.state.entities
       entity.update @room
 

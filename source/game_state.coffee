@@ -17,6 +17,8 @@ class GameState
   }
   chanceOfRequest: 0.005
 
+  selectedDesk: null
+
 
   customers: ->
     @entities.filter((entity) ->
@@ -51,8 +53,11 @@ class GameState
     requests
 
   toString: ->
-    "Customers: " + this.customers().length +
+    str = "Customers: " + this.customers().length +
     "\nMoney: " + @money.toFixed(2) + " (" + @calculateBudgetChange().toFixed(2) + ")" +
     "\nRequest queue: " + @numberOfRequests() +
     "\nReputation: " + (@reputation * 100).toFixed(2) + "%" +
     "\nAgents: " + this.agents().join(", ")
+    if @selectedDesk
+      str = str + "\nSelected Desk: x:" + @selectedDesk.x + " y: " + @selectedDesk.y
+    return str

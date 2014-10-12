@@ -22,7 +22,6 @@ class Game
 
     $('.tick-count').text(Game.state.tick)
     $('.date-display').text(new GameTime(Game.state.tick))
-    $('#gamestate').html(Game.state.toString().replace(/\n/g, "<br />"))
     $('#customer_list').html("")
     for customer in Game.state.customers()
       id = customer.id
