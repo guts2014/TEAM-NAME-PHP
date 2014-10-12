@@ -48,7 +48,12 @@
 
     $(function() {
       $( "#dialog" ).dialog({autoOpen: false, maxHeight: 200});
+      $( "#tabs" ).tabs();
+
     });
+
+  $(function() {
+  });
 
 
     </script>
@@ -75,11 +80,22 @@
       <i onclick="Game.setSimulationRate(4);" class="fa fa-fast-forward" title="fast forward (4x)"></i>
     </div>
 
-    <div class="right_menu">
-      <div class="left"><</div> - <div class="right">></div>
-        <div class='queue_wrap'>
-            <ul id="queue_list">
-            </ul>
+    <div class="right_menu" id="tabs">
+      <ul>
+    <li><a href="#email">Email</a></li>
+    <li><a href="#phone">Phone</a></li>
+  </ul>
+        <div id="email">
+          <ul id="email_queue">
+            <li>test</li>
+            <li>item</li>
+          </ul>
+        </div>
+        <div id="phone">
+          <ul id="phone_queue">
+
+          </ul>
+
         </div>
     </div>
 

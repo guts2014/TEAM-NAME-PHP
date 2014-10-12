@@ -51,7 +51,7 @@ class Customer extends Entity
         @mood = 1
 
   removeRequest: ->
-    @request = null
+    delete @request
 
   createRequest: ->
 
