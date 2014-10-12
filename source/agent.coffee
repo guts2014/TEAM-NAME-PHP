@@ -100,7 +100,7 @@ class Agent extends Entity
   handleRequest: (request)->
     @request = request
     # calculate the number of ticks it will take for the agent to handle the request
-    @working = Math.floor(request.complexity / (@skills[request.type] * 5 + 1))
+    @working = Math.floor(request.complexity * 30 / (@skills[request.type] + 1)) + 1
 
   train: (skill)->
     @trainingSkill = skill
