@@ -1,0 +1,248 @@
+"council": [
+    {
+        "type": "phone",
+        "complexity": 0.6,
+        "text": "Rates tripled in the last year"
+    },
+    {
+        "type": "phone",
+        "complexity": 0.3,
+        "text": "Bins are only collected every other week"
+    },
+    {
+        "type": "email",
+        "complexity": 0.5,
+        "text": "No hot water after 10pm"
+    },
+    {
+        "type": "webchat",
+        "complexity": 0.5,
+        "text": "Noisy neighbours in the house next door"
+    },
+    {
+        "type": "phone",
+        "complexity": 0.6,
+        "text": "Can't get daughter into a particular nursery"
+    },
+    {
+        "type": "phone",
+        "complexity": 0.8,
+        "text": "Water charges introduced, sent back contract"
+    },
+    {
+        "type": "phone",
+        "complexity": 0.25,
+        "text": "Cigarette butts and banana peels collect on the the ground outside my house"
+    },
+    {
+        "type": "email",
+        "complexity": 0.5,
+        "text": "The electric cuts out when I put the kettle on at half time"
+    },
+    {
+        "type": "email",
+        "complexity": 0.9,
+        "text": "Teachers at Green Wood Primary obviously couldn't do when they were younger"
+    },
+    {
+        "type": "phone",
+        "complexity": 0.6,
+        "text": "Son didn't get into the secondary school we wanted him to; willing to grease the wheels"
+    },
+    {
+        "type": "phone",
+        "complexity": 1,
+        "text": "Sinkhole appeared in garden"
+    },
+    {
+        "type": "phone",
+        "complexity": 0.3,
+        "text": "Raccoon infestation of garden"
+    },
+    {
+        "type": "email",
+        "complexity": 0.5,
+        "text": "Moles eat the vegetables in my vegetable patch"
+    },
+    {
+        "type": "webchat",
+        "complexity": 0.50,
+        "text": "Libraries never have the books that I want in stock"
+    },
+    {
+        "type": "phone",
+        "complexity": 0.6,
+        "text": "My sewer continuously backflows"
+    }
+],
+"999": [
+    {
+        "emergency_type": "fire",
+        "type": "phone",
+        "text": "My house is on fire, it started in the basement",
+        "complexity": 0.2
+    },
+    {
+        "emergency_type": "ambulance",
+        "type": "phone",
+        "text": "My friend has fainted, she isn't breathing",
+        "complexity": 0.2
+    },
+    {
+        "emergency_type": "police",
+        "type": "phone",
+        "text": "I have lost my phone, I last had it in my pocket 10 minutes ago",
+        "complexity": 0.2
+    },
+    {
+        "emergency_type": "ambulance",
+        "type": "phone",
+        "text": "I've been in a car crash, there is broken glass everywhere and I can hear someone shouting",
+        "complexity": 0.9
+    },
+    {
+        "emergency_type": "police",
+        "type": "phone",
+        "text": "I've been burgled, they smashed the front window",
+        "complexity": 0.5
+    },
+    {
+        "emergency_type": "police",
+        "type": "phone",
+        "text": "I...i am... lost, can...can i get picked up?",
+        "complexity": 0.1
+    },
+    {
+        "emergency_type": "fire",
+        "type": "phone",
+        "text": "My car is on fire in the middle of the motorway, it's very busy and I'm stuck",
+        "complexity": 0.6
+    },
+    {
+        "emergency_type": "fire",
+        "type": "phone",
+        "text": "My cat is stuck up a tree, I love my Garfield!",
+        "complexity": 0.3
+    },
+    {
+        "emergency_type": "ambulance",
+        "type": "phone",
+        "text": "I tripped and twisted my ankle, I need help!",
+        "complexity": 0.2
+    },
+    {
+        "emergency_type": "ambulance",
+        "type": "phone",
+        "text": "I don't feel well!",
+        "complexity": 0.2
+    },
+    {
+        "emergency_type": "ambulance",
+        "type": "phone",
+        "text": "My friend is on the floor, I think he has overdosed, he isn't breathing!",
+        "complexity": 0.9
+    },
+    {
+        "emergency_type": "fire",
+        "type": "phone",
+        "text": "I can see smoke from the forest",
+        "complexity": 0.4
+    },
+    {
+        "emergency_type": "police",
+        "type": "phone",
+        "text": "There is a car going 32mph on Glasgow Road, arrest him!",
+        "complexity": 0.3
+    },
+    {
+        "emergency_type": "police",
+        "type": "phone",
+        "text": "Two drug dealers at Eastfield McDonald's, I don't think they have a licence",
+        "complexity": 0.8
+    },
+    {
+        "emergency_type": "police",
+        "type": "phone",
+        "text": "Why is my internet connection so slow",
+        "complexity": 0.2
+    },
+    {
+        "emergency_type": "ambulance",
+        "type": "phone",
+        "text": "I feel sick, I think it could have been that curry",
+        "complexity": 0.2
+    },
+    {
+        "emergency_type": "ambulance",
+        "type": "phone",
+        "text": "I feel drowsy, I think I'm tired, could have been that hackathon",
+        "complexity": 0.2
+    }
+]
+}
+
+
+    "ISP": [
+        {
+            "type": "phone",
+
+        },
+        {
+            "type": "email",
+
+        },
+        {
+            "type": "social media",
+            "complexity": 0.1,
+            "text": "How do I upgrade my broadband?"
+        },
+        {
+            "type": "phone",
+
+        },
+        {
+            "type": "web chat",
+            "complexity": 0.2,
+            "text": "How do I reset my router password?"
+        },
+        {
+            "type": "email",
+
+        },
+        {
+            "type": "social media",
+            "complexity": 0.05,
+            "text": "I'm not receiving an emails, am I just not popular?"
+        },
+        {
+            "type": "phone",
+
+        },
+        {
+            "type": "web chat",
+            "complexity": 0.1,
+            "text": "change of address"
+        },
+        {
+            "type": "phone",
+
+        },
+        {
+            "type": "email",
+
+        },
+        {
+            "type": "social media",
+            "complexity": 0.7,
+            "text": "Wireless router is faulty"
+        },
+        {
+            "type": "webchat",
+            "complexity": 0.7,
+            "text": "Credit card billed twice as much as expected"
+        },
+        {
+            "type": "social media",
+            "complexity": 0.7,
+            "text": "Can't connect to the Internet"
+        },

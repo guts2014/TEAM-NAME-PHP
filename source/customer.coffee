@@ -49,14 +49,13 @@ class Customer extends Entity
     @request = null
 
   createRequest: ->
-    
-    switch Math.floor(Math.random() * 3)
+
+    switch Math.floor(Math.random() * 2)
       when 0
         requestType = "email"
       when 1
         requestType = "phone"
-      when 2
-        requestType = "webchat"
+
     requestQueue = Game.state.requestQueues[requestType]
     requestQueue.push(@request = new Request(requestType, this))
 

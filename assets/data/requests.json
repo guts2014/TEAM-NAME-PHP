@@ -1,378 +1,164 @@
 {
-    "transport": [
-        {
-            "type": "webchat",
-            "complexity": 0.2,
-            "text": "Potholes on the A1 between Bramham and Wetherby"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.6,
-            "text": "Broken down car in the left lane near the Watford Gap Services"
-        },
-        {
-            "type": "phone",
-            "complexity": 1,
-            "text": "Car driving the wrong way down the A47 near Peterborough"
-        },
-        {
-            "type": "email",
-            "complexity": 0.5,
-            "text": "Oil slick from lorry on A15"
-        },
-        {
-            "type": "email",
-            "complexity": 0.4,
-            "text": "Flood from runoffon A72 at Lanark"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.1,
-            "text": "Train an hour late coming into Paddington Station"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.25,
-            "text": "Leaves on the Bridport - Lyme Regis line"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.15,
-            "text": "Wet railway tracks between Norwich and Cromer"
-        },
-        {
-            "type": "email",
-            "complexity": 0.2,
-            "text": "Given wrong information by ticket desk, missed train"
-        },
-        {
-            "type": "email",
-            "complexity": 0.7,
-            "text": "Ticket isn't recognized by conductor"
-        },
-        {
-            "type": "email",
-            "complexity": 0.7,
-            "text": "Train cancelled, no replacement bus service"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.6,
-            "text": "Plane grounded indefinitely by Icelandic volcano"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.25,
-            "text": "Plane needs de-icing, delayed for 3 hours"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.15,
-            "text": "Passenger on the place has a suspicious air embolism"
-        },
-        {
-            "type": "email",
-            "complexity": 0.9,
-            "text": "Burning car crashes into airport terminal, all planes grounded"
-        },
-        {
-            "type": "email",
-            "complexity": 0.7,
-            "text": "Baggage lost between departure and arrival"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.6,
-            "text": "Plane grounded indefinitely by Icelandic volcano"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.25,
-            "text": "Plane needs de-icing, delayed for 3 hours"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.15,
-            "text": "Passenger on the place has a suspicious air embolism"
-        },
-        {
-            "type": "email",
-            "complexity": 0.9,
-            "text": "Burning car crashes into airport terminal, all planes grounded"
-        },
-        {
-            "type": "email",
-            "complexity": 0.7,
-            "text": "Baggage lost between departure and arrival"
-        }
-    ],
-    "ISP": [
-        {
-            "type": "phone",
-            "complexity": 0.2,
-            "text": "Why is my connection so slow"
-        },
-        {
-            "type": "email",
+    "transport": {
+        "email": [
+            {
+              "complexity": 0.4,
+              "text": "Flood from runoffon A72 at Lanark"
+            },
+
+            {
+              "complexity": 0.5,
+              "text": "Oil slick from lorry on A15"
+            },
+
+            {
+              "complexity": 0.2,
+              "text": "Given wrong information by ticket desk, missed train"
+            },
+
+            {
+              "complexity": 0.9,
+              "text": "Burning car crashes into airport terminal, all planes grounded"
+            },
+
+            {
+              "complexity": 0.7,
+              "text": "Baggage lost between departure and arrival"
+            },
+
+            {
+              "complexity": 0.7,
+              "text": "Ticket isn't recognized by conductor"
+            },
+
+            {
+              "complexity": 0.7,
+              "text": "Train cancelled, no replacement bus service"
+            }
+        ],
+        "phone": [
+            {
+              "complexity": 0.6,
+              "text": "Broken down car in the left lane near the Watford Gap Services"
+            },
+
+            {
+              "complexity": 1,
+              "text": "Car driving the wrong way down the A47 near Peterborough"
+            },
+
+            {
+              "complexity": 0.1,
+              "text": "Train an hour late coming into Paddington Station"
+            },
+
+            {
+              "complexity": 0.25,
+              "text": "Leaves on the Bridport - Lyme Regis line"
+            },
+
+            {
+              "complexity": 0.15,
+              "text": "Wet railway tracks between Norwich and Cromer"
+            },
+
+            {
+              "complexity": 0.15,
+              "text": "Wet railway tracks between Norwich and Cromer"
+            },
+
+            {
+              "complexity": 0.6,
+              "text": "Plane grounded indefinitely by Icelandic volcano"
+            },
+
+            {
+              "complexity": 0.25,
+              "text": "Plane needs de-icing, delayed for 3 hours"
+            },
+
+            {
+              "complexity": 0.15,
+              "text": "Passenger on the place has a suspicious air embolism"
+            },
+
+            {
+              "complexity": 0.15,
+              "text": "Passenger on the place has a suspicious air embolism"
+            },
+
+            {
+              "complexity": 0.6,
+              "text": "Plane grounded indefinitely by Icelandic volcano"
+            }
+        ]
+    },
+
+    "ISP": {
+
+        "email" : [
+          {
             "complexity": 0.4,
             "text": "My bill is 18p too expensive!"
-        },
-        {
-            "type": "social media",
-            "complexity": 0.1,
-            "text": "How do I upgrade my broadband?"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.5,
-            "text": "My internet doesn't work"
-        },
-        {
-            "type": "web chat",
-            "complexity": 0.2,
-            "text": "How do I reset my router password?"
-        },
-        {
-            "type": "email",
+          },
+          {
             "complexity": 0.1,
             "text": "I can't send any emails ;)"
-        },
-        {
-            "type": "social media",
-            "complexity": 0.05,
-            "text": "I'm not receiving an emails, am I just not popular?"
-        },
-        {
-            "type": "phone",
+          },
+          {
+
+          },
+          {
+
+          },
+          {
+
+          },
+          {
+
+          }
+        ],
+
+        "phone": [
+          {
+            "complexity": 0.2,
+            "text": "Why is my connection so slow"
+          },
+          {
+            "complexity": 0.5,
+            "text": "My internet doesn't work"
+          },
+          {
             "complexity": 0.4,
             "text": "my internet service is very interrupted"
-        },
-        {
-            "type": "web chat",
-            "complexity": 0.1,
-            "text": "change of address"
-        },
-        {
-            "type": "phone",
+          },
+          {
             "complexity": 0.4,
             "text": "Can I get an upgrade?"
-        },
-        {
-            "type": "email",
+          },
+          {
             "complexity": 0.6,
             "text": "My phone bill is wrong!"
-        },
-        {
-            "type": "social media",
-            "complexity": 0.7,
-            "text": "Wireless router is faulty"
-        },
-        {
-            "type": "webchat",
-            "complexity": 0.7,
-            "text": "Credit card billed twice as much as expected"
-        },
-        {
-            "type": "social media",
-            "complexity": 0.7,
-            "text": "Can't connect to the Internet"
-        },
-        {
-            "type": "phone",
+          },
+          {
             "complexity": 0.4,
             "text": "Received a copyright email from the ISP"
-        },
-        {
-            "type": "email",
+          },
+
+          {
             "complexity": 0.6,
             "text": "Internet is limited to 50kbps on specific websites"
-        },
-        {
-            "type": "phone",
+          },
+          {
             "complexity": 0.3,
             "text": "Not able to connect to AOL email account"
-        }
-    ],
-    "council": [
-        {
-            "type": "phone",
-            "complexity": 0.6,
-            "text": "Rates tripled in the last year"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.3,
-            "text": "Bins are only collected every other week"
-        },
-        {
-            "type": "email",
-            "complexity": 0.5,
-            "text": "No hot water after 10pm"
-        },
-        {
-            "type": "webchat",
-            "complexity": 0.5,
-            "text": "Noisy neighbours in the house next door"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.6,
-            "text": "Can't get daughter into a particular nursery"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.8,
-            "text": "Water charges introduced, sent back contract"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.25,
-            "text": "Cigarette butts and banana peels collect on the the ground outside my house"
-        },
-        {
-            "type": "email",
-            "complexity": 0.5,
-            "text": "The electric cuts out when I put the kettle on at half time"
-        },
-        {
-            "type": "email",
-            "complexity": 0.9,
-            "text": "Teachers at Green Wood Primary obviously couldn't do when they were younger"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.6,
-            "text": "Son didn't get into the secondary school we wanted him to; willing to grease the wheels"
-        },
-        {
-            "type": "phone",
-            "complexity": 1,
-            "text": "Sinkhole appeared in garden"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.3,
-            "text": "Raccoon infestation of garden"
-        },
-        {
-            "type": "email",
-            "complexity": 0.5,
-            "text": "Moles eat the vegetables in my vegetable patch"
-        },
-        {
-            "type": "webchat",
-            "complexity": 0.50,
-            "text": "Libraries never have the books that I want in stock"
-        },
-        {
-            "type": "phone",
-            "complexity": 0.6,
-            "text": "My sewer continuously backflows"
-        }
-    ],
-    "999": [
-        {
-            "emergency_type": "fire",
-            "type": "phone",
-            "text": "My house is on fire, it started in the basement",
-            "complexity": 0.2
-        },
-        {
-            "emergency_type": "ambulance",
-            "type": "phone",
-            "text": "My friend has fainted, she isn't breathing",
-            "complexity": 0.2
-        },
-        {
-            "emergency_type": "police",
-            "type": "phone",
-            "text": "I have lost my phone, I last had it in my pocket 10 minutes ago",
-            "complexity": 0.2
-        },
-        {
-            "emergency_type": "ambulance",
-            "type": "phone",
-            "text": "I've been in a car crash, there is broken glass everywhere and I can hear someone shouting",
-            "complexity": 0.9
-        },
-        {
-            "emergency_type": "police",
-            "type": "phone",
-            "text": "I've been burgled, they smashed the front window",
-            "complexity": 0.5
-        },
-        {
-            "emergency_type": "police",
-            "type": "phone",
-            "text": "I...i am... lost, can...can i get picked up?",
-            "complexity": 0.1
-        },
-        {
-            "emergency_type": "fire",
-            "type": "phone",
-            "text": "My car is on fire in the middle of the motorway, it's very busy and I'm stuck",
-            "complexity": 0.6
-        },
-        {
-            "emergency_type": "fire",
-            "type": "phone",
-            "text": "My cat is stuck up a tree, I love my Garfield!",
-            "complexity": 0.3
-        },
-        {
-            "emergency_type": "ambulance",
-            "type": "phone",
-            "text": "I tripped and twisted my ankle, I need help!",
-            "complexity": 0.2
-        },
-        {
-            "emergency_type": "ambulance",
-            "type": "phone",
-            "text": "I don't feel well!",
-            "complexity": 0.2
-        },
-        {
-            "emergency_type": "ambulance",
-            "type": "phone",
-            "text": "My friend is on the floor, I think he has overdosed, he isn't breathing!",
-            "complexity": 0.9
-        },
-        {
-            "emergency_type": "fire",
-            "type": "phone",
-            "text": "I can see smoke from the forest",
-            "complexity": 0.4
-        },
-        {
-            "emergency_type": "police",
-            "type": "phone",
-            "text": "There is a car going 32mph on Glasgow Road, arrest him!",
-            "complexity": 0.3
-        },
-        {
-            "emergency_type": "police",
-            "type": "phone",
-            "text": "Two drug dealers at Eastfield McDonald's, I don't think they have a licence",
-            "complexity": 0.8
-        },
-        {
-            "emergency_type": "police",
-            "type": "phone",
-            "text": "Why is my internet connection so slow",
-            "complexity": 0.2
-        },
-        {
-            "emergency_type": "ambulance",
-            "type": "phone",
-            "text": "I feel sick, I think it could have been that curry",
-            "complexity": 0.2
-        },
-        {
-            "emergency_type": "ambulance",
-            "type": "phone",
-            "text": "I feel drowsy, I think I'm tired, could have been that hackathon",
-            "complexity": 0.2
-        }
-    ]
-}
+          }
+        ],
 
+        "webchat": [
+          {},
+          {}
+        ]
+    }
+
+}

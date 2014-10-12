@@ -36,8 +36,8 @@ class Agent extends Entity
     agent.skills['webchat'] = agent_data['webchat']
 
   tick: (state) ->
-    console.log("Working " + @working + ", request: " + @request)
     if @working > 0
+      console.log("Working " + @working + ", request: " + @request.text)
       @working -= 1
       if @working == 0
         @completed++
