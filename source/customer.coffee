@@ -25,7 +25,7 @@ class Customer extends Entity
   fromKanaCustomer: (kana) ->
     @name = kana['firstName'] + " " + kana['surname']
     @volatility = +kana['customerVolatilityScore'] / 100
-    @worth = +kana['netPromoterScore'] * 3
+    @worth = +kana['netPromoterScore'] * 1.5
 
   tick: ->
     if @request
