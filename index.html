@@ -4,11 +4,14 @@
     <meta charset="utf8" />
 
     <title>Simulation Thingy</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 
     <link rel="stylesheet" href="assets/style.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="assets/js/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
     <script src="assets/js/three.min.js"></script>
     <script src="assets/js/OrbitControls.js"></script>
     <script src="assets/js/stats.min.js"></script>
@@ -39,13 +42,23 @@
 
         */
     });
+    $(function() {
+      $( "#dialog" ).dialog({autoOpen: false});
+    });
+
+
     </script>
   </head>
 
 
   <body>
+    <div id="dialog" title="Basic dialog">
+      <p></p>
+    </div>
     <noscript>For some strange reason you don't have JS turned on. Fix your browser!</noscript>
-
+    <div id="deskMenu" title="Basic dialog">
+      Info for desk
+    </div>
     <div class="guioverlay">
       <span id="gamestate"></span>
     </div>
