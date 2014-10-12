@@ -7,7 +7,7 @@ class GameRenderer
     @stats.domElement.style.position = 'absolute'
     @stats.domElement.style.right = '0px'
     @stats.domElement.style.top = '0px'
-    document.body.appendChild(@stats.domElement)
+    #document.body.appendChild(@stats.domElement)
 
 
     dw = window.innerWidth
