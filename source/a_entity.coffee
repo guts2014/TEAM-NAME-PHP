@@ -10,7 +10,7 @@ class Entity
 
   constructor: (@x, @y) ->
     for entity in Game.state.entities
-      if entity.checkCollides(this) or this.checkCollides(entity)
+      if (@x and @y) and (entity.checkCollides(this) or this.checkCollides(entity))
         return null
 
     if !@model and this.modelName()
