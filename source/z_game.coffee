@@ -30,7 +30,7 @@ class Game
     for customer in Game.state.customers()
       if customer.alive
         id = customer.id
-        $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood * 100) + " Worth: " + customer.worth + "</li>")
+        $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood * 100) + " Worth: " + Math.floor(customer.worth) + "</li>")
 
 
   @run: ->
