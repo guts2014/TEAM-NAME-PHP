@@ -1,7 +1,7 @@
 class Customer extends Entity
   @potential_customers: []
   @calculateMaximumCustomers: ->
-    25 * Math.pow(Game.state.reputation + 1, 1.5)
+    20 * Math.pow(Game.state.reputation + 1, 1.5)
 
   @spawn: ->
     if Customer.potential_customers.length == 0
@@ -10,7 +10,7 @@ class Customer extends Entity
         , this)
       )
 
-    if @potential_customers.length > 0 and Math.random() * 3 < Game.state.reputation and Customer.calculateMaximumCustomers() > Game.state.customers.length
+    if @potential_customers.length > 0 and Game.state.reputation > 0 and Math.random() < Game.state.reputation and Customer.calculateMaximumCustomers() > Game.state.customers().length
       customer = new Customer
       customer.fromKanaCustomer(@potential_customers.pop())
       customer.id = Game.state.custNo
