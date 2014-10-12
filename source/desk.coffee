@@ -45,7 +45,9 @@ class SmallDesk extends Entity
 
   hireAgent: (agentD) ->
     @agent = new Agent(this.x, this.y+1, agentD)
-    Agent.potentialAgents.pop()
+    Agent.potentialAgents = Agent.potentialAgents.filter((agent) ->
+      agent != agentD
+    )
 
   infoScreen: () ->
     ui = Game.state.ui
