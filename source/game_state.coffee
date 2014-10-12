@@ -1,14 +1,10 @@
 class GameState
   tick: 0
   mode: "transport"
-<<<<<<< HEAD
   levelWidth:  30
   levelHeight: 10
   ui: null
-=======
-  levelWidth:  20
-  levelHeight: 20
->>>>>>> FETCH_HEAD
+
 
   entities: []
 

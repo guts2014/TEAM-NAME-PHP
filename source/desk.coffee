@@ -47,6 +47,16 @@ class SmallDesk extends Entity
   hireAgent: (agentD) ->
     @agent = new Agent(this.x, this.y, agentD)
 
+  infoScreen: () ->
+    if(!@agent)
+
+    else
+      title = @agent.name
+
+      ui.changeTitle(title)
+      ui.changeContent(content)
+      ui.changeButtons("")
+      ui.open()
   onClick: () ->
     #show mene
     console.log('Somebody clicked me!')
@@ -65,7 +75,7 @@ class SmallDesk extends Entity
                                   }]
     else
       title = @agent.name
-      content = "Buttons"
+
 
 
 
