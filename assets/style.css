@@ -1,29 +1,29 @@
 body {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 
-  overflow-x: hidden;
-  overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 
 * {
-  font-family: sans-serif;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    font-family: sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .guioverlay {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: black;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
 }
 
 #deskMenu { width: 200px; height: 100px; background: blue; color: #fff; bottom: 200px; right: 200px; position:absolute; display: none;  z-index: 5000000}
@@ -39,7 +39,7 @@ body {
     right: 0;
     margin: 0 auto;
     padding: 10px;
- }
+}
 
 .selectedSpeed {
     color: red;
@@ -60,7 +60,8 @@ body {
 .right_menu {
     position: absolute;
     background: black;
-    width: 100px;
+    color: white;
+    width: 200px;
     height: 100%;
     bottom: 0;
     right: 0;
@@ -69,6 +70,13 @@ body {
 
 }
 
+#email_queue{
+    color: white;
+}
+
+#phone_queue{
+    color: white;
+}
 
 
 #customer_list {
