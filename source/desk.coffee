@@ -30,7 +30,7 @@ class SmallDesk extends Entity
       email =  agent.skills.email
       phoneSkill =  agent.skills.phone
       salary =  agent.salary
-      agentTx = agent.name + "\ne:" + email  + "\np:" +  phoneSkill + "\nsalary:" +  salary
+      agentTx = agent.name + "\ne: " + email  + "\np: " +  phoneSkill + "\nsalary: " +  salary.toFixed(2)
 
       button = {text: agentTx, click: ->
                                   ui.close()
@@ -45,8 +45,7 @@ class SmallDesk extends Entity
     ui.open()
 
   hireAgent: (agentD) ->
-    console.log('agent added')
-    @agent = new Agent(this.x, this.y-1, agentD)
+    @agent = new Agent(this.x, this.y+1, agentD)
 
   infoScreen: () ->
     ui = Game.state.ui

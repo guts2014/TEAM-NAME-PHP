@@ -34,6 +34,11 @@ class Game
   @run: ->
     Game.renderer.setup()
     new Floor()
+    new SmallDesk(2, 4)
+    new SmallDesk(4, 4)
+    new SmallDesk(6, 4)
+    new SmallDesk(8, 4)
+
     Game.doTick()
     Game.renderer.render(@state)
     Game.setSimulationRate(1)
