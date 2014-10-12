@@ -19,6 +19,7 @@
     <script>
       $(function() {
         Game.run();
+        Game.state.ui.setDialog($("#dialog"));
 
         /*
         $('.right').click(function () {
@@ -43,7 +44,7 @@
         */
     });
     $(function() {
-      $( "#dialog" ).dialog({autoOpen: false});
+      $( "#dialog" ).dialog({autoOpen: false, maxHeight: 200});
     });
 
 
@@ -52,7 +53,7 @@
 
 
   <body>
-    <div id="dialog" title="Basic dialog">
+    <div id="dialog" title="">
       <p></p>
     </div>
     <noscript>For some strange reason you don't have JS turned on. Fix your browser!</noscript>

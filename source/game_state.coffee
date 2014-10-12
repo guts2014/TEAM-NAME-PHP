@@ -3,6 +3,7 @@ class GameState
   mode: "transport"
   levelWidth:  30
   levelHeight: 10
+  ui: null
 
   entities: []
 
