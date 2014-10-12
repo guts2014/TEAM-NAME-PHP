@@ -33,6 +33,15 @@ class Agent extends Entity
       salaryFactor += agent.skills[key] = @randomSkillValue()
     agent.salary = (Math.random() * 3 + salaryFactor / 2) * 10
     agent.description = @randomDescription()
+    agent.skills = {
+      email: null,
+      phone: null,
+      webchat: null,
+    }
+    salaryFactor = 0
+    for key of agent.skills
+      salaryFactor += agent.skills[key] = Math.floor(Math.random() * 3)
+    agent.salary = (Math.random() * 3 + salaryFactor / 2) * 10
     agent
 
   @randomDescription: ->
@@ -49,21 +58,9 @@ class Agent extends Entity
     @randomFirstName()
 
 
-  constructor: (x, y)->
+  constructor: (x, y, potentialAgent={})->
     super(x, y)
-    @skills = {
-      email: null,
-      phone: null,
-      webchat: null,
-    }
-
-    #@name = @randomName() + " " + @randomName()
-    @name = "bob."
-    salaryFactor = 0
-    for key of @skills
-      salaryFactor += @skills[key] = Math.floor(Math.random() * 3)
-    @salary = (Math.random() * 3 + salaryFactor / 2) * 10
-    @description = ""
+    $.extend(this, potentialAgent)
 
   @fromAgentData: (agent_data) ->
     agent = new Agent
