@@ -58,38 +58,8 @@ class GameRenderer
     @room.position.z = -Game.state.levelHeight*5
     @scene.add @room
 
-
-    # Add the floor
-    geometry = new THREE.BoxGeometry(Game.state.levelWidth*10, 10, Game.state.levelHeight*10)
-    material = new THREE.MeshPhongMaterial({color: 0x00ff00})
-    @floor   = new THREE.Mesh(geometry, material)
-    @floor.position.x = Game.state.levelWidth * 5
-    @floor.position.y = -5
-    @floor.position.z = Game.state.levelHeight * 5
-    @room.add @floor
-
-
-    # Draw a grid on the floor
-    geometry = new THREE.Geometry()
-    material = new THREE.LineBasicMaterial({vertexColors: THREE.VertexColors})
-    color    = new THREE.Color(0x666666)
-    for i in [0..(Game.state.levelHeight*10)] by 10
-      geometry.vertices.push(
-        new THREE.Vector3(0, 0, i), new THREE.Vector3(Game.state.levelWidth*10, 0, i)
-      )
-      geometry.colors.push(color, color)
-    for i in [0..(Game.state.levelWidth*10)] by 10
-      geometry.vertices.push(
-        new THREE.Vector3(i, 0, 0), new THREE.Vector3(i, 0, Game.state.levelHeight*10)
-      )
-      geometry.colors.push(color, color)
-    @grid = new THREE.Line(geometry, material, THREE.LinePieces)
-    @grid.position.y += 0.1
-    @room.add @grid
-
     # Add/update all the movable stuff
     this.update()
-
 
     # Correctly handle resizing windows
     onWindowResize = ->
@@ -131,10 +101,9 @@ class GameRenderer
         if intersectsObj.length > 0
           data = intersectsObj[0]
           entity = lut[getO3D(data.object).uuid]
-          entity.onClick()
-
+          entity.onClick(data)
       event = null
-    document.querySelector('canvas').addEventListener 'mousedown', $.proxy(onDocumentMouseDown, this)
+    document.querySelector('canvas').addEventListener('mousedown', $.proxy(onDocumentMouseDown, this))
 
 
   update: ->

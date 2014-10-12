@@ -16,8 +16,8 @@ class Entity
   tick: ->
 
 
-  update: (room, state) ->
-    if this.modelName()
+  update: (room) ->
+    if @model
       if !@threeObject
         @threeObject = @model.clone()
         room.add @threeObject

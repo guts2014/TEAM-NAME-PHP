@@ -29,6 +29,9 @@ class Game
 
 
   @run: ->
+    new Floor()
+
+
     new SmallDesk(3,2)
     new LargeDesk(8,5)
 
