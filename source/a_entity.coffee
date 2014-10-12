@@ -11,6 +11,7 @@ class Entity
     if !@model and this.modelName()
       @model = GameRenderer.getModel(this.modelName())
     Game.state.entities.push this
+    Game.renderer.update()
 
 
   tick: ->
