@@ -68,9 +68,24 @@ class GameRenderer
     @floor.position.z = Game.state.levelHeight * 5
     @room.add @floor
 
-    @grid = new THREE.GridHelper(1000, 10)
-    @grid.position.y += 0.01
-    #@room.add @grid
+
+    # Draw a grid on the floor
+    geometry = new THREE.Geometry()
+    material = new THREE.LineBasicMaterial({vertexColors: THREE.VertexColors})
+    color    = new THREE.Color(0x666666)
+    for i in [0..(Game.state.levelHeight*10)] by 10
+      geometry.vertices.push(
+        new THREE.Vector3(0, 0, i), new THREE.Vector3(Game.state.levelWidth*10, 0, i)
+      )
+      geometry.colors.push(color, color)
+    for i in [0..(Game.state.levelWidth*10)] by 10
+      geometry.vertices.push(
+        new THREE.Vector3(i, 0, 0), new THREE.Vector3(i, 0, Game.state.levelHeight*10)
+      )
+      geometry.colors.push(color, color)
+    @grid = new THREE.Line(geometry, material, THREE.LinePieces)
+    @grid.position.y += 0.1
+    @room.add @grid
 
     # Add/update all the movable stuff
     this.update()
