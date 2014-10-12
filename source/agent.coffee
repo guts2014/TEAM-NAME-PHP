@@ -1,6 +1,8 @@
 class Agent extends Entity
   modelName: -> 'agent'
 
+  @names: []
+
   name: null
   queue: null             # the queue object the agent is assigned to
   salary: 0               # the salary of the agent
@@ -9,6 +11,42 @@ class Agent extends Entity
   training: 0
   training_elapsed: 0
   completed: 0
+
+  $.ajax("/assets/data/names.json").done( (data) ->
+    console.log(data)
+    Agent.names = data
+  )
+
+  @potentialAgents: []
+
+  @getPotentialAgents: ->
+    while @potentialAgents.length < 10
+      @potentialAgents.push(@generatePotentialAgent())
+    @potentialAgents
+
+
+  @generatePotentialAgent: ->
+    agent = {}
+    agent.name = @randomFirstName() + " " + @randomLastName()
+    salaryFactor = 0
+    for key of agent.skills
+      salaryFactor += agent.skills[key] = @randomSkillValue()
+    agent.salary = (Math.random() * 3 + salaryFactor / 2) * 10
+    agent.description = @randomDescription()
+    agent
+
+  @randomDescription: ->
+    ""
+
+  @randomSkillValue: ->
+    Math.floor(Math.random() * 3)
+
+  @randomFirstName: ->
+    name = @names[Math.floor(Math.random() * @names.length)]
+    name.substr(0, 1) + name.substr(1).toLowerCase()
+
+  @randomLastName: ->
+    @randomFirstName()
 
 
   constructor: (x, y)->
