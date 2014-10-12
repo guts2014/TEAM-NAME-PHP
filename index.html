@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf8" />
 
-    <title>Simulation Thingy</title>
+    <title>$TEAM_NAME="PHP"; KANA Challenge</title>
+
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 
     <link rel="stylesheet" href="assets/style.css" />
@@ -51,18 +53,22 @@
     </script>
   </head>
 
-
   <body>
+
     <noscript>For some strange reason you don't have JS turned on. Fix your browser!</noscript>
+
     <div id="dialog" title="Basic dialog">
       <p></p>
     </div>
+
     <div id="deskMenu" title="Basic dialog">
       Info for desk
     </div>
+
     <div class="guioverlay">
       <span id="gamestate"></span>
     </div>
+
     <div class="topoverlay">
       <span class="date-display"></span><br />
       <i onclick="Game.setSimulationRate(0);" class="fa fa-pause" title="pause"></i>
@@ -70,6 +76,7 @@
       <i onclick="Game.setSimulationRate(2);" class="fa fa-forward" title="forward (2x)"></i>
       <i onclick="Game.setSimulationRate(4);" class="fa fa-fast-forward" title="fast forward (4x)"></i>
     </div>
+
     <div class="right_menu">
       <div class="left"><</div> - <div class="right">></div>
         <div class='queue_wrap'>
@@ -85,5 +92,6 @@
             </ul>
         </div>
     </div>
+
   </body>
 </html>
