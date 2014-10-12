@@ -115,6 +115,8 @@ class SmallDesk extends Entity
           content += "<br /><br />Working on " + @agent.request.text + " <br />time left : " + @agent.working
         if @agent.skills
           content += "<br /><br />Skills: email - " + @agent.skills.email + " | phone - " + @agent.skills.phone
+        if @agent.salary
+          content += "<br />Salary: " + @agent.salary
 
       buttonAssignClick = ->
         ui.close()
