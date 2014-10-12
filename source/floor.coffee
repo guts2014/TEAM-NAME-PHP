@@ -4,7 +4,7 @@ class Floor extends Entity
       floorcontainer = new THREE.Object3D()
 
       geometry = new THREE.BoxGeometry(Game.state.levelWidth*10, 10, Game.state.levelHeight*10)
-      material = new THREE.MeshPhongMaterial({color: 0x00ff00})
+      material = new THREE.MeshPhongMaterial({color: 0xadbeef})
       floor   = new THREE.Mesh(geometry, material)
       floor.position.x = Game.state.levelWidth * 5
       floor.position.y = -5
@@ -38,8 +38,9 @@ class Floor extends Entity
     y = Math.floor((data.point.z + Game.state.levelHeight*5)/10)
 
     if x < Game.state.levelWidth and y < Game.state.levelHeight
+
       this.tileClicked(x, y)
 
+
   tileClicked: (x, y) ->
-    console.log('Tile (',x,',',y,') clicked.')
     new SmallDesk(x, y)
