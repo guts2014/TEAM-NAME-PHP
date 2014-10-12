@@ -40,6 +40,7 @@ class GameState
 
   calculateBudgetChange: ->
     budget = 0
+    budget -= 200 # TODO don't hardcode rent
     for agent in this.agents()
       budget -= agent.salary
     for customer in this.customers()
