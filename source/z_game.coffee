@@ -26,9 +26,27 @@ class Game
     $('.tick-count').text(Game.state.tick)
     $('.date-display').text(new GameTime(Game.state.tick))
     $('#customer_list').html("")
+    $('#email_queue').html("")
+    $('#phone_queue').html("")
+    for email in Game.state.requestQueues.email
+      if !email.handled and email.alive
+        id = 1 #email.id
+        console.log(email)
+        age = 0 #(Game.state.tick - email.time_created)
+        $("#email_queue").append("<li class='req' id='req_id'>" + email.text + "<br /></li>")
+
+    for phone in Game.state.requestQueues.phone
+      if !phone.handled and phone.alive
+        id = 1 #phone.id
+        console.log(phone)
+        #age = (Game.state.tick - phone.time_created)
+        age= 0
+        $("#phone_queue").append("<li class='req' id='req" + id + "'>" + phone.text + "<br /></li>")
+
     for customer in Game.state.customers()
-      id = customer.id
-      $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood) + "</li>")
+      if customer.alive
+        id = customer.id
+        $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood * 100) + " Worth: " + Math.floor(customer.worth) + "</li>")
 
 
   @run: ->
