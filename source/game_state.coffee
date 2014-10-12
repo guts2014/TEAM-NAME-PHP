@@ -12,6 +12,8 @@ class GameState
   reputation: 0.5
 
   custNo: 0
+  actualCustNo: 0
+
   requestQueues: {
     "email":   [],
     "phone":   [],

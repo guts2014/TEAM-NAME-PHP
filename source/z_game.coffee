@@ -26,9 +26,11 @@ class Game
     $('.tick-count').text(Game.state.tick)
     $('.date-display').text(new GameTime(Game.state.tick))
     $('#customer_list').html("")
+    $('#request_list')
     for customer in Game.state.customers()
-      id = customer.id
-      $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood * 100) + " Worth: " + customer.worth + "</li>")
+      if customer.alive
+        id = customer.id
+        $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood * 100) + " Worth: " + customer.worth + "</li>")
 
 
   @run: ->
