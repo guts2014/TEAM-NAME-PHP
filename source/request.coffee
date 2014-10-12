@@ -8,10 +8,10 @@ class Request
   handled: null
   elapsed: null
 
-  $.ajax("assets/data/requests.json").done($.proxy((data_requests) ->
-    @potential_requests = data_requests[Game.state.mode]
-  , this)
-  )
+  @loadRequests: ->
+    $.ajax("assets/data/requests.json").done((data_requests) ->
+        Request.potential_requests = data_requests[Game.state.mode]
+    )
 
   constructor: (@type, @customer) ->
     @time_created = Game.state.tick

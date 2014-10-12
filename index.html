@@ -19,38 +19,30 @@
     <script src="assets/js/stats.min.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
-      $(function() {
-        Game.run();
-        Game.state.ui.setDialog($("#dialog"));
+        types = ["transport", "ISP"];
+        function startGame(type) {
+            Game.run(type);
+            Game.state.ui.setDialog($("#dialog"));
+        }
 
-        /*
-        $('.right').click(function () {
-          alert("yo")
-            var position = $('.cust_wrap').position();
-            var r=position.left-$(window).width()
-            $('.cust_wrap').animate({
-                'left': ''+r+'px'
-            });
-        });
-
-        $('.left').click(function () {
-            var position = $('.cust_wrap').position();
-            var l=position.left+$(window).width()
-            if (l<=0) {
-              $('.cust_wrap').animate({
-                  'left': ''+l+'px'
-              });
+        $(function () {
+            $("#dialog").dialog({autoOpen: true, maxHeight: 200, height: 300, width: 300});
+            $("#tabs").tabs();
+            var buttons = {};
+            for (var type_ in types) {
+                type_ = types[type_];
+                (function(type) {
+                    buttons[type] = function () {
+                        $("#dialog").dialog("close");
+                        startGame(type);
+                    }
+                })(type_);
             }
+
+            $("#dialog").html("Select the company type to simulate").dialog({buttons: buttons})
+
+
         });
-
-        */
-    });
-
-    $(function() {
-      $( "#dialog" ).dialog({autoOpen: false, maxHeight: 200, height: 300, width: 300});
-      $( "#tabs" ).tabs();
-
-    });
 
 
     </script>

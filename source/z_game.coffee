@@ -46,9 +46,11 @@ class Game
       $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood * 100) + " Worth: " + Math.floor(customer.worth) + "</li>")
 
 
-  @run: ->
+  @run: (mode) ->
     Game.renderer.setup()
     new Floor()
+    Game.state.mode = mode
+    Request.loadRequests()
     Game.doTick()
     Game.renderer.render(@state)
     Game.setSimulationRate(1)
