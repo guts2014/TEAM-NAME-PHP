@@ -31,14 +31,12 @@ class Game
     for email in Game.state.requestQueues.email
       if !email.handled and email.alive
         id = 1 #email.id
-        console.log(email)
         age = 0 #(Game.state.tick - email.time_created)
         $("#email_queue").append("<li class='req' id='req_id'>" + email.text + "<br /></li>")
 
     for phone in Game.state.requestQueues.phone
       if !phone.handled and phone.alive
         id = 1 #phone.id
-        console.log(phone)
         #age = (Game.state.tick - phone.time_created)
         age= 0
         $("#phone_queue").append("<li class='req' id='req" + id + "'>" + phone.text + "<br /></li>")
