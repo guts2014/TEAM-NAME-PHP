@@ -55,6 +55,7 @@ body {
     overflow: scroll;
     padding: 0;
     color: white;
+    opacity: 0.8;
 }
 
 .right_menu {
@@ -67,7 +68,7 @@ body {
     right: 0;
     overflow: hidden;
     padding: 0;
-
+    opacity: 0.8;
 }
 
 #email_queue{

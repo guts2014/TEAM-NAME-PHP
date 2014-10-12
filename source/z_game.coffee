@@ -29,13 +29,13 @@ class Game
     $('#email_queue').html("")
     $('#phone_queue').html("")
     for email in Game.state.requestQueues.email
-      if !email.handled and email.alive
+      if !email.handled
         id = 1 #email.id
         age = 0 #(Game.state.tick - email.time_created)
         $("#email_queue").append("<li class='req' id='req_id'>" + email.text + "<br /></li>")
 
     for phone in Game.state.requestQueues.phone
-      if !phone.handled and phone.alive
+      if !phone.handled
         id = 1 #phone.id
         #age = (Game.state.tick - phone.time_created)
         age= 0
