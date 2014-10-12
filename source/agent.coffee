@@ -57,10 +57,10 @@ class Agent extends Entity
     @randomFirstName()
 
 
-  constructor: (x, y, potentialAgent=Agent.generatePotentialAgent())->
+  constructor: (x, y, agentData)->
     super(x, y)
-
-    $.extend(this, potentialAgent)
+    
+    $.extend(this, agentData)
 
   @fromAgentData: (agent_data) ->
     agent = new Agent

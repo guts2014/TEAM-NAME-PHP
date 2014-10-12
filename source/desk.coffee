@@ -9,7 +9,7 @@ class SmallDesk extends Entity
 
 
   empty: () ->
-    return agent == null
+    @agent = null
 
   assignDesk: (@agent) ->
 
@@ -31,10 +31,10 @@ class SmallDesk extends Entity
       phoneSkill =  agent.skills.phone
       salary =  agent.salary
       agentTx = agent.name + "\ne: " + email  + "\np: " +  phoneSkill + "\nsalary: " +  salary.toFixed(2)
-
+      thatAgent = agent
       button = {text: agentTx, click: ->
                                   ui.close()
-                                  me.hireAgent(agent)
+                                  me.hireAgent(thatAgent)
                                   }
       hireButtons.push(button)
 
@@ -47,6 +47,7 @@ class SmallDesk extends Entity
   hireAgent: (agentD) ->
     @agent = new Agent(this.x, this.y+1, agentD)
     Agent.potentialAgents.pop(agentD)
+
 
   infoScreen: () ->
     ui = Game.state.ui
@@ -85,6 +86,23 @@ class SmallDesk extends Entity
     ui.changeButtons(buttons)
     ui.open()
 
+  fireScreen: () ->
+    ui = Game.state.ui
+    me = @
+    agent = @agent
+    title = "Fire Agent"
+    content = "Do you really wish to fire " + @agent.name
+    buttons = [{text: "Yes", click:->
+                                me.empty()
+                                agent.remove()
+                                ui.close()
+                                }]
+
+    ui.changeTitle(title)
+    ui.changeContent(content)
+    ui.changeButtons(buttons)
+    ui.open()
+
   onClick: () ->
     #show mene
     console.log('Somebody clicked me!')
@@ -110,6 +128,8 @@ class SmallDesk extends Entity
           content = "Assigned to email support"
         if @agent.queue == Game.state.requestQueues.phone
           content = "Assigned to phone support"
+        if @agent.request
+          content = content + "\n" + "Working on " + @agent.request.text + " time left : " + @agent.working
 
       buttons = [{text: "Info", click: ->
                                   ui.close()
@@ -117,7 +137,10 @@ class SmallDesk extends Entity
                                 },
                   {text: "Assign", click: ->
                                     ui.close()
-                                    me.assignScreen()}]
+                                    me.assignScreen()},
+                  {text: "Fire", click: ->
+                                    ui.close()
+                                    me.fireScreen()}]
 
 
 
