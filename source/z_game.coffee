@@ -58,6 +58,7 @@ class Game
     new SmallDesk(1, 7)
     Game.doTick()
     Game.renderer.render(@state)
+    Game.setSimulationRate(1)
 
     $(".topoverlay i").click((evt) ->
       target = evt.target
