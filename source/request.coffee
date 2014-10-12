@@ -38,5 +38,5 @@ class Request
 
   tick: ->
     elapsed = Game.state.tick - @time_created
-    if(elapsed % 2 == 0)
+    if(elapsed % 3 == 0)
       @customer.reduceMood()

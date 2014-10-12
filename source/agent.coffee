@@ -74,9 +74,9 @@ class Agent extends Entity
     agent.skills['phone']   = agent_data['phone']
     agent.skills['webchat'] = agent_data['webchat']
 
-  tick: (state) ->
+  tick: () ->
+    console.log("Working " + @working + ", request: " + @request)
     if @working > 0
-      console.log("Working " + @working + ", request: " + @request.text)
       @working -= 1
       if @working == 0
         @completed++
@@ -100,7 +100,7 @@ class Agent extends Entity
   handleRequest: (request)->
     @request = request
     # calculate the number of ticks it will take for the agent to handle the request
-    @working = Math.floor(request.complexity / (@skills[request.type] + 1))
+    @working = Math.floor(request.complexity / (@skills[request.type] * 5 + 1))
 
   train: (skill)->
     @trainingSkill = skill
