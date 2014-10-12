@@ -22,13 +22,11 @@ class Customer extends Entity
   volatility: 0.25
   mood: 1
   request: null
-  alive: 0
 
   fromKanaCustomer: (kana) ->
     @name = kana['firstName'] + " " + kana['surname']
     @volatility = +kana['customerVolatilityScore'] / 100
     @worth = +kana['netPromoterScore']
-    @alive = 1
 
   tick: ->
     if @request
