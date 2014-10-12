@@ -52,7 +52,7 @@ class GameState
 
   toString: ->
     "Customers: " + this.customers().length +
-    "\nMoney: " + @money + " (" + @calculateBudgetChange() + ")" +
+    "\nMoney: " + @money.toFixed(2) + " (" + @calculateBudgetChange().toFixed(2) + ")" +
     "\nRequest queue: " + @numberOfRequests() +
-    "\nReputation: " + (@reputation * 100) + "%" +
+    "\nReputation: " + (@reputation * 100).toFixed(2) + "%" +
     "\nAgents: " + this.agents().join(", ")

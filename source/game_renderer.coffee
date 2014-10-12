@@ -78,9 +78,17 @@ class GameRenderer
 
     # Correctly handle resizing windows
     onWindowResize = ->
-      @camera.aspect = window.innerWidth / window.innerHeight
+      dw = window.innerWidth
+      dh = window.innerHeight
+      aspect = dw / dh
+      d = 150
+      @threeRenderer.setSize(dw, dh)
+      @camera.position.set(d, d, d)
+      @camera.left   = -d*aspect
+      @camera.right  =  d*aspect
+      @camera.top    =  d
+      @camera.bottom = -d
       @camera.updateProjectionMatrix()
-      @threeRenderer.setSize(window.innerWidth, window.innerHeight)
     window.addEventListener 'resize', $.proxy(onWindowResize, this)
 
     # Entity Click Detection
