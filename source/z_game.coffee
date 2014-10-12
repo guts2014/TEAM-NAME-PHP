@@ -10,6 +10,9 @@ class Game
       @interval = setInterval $.proxy(this.doTick, this), (500 / rate)
 
   @doTick: ->
+    if Game.state.tick % 1440 == 0
+      Game.state.money += Game.state.calculateBudgetChange()
+
     Game.state.tick += 1
 
     Customer.spawn()
