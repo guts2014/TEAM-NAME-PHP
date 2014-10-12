@@ -37,8 +37,8 @@ class GameState
     for customer in this.customers()
       totalRep += customer.mood * customer.worth
       totalWorth += customer.worth
-    if totalWorth != 0
-      @reputation = totalRep / totalWorth
+    #if totalWorth != 0
+    #@reputation = totalRep / totalWorth
 
   calculateBudgetChange: ->
     budget = 0

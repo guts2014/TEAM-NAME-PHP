@@ -28,7 +28,7 @@ class Game
     $('#customer_list').html("")
     for customer in Game.state.customers()
       id = customer.id
-      $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood) + "</li>")
+      $('#customer_list').append("<li class='cust' id='cust" + id + "'>" + customer.name + "<br />Mood: "+  Math.floor(customer.mood * 100) + " Worth: " + customer.worth + "</li>")
 
 
   @run: ->
