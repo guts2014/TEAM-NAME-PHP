@@ -15,7 +15,7 @@ class Floor extends Entity
       # Draw a grid on the floor
       geometry = new THREE.Geometry()
       material = new THREE.LineBasicMaterial({vertexColors: THREE.VertexColors})
-      color    = new THREE.Color(0x666666)
+      color    = new THREE.Color(0x444444)
       for i in [0..(Game.state.levelHeight*10)] by 10
         geometry.vertices.push(
           new THREE.Vector3(0, 0, i), new THREE.Vector3(Game.state.levelWidth*10, 0, i)
