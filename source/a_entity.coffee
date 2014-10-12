@@ -38,4 +38,5 @@ class Entity
     if @threeObject
       Game.renderer.room.remove @threeObject
     this.cleanup()
-    Game.state.entities = Game.state.entities.filter((entity) -> this != entity)
+    self = this
+    Game.state.entities = Game.state.entities.filter((entity) -> self != entity)

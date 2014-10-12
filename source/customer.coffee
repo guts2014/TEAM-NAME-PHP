@@ -60,4 +60,4 @@ class Customer extends Entity
     requestQueue.push(@request = new Request(requestType, this))
 
   cleanup: ->
-    $('#cust' + id).remove()
+    $('#cust' + @id).remove()
