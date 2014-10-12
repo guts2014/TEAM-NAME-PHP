@@ -42,7 +42,7 @@ class Customer extends Entity
   reduceMood: (multiplier = 1) ->
     @mood -= (0.05 * multiplier * @volatility)
     if @mood < 0
-      @mood = 0 # TODO - remove customer?
+      @mood = 0
 
   increaseMood: (multiplier = 1) ->
     if(@mood < 1)
