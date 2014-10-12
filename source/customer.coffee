@@ -19,7 +19,7 @@ class Customer extends Entity
   name: ''
   worth: 100
   volatility: 0.25
-  mood: 0.7
+  mood: 1
   request: null
 
   fromKanaCustomer: (kana) ->
