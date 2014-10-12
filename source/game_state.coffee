@@ -6,7 +6,7 @@ class GameState
   ui: null
   entities: []
 
-  money: 1000000
+  money: 5000
   reputation: 0.5
 
   custNo: 0
